@@ -181,10 +181,14 @@ export default function Home() {
       handleHeroSubmit(e as unknown as React.FormEvent);
     }
   };
-  const membersCount = useCountUp(stats?.totalUsers || 12543);
-  const postsCount = useCountUp(stats?.totalPosts || 456);
-  const communitiesCount = useCountUp(stats?.totalCommunities || 89);
-  const onlineCount = useCountUp(stats?.onlineUsers || 3421);
+  // Real live data
+  const membersCount = useCountUp(stats?.totalUsers || 0);
+  const postsCount = useCountUp(stats?.totalPosts || 0);
+  const communitiesCount = useCountUp(stats?.totalCommunities || 0);
+  const onlineCount = useCountUp(stats?.onlineUsers || 0);
+  const totalLOC = 305021;
+  const totalPages = 350;
+  const totalServices = 6;
   return (
     <div className="min-h-screen">
       {/* ═══════════════════════════════════════════════════════════════
@@ -248,6 +252,9 @@ export default function Home() {
               Powered by{" "}
               <span className="text-amber-400 font-bold font-mono">SKY4444</span>
               {" · "}
+              <span className="text-cyan-400 font-bold font-mono">DOGE</span>
+              {" · "}
+              <span className="text-red-400 font-bold font-mono">TRUMP</span>
               <span className="text-yellow-300 font-bold font-mono">DOGE</span>
               {" · "}
               <span className="text-red-400 font-bold font-mono">TRUMP</span>.
@@ -374,36 +381,52 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* Live Platform Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+          {/* Live Platform Stats + Project Stats */}
+          <div className="grid grid-cols-2 md:grid-cols-6 gap-3 max-w-6xl mx-auto">
+            {/* Platform Stats */}
             <div className="stat-card">
               <Users className="w-5 h-5 text-[oklch(0.72_0.28_305)] mx-auto mb-2" />
-              <div className="text-2xl md:text-3xl font-mono font-bold">
+              <div className="text-xl md:text-2xl font-mono font-bold">
                 {isLoading ? <span className="animate-pulse">...</span> : membersCount.toLocaleString()}
               </div>
               <div className="text-xs text-muted-foreground uppercase tracking-wider mt-1">Members</div>
             </div>
             <div className="stat-card">
               <MessageSquare className="w-5 h-5 text-[oklch(0.72_0.28_340)] mx-auto mb-2" />
-              <div className="text-2xl md:text-3xl font-mono font-bold">
+              <div className="text-xl md:text-2xl font-mono font-bold">
                 {isLoading ? <span className="animate-pulse">...</span> : postsCount.toLocaleString()}
               </div>
               <div className="text-xs text-muted-foreground uppercase tracking-wider mt-1">Posts</div>
             </div>
             <div className="stat-card">
               <Globe className="w-5 h-5 text-[oklch(0.7_0.2_200)] mx-auto mb-2" />
-              <div className="text-2xl md:text-3xl font-mono font-bold">
+              <div className="text-xl md:text-2xl font-mono font-bold">
                 {isLoading ? <span className="animate-pulse">...</span> : communitiesCount.toLocaleString()}
               </div>
               <div className="text-xs text-muted-foreground uppercase tracking-wider mt-1">Communities</div>
             </div>
             <div className="stat-card">
               <Activity className="w-5 h-5 text-[oklch(0.8_0.15_90)] mx-auto mb-2" />
-              <div className="text-2xl md:text-3xl font-mono font-bold flex items-center justify-center gap-1.5">
-                {isLoading ? <span className="animate-pulse">...</span> : onlineCount.toLocaleString()}
+              <div className="text-xl md:text-2xl font-mono font-bold flex items-center justify-center gap-1.5">
                 {!isLoading && <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse inline-block" />}
+                {isLoading ? <span className="animate-pulse">...</span> : onlineCount.toLocaleString()}
               </div>
               <div className="text-xs text-muted-foreground uppercase tracking-wider mt-1">Online Now</div>
+            </div>
+            {/* Project Stats */}
+            <div className="stat-card">
+              <FileCode className="w-5 h-5 text-amber-400 mx-auto mb-2" />
+              <div className="text-xl md:text-2xl font-mono font-bold text-amber-400">
+                {(totalLOC / 1000).toFixed(0)}K
+              </div>
+              <div className="text-xs text-muted-foreground uppercase tracking-wider mt-1">Lines of Code</div>
+            </div>
+            <div className="stat-card">
+              <Layers className="w-5 h-5 text-cyan-400 mx-auto mb-2" />
+              <div className="text-xl md:text-2xl font-mono font-bold text-cyan-400">
+                {totalPages}
+              </div>
+              <div className="text-xs text-muted-foreground uppercase tracking-wider mt-1">Pages Built</div>
             </div>
           </div>
         </div>
