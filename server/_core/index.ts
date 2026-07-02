@@ -15,6 +15,7 @@ import { serveStatic, setupVite } from "./vite";
 import { healthRouter, healthMonitor } from "../health-monitor";
 import { miningRouter as autonomousMiningRouter } from "../autonomous-mining";
 import miningRouter from "../mining-router";
+import walletApiRouter from "../wallet-api";
 import { registerMiningHeartbeats } from "../mining-heartbeat";
 
 function isPortAvailable(port: number): Promise<boolean> {
@@ -56,6 +57,7 @@ async function startServer() {
   // Health monitoring routes
   app.use("/api", healthRouter);
   app.use("/api/mining", miningRouter);
+  app.use("/api/mining", walletApiRouter);
   app.use("/api", autonomousMiningRouter);
 
   // Register mining heartbeat tasks
