@@ -2,7 +2,6 @@ import { z } from "zod";
 import { publicProcedure, protectedProcedure, router } from "./_core/trpc";
 import { sdk } from "./_core/sdk";
 import bcrypt from "bcrypt";
-import { shadowRouter } from "./routers-shadow";
 import { miningRouter } from "./mining";
 import { voiceRouter } from "./voice-router";
 import { enterpriseRouter } from "./enterprise-router";
@@ -14,7 +13,7 @@ import { eq, desc, and, or } from "drizzle-orm";
 // ============ AUTH PROCEDURES ============
 export const authRouter = router({
   signup: publicProcedure
-    .input(z.object({ email: z.string().email(), password: z.string().min(6), name: z.string().optional(), shadowMode: z.boolean().optional() }))
+    .input(z.object({ email: z.string().email(), password: z.string().min(6), name: z.string().optional() }))
     .mutation(async ({ input, ctx }) => {
       const existing = await db.getUserByEmail(input.email);
       if (existing) throw new Error("Email already registered");
@@ -24,7 +23,6 @@ export const authRouter = router({
         email: input.email,
         password: hashedPassword,
         name: input.name || input.email.split("@")[0],
-        shadowModeEnabled: input.shadowMode || false,
       });
       
       const token = await sdk.createSessionToken(user);
@@ -42,7 +40,7 @@ export const authRouter = router({
       
       const token = await sdk.createSessionToken(user);
       ctx.res.setHeader("Set-Cookie", `session=${token}; Path=/; HttpOnly; SameSite=Strict; Max-Age=604800`);
-      return { user, token, shadowModeEnabled: user.shadowModeEnabled };
+      return { user, token };
     }),
   logout: protectedProcedure.mutation(async ({ ctx }) => {
     ctx.res.setHeader("Set-Cookie", `session=; Path=/; HttpOnly; SameSite=Strict; Max-Age=0`);
@@ -260,7 +258,6 @@ export const appRouter = router({
   voice: voiceRouter,
   enterprise: enterpriseRouter,
   ai: aiRouter,
-  shadow: shadowRouter,
 });
 
 export type AppRouter = typeof appRouter;
