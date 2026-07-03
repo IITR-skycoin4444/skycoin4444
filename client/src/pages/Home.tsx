@@ -157,10 +157,10 @@ export default function Home() {
             <h4 className="text-2xl font-bold bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 bg-clip-text text-transparent">SKY4444 Enterprise</h4>
             <p className="text-gray-400 text-sm">The leading strategic digital ecosystem for Web3, AI, and decentralized finance. Empowering users to mine, trade, create, and earn with unparalleled security and innovation.</p>
             <div className="flex space-x-4 mt-4">
-              <a href="#" className="text-gray-400 hover:text-purple-400"><i className="fab fa-facebook-f"></i></a>
-              <a href="#" className="text-gray-400 hover:text-purple-400"><i className="fab fa-twitter"></i></a>
-              <a href="#" className="text-gray-400 hover:text-purple-400"><i className="fab fa-linkedin-in"></i></a>
-              <a href="#" className="text-gray-400 hover:text-purple-400"><i className="fab fa-youtube"></i></a>
+              <a href="#" className="text-gray-400 hover:text-purple-400"><FontAwesomeIcon icon={faFacebookF} /></a>
+              <a href="#" className="text-gray-400 hover:text-purple-400"><FontAwesomeIcon icon={faTwitter} /></a>
+              <a href="#" className="text-gray-400 hover:text-purple-400"><FontAwesomeIcon icon={faLinkedinIn} /></a>
+              <a href="#" className="text-gray-400 hover:text-purple-400"><FontAwesomeIcon icon={faYoutube} /></a>
             </div>
           </div>
           <div>

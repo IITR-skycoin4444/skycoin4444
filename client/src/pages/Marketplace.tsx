@@ -17,7 +17,7 @@ import {
   ShoppingCart, RefreshCw, Watch, Footprints, Tablet, Layers
 } from "lucide-react";
 
-// ─── DHgate category config ──────────────────────────────────────────────────
+// ─── Native category config ──────────────────────────────────────────────────
 const DHGATE_CATEGORIES = [
   { id: "all",         label: "All",         emoji: "🛍️" },
   { id: "bags",        label: "Bags",        emoji: "👜" },
@@ -30,8 +30,8 @@ const DHGATE_CATEGORIES = [
 
 type DhgateCat = typeof DHGATE_CATEGORIES[number]["id"];
 
-// ─── DHgate product card ──────────────────────────────────────────────────────
-function DHgateCard({ product, onClick }: { product: any; onClick: () => void }) {
+// ─── Native product card ──────────────────────────────────────────────────────
+function NativeCard({ product, onClick }: { product: any; onClick: () => void }) {
   const discount = product.discountPercent || 0;
   return (
     <button onClick={onClick}
@@ -66,17 +66,17 @@ function DHgateCard({ product, onClick }: { product: any; onClick: () => void })
   );
 }
 
-// ─── DHgate product modal ─────────────────────────────────────────────────────
-function DHgateModal({ product, onClose }: { product: any; onClose: () => void }) {
+// ─── Native product modal ─────────────────────────────────────────────────────
+function NativeModal({ product, onClose }: { product: any; onClose: () => void }) {
   const [qty, setQty] = useState(1);
   const [selectedColor, setSelectedColor] = useState(product.colors?.[0] || "");
   const [selectedSize, setSelectedSize] = useState(product.sizes?.[0] || "");
   const [ordered, setOrdered] = useState(false);
-  const placeOrder = trpc.dhgate.placeOrder.useMutation({
+  const placeOrder = trpc.marketplace.placeOrder.useMutation({
     onSuccess: (data) => {
       setOrdered(true);
-      toast.success("Order placed! Redirecting to DHgate...");
-      setTimeout(() => window.open(data.dhgateUrl, "_blank"), 1200);
+      toast.success("Order placed! Redirecting to Native...");
+      setTimeout(() => window.open(data.marketplaceUrl, "_blank"), 1200);
     },
     onError: (e) => toast.error(e.message || "Order failed"),
   });
@@ -135,36 +135,36 @@ function DHgateModal({ product, onClose }: { product: any; onClose: () => void }
           </div>
           {ordered ? (
             <div className="flex items-center gap-2 p-3 bg-green-500/10 border border-green-500/20 rounded-xl text-green-400 text-sm">
-              <CheckCircle2 className="w-4 h-4" />Order placed! Opening DHgate...
+              <CheckCircle2 className="w-4 h-4" />Order placed! Opening Native...
             </div>
           ) : (
             <Button className="w-full bg-primary hover:bg-primary/90 font-bold py-3" onClick={() => placeOrder.mutate({ productId: product.id, quantity: qty, selectedColor, selectedSize })} disabled={placeOrder.isPending}>
               {placeOrder.isPending ? <><Loader2 className="w-4 h-4 mr-2 animate-spin" />Processing...</> : <><ShoppingCart className="w-4 h-4 mr-2" />Buy Now — ${total.toFixed(2)}</>}
             </Button>
           )}
-          <p className="text-[10px] text-muted-foreground text-center">Powered by DHgate · Platform fee supports SKYCOIN4444</p>
+          <p className="text-[10px] text-muted-foreground text-center">Powered by Native · Platform fee supports SKYCOIN4444</p>
         </div>
       </div>
     </div>
   );
 }
 
-// ─── Embedded DHgate tab content ─────────────────────────────────────────────
-function DHgateTabContent() {
+// ─── Embedded Native tab content ─────────────────────────────────────────────
+function NativeTabContent() {
   const { isAuthenticated } = useAuth();
   const [cat, setCat] = useState<DhgateCat>("all");
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState<"featured"|"price_asc"|"price_desc"|"rating"|"sold">("featured");
   const [selected, setSelected] = useState<any|null>(null);
-  const { data: products, isLoading, refetch } = trpc.dhgate.getProducts.useQuery(
+  const { data: products, isLoading, refetch } = trpc.marketplace.getProducts.useQuery(
     { category: cat, search: search||undefined, sort, limit: 24, offset: 0 },
     { refetchOnWindowFocus: false }
   );
-  const { data: hotProducts } = trpc.dhgate.getHot.useQuery(undefined, { retry: false });
+  const { data: hotProducts } = trpc.marketplace.getHot.useQuery(undefined, { retry: false });
   const list = (products as any[]) || [];
   return (
     <div className="space-y-4">
-      {selected && <DHgateModal product={selected} onClose={() => setSelected(null)} />}
+      {selected && <NativeModal product={selected} onClose={() => setSelected(null)} />}
       {/* Hot deals */}
       {hotProducts && (hotProducts as any[]).length > 0 && (
         <div className="bg-orange-500/5 border border-orange-500/20 rounded-xl p-4">
@@ -208,10 +208,10 @@ function DHgateTabContent() {
         </div>
       ) : (
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-          {list.map((p: any) => <DHgateCard key={p.id} product={p} onClick={() => setSelected(p)} />)}
+          {list.map((p: any) => <NativeCard key={p.id} product={p} onClick={() => setSelected(p)} />)}
         </div>
       )}
-      <p className="text-center text-xs text-muted-foreground py-2">Products sourced from DHgate · Platform earns 44% on every order · <a href="https://www.dhgate.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Visit DHgate ↗</a></p>
+      <p className="text-center text-xs text-muted-foreground py-2">Products sourced from Native · Platform earns 44% on every order · <a href="https://www.marketplace.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Visit Native ↗</a></p>
     </div>
   );
 }
@@ -543,7 +543,7 @@ export default function Marketplace() {
               <TabsTrigger value="browse">Browse</TabsTrigger>
               <TabsTrigger value="auctions">Live Auctions</TabsTrigger>
               <TabsTrigger value="featured">Featured</TabsTrigger>
-              <TabsTrigger value="dhgate">🛍️ DHgate</TabsTrigger>
+              <TabsTrigger value="marketplace">🛍️ Native</TabsTrigger>
             </TabsList>
 
             <TabsContent value="browse">
@@ -631,8 +631,8 @@ export default function Marketplace() {
                 ))}
               </div>
                         </TabsContent>
-            <TabsContent value="dhgate">
-              <DHgateTabContent />
+            <TabsContent value="marketplace">
+              <NativeTabContent />
             </TabsContent>
           </Tabs>
           {/* Escrow & Trust Section */}

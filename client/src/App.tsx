@@ -248,7 +248,7 @@ const CustomerDisputes = lazy(() => import('./pages/CustomerDisputes'));
 const DAOGovernance = lazy(() => import('./pages/DAOGovernance'));
 const DAOTreasury = lazy(() => import('./pages/DAOTreasury'));
 const DEXDepthChart = lazy(() => import('./pages/DEXDepthChart'));
-const DHgateShop = lazy(() => import('./pages/DHgateShop'));
+// DHgate removed - using native marketplace instead
 const DMInbox = lazy(() => import('./pages/DMInbox'));
 const Dashboard = lazy(() => import('./pages/Dashboard'));
 const DashboardOverview = lazy(() => import('./pages/DashboardOverview'));
@@ -1230,7 +1230,7 @@ const App = () => {
           <Route path="/daogovernance" component={DAOGovernance} />
           <Route path="/daotreasury" component={DAOTreasury} />
           <Route path="/dexdepthchart" component={DEXDepthChart} />
-          <Route path="/dhgateshop" component={DHgateShop} />
+
           <Route path="/dminbox" component={DMInbox} />
           <Route path="/dashboard" component={Dashboard} />
           <Route path="/dashboardoverview" component={DashboardOverview} />
