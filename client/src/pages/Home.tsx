@@ -192,7 +192,7 @@ export default function Home() {
           </div>
         </div>
         <div className="border-t border-purple-500/20 mt-8 pt-8 text-center text-gray-500 text-sm">
-          <p>&copy; 2026 SKY4444. All rights reserved. | Built with AI by Manus</p>
+          <p>&copy; 2026 SKY4444. All rights reserved.</p>
         </div>
       </footer>
     </div>

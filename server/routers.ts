@@ -92,6 +92,8 @@ export const postRouter = router({
 
 // ============ MARKETPLACE PROCEDURES ============
 export const marketplaceRouter = router({
+  listings: publicProcedure.input(z.object({ category: z.string().optional(), limit: z.number().default(20), offset: z.number().default(0) }))
+    .query(async ({ input }) => db.getProducts(input.limit, input.offset, input.category)),
   listProducts: publicProcedure.input(z.object({ category: z.string().optional(), limit: z.number().default(20), offset: z.number().default(0) }))
     .query(async ({ input }) => db.getProducts(input.limit, input.offset, input.category)),
   getProduct: publicProcedure.input(z.object({ id: z.string() }))
@@ -105,6 +107,8 @@ export const marketplaceRouter = router({
     .mutation(async ({ input }) => db.updateOrderStatus(input.orderId, input.status)),
   addReview: protectedProcedure.input(z.object({ productId: z.string(), rating: z.number(), comment: z.string() }))
     .mutation(async ({ ctx, input }) => ({ success: true })),
+  placeOrder: protectedProcedure.input(z.object({ productId: z.string(), quantity: z.number() }))
+    .mutation(async ({ ctx, input }) => ({ success: true, orderId: `order_${Date.now()}` })),
 });
 
 // ============ STREAMING PROCEDURES ============
