@@ -18,12 +18,12 @@ const REVENUE_DATA = Array.from({length:12},(_,i)=>({
 }));
 
 const MONETIZATION_FEATURES = [
-  { icon:<Users className="w-5 h-5"/>, title:"Subscriptions", desc:"Monthly recurring revenue from fans", href:"/subscriptions", color:"oklch(0.72 0.22 295)", badge:"Active" },
-  { icon:<Heart className="w-5 h-5"/>, title:"Tips & Donations", desc:"One-time payments from supporters", href:"/tips", color:"oklch(0.76 0.19 185)", badge:"Active" },
-  { icon:<Star className="w-5 h-5"/>, title:"Premium Content", desc:"Paid posts, videos, and exclusives", href:"/premium-content", color:"oklch(0.78 0.16 65)", badge:"Active" },
-  { icon:<Gift className="w-5 h-5"/>, title:"Stream Gifts", desc:"Real-time gifts during live streams", href:"/streaming", color:"oklch(0.72 0.18 150)", badge:"Active" },
-  { icon:<Award className="w-5 h-5"/>, title:"Memberships", desc:"Tiered fan clubs with perks", href:"/memberships", color:"oklch(0.82 0.16 80)", badge:"Coming Soon" },
-  { icon:<Zap className="w-5 h-5"/>, title:"Affiliate Program", desc:"Earn from referrals and partnerships", href:"/affiliate", color:"oklch(0.62 0.22 25)", badge:"Active" },
+  { icon:<Users className="w-5 h-5"/>, title:"Subscriptions", desc:"Monthly recurring revenue from fans", href:"/subscriptions", color:"oklch(0.72 0.22 295)", badge:"Active", revenue: 1300 },
+  { icon:<Heart className="w-5 h-5"/>, title:"Tips & Donations", desc:"One-time payments from supporters", href:"/tips", color:"oklch(0.76 0.19 185)", badge:"Active", revenue: 655 },
+  { icon:<Star className="w-5 h-5"/>, title:"Ads & Sponsorships", desc:"Brand partnerships and ad revenue", href:"/premium-content", color:"oklch(0.78 0.16 65)", badge:"Active", revenue: 1280 },
+  { icon:<Gift className="w-5 h-5"/>, title:"Stream Gifts", desc:"Real-time gifts during live streams", href:"/streaming", color:"oklch(0.72 0.18 150)", badge:"Active", revenue: 250 },
+  { icon:<Award className="w-5 h-5"/>, title:"Memberships", desc:"Tiered fan clubs with perks", href:"/memberships", color:"oklch(0.82 0.16 80)", badge:"Active", revenue: 420 },
+  { icon:<Zap className="w-5 h-5"/>, title:"Affiliate Program", desc:"Earn from referrals and partnerships", href:"/affiliate", color:"oklch(0.62 0.22 25)", badge:"Active", revenue: 180 },
 ];
 
 export default function CreatorMonetization() {
@@ -98,18 +98,56 @@ export default function CreatorMonetization() {
           </TabsContent>
 
           <TabsContent value="analytics">
-            <div className="rounded-xl bg-white/5 border border-white/10 p-6">
-              <h3 className="font-bold mb-4">Revenue Breakdown (12 months)</h3>
-              <ResponsiveContainer width="100%" height={280}>
-                <BarChart data={REVENUE_DATA}>
-                  <XAxis dataKey="month" tick={{fontSize:11}} stroke="transparent" tickLine={false}/>
-                  <YAxis tick={{fontSize:11}} stroke="transparent" tickLine={false} tickFormatter={v=>`$${v}`}/>
-                  <Tooltip contentStyle={{background:"#1a1a2e",border:"1px solid rgba(255,255,255,0.1)",borderRadius:"8px"}} formatter={(v:any,n:string)=>[`$${v}`,n]}/>
-                  <Bar dataKey="subscriptions" fill="oklch(0.72 0.22 295)" radius={[4,4,0,0]} name="Subscriptions"/>
-                  <Bar dataKey="tips" fill="oklch(0.76 0.19 185)" radius={[4,4,0,0]} name="Tips"/>
-                  <Bar dataKey="content" fill="oklch(0.78 0.16 65)" radius={[4,4,0,0]} name="Premium Content"/>
-                </BarChart>
-              </ResponsiveContainer>
+            <div className="space-y-6">
+              <div className="rounded-xl bg-white/5 border border-white/10 p-6">
+                <h3 className="font-bold mb-4">Revenue Breakdown (12 months)</h3>
+                <ResponsiveContainer width="100%" height={280}>
+                  <BarChart data={REVENUE_DATA}>
+                    <XAxis dataKey="month" tick={{fontSize:11}} stroke="transparent" tickLine={false}/>
+                    <YAxis tick={{fontSize:11}} stroke="transparent" tickLine={false} tickFormatter={v=>`$${v}`}/>
+                    <Tooltip contentStyle={{background:"#1a1a2e",border:"1px solid rgba(255,255,255,0.1)",borderRadius:"8px"}} formatter={(v:any,n:string)=>[`$${v}`,n]}/>
+                    <Bar dataKey="subscriptions" fill="oklch(0.72 0.22 295)" radius={[4,4,0,0]} name="Subscriptions"/>
+                    <Bar dataKey="tips" fill="oklch(0.76 0.19 185)" radius={[4,4,0,0]} name="Tips"/>
+                    <Bar dataKey="content" fill="oklch(0.78 0.16 65)" radius={[4,4,0,0]} name="Premium Content"/>
+                  </BarChart>
+                </ResponsiveContainer>
+              </div>
+              <div className="rounded-xl bg-white/5 border border-white/10 p-6">
+                <h3 className="font-bold mb-4">Revenue by Source</h3>
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                  {MONETIZATION_FEATURES.map(f => (
+                    <div key={f.title} className="rounded-lg bg-white/5 p-4 border border-white/10">
+                      <div className="flex items-center gap-2 mb-2">
+                        <div className="p-2 rounded-lg" style={{backgroundColor:`${f.color}20`,color:f.color}}>{f.icon}</div>
+                        <span className="text-sm font-medium">{f.title}</span>
+                      </div>
+                      <div className="text-2xl font-bold">${f.revenue}</div>
+                      <div className="text-xs text-muted-foreground mt-1">{((f.revenue / totalRevenue) * 100).toFixed(1)}% of total</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="rounded-xl bg-white/5 border border-white/10 p-6">
+                <h3 className="font-bold mb-4">Payout Schedule</h3>
+                <div className="space-y-3">
+                  {[
+                    { date: '2026-07-01', amount: 3485, status: 'Completed' },
+                    { date: '2026-06-01', amount: 2945, status: 'Completed' },
+                    { date: '2026-05-01', amount: 2120, status: 'Completed' },
+                  ].map((payout, idx) => (
+                    <div key={idx} className="flex items-center justify-between p-3 bg-white/5 rounded-lg">
+                      <div>
+                        <p className="font-medium">{payout.date}</p>
+                        <p className="text-xs text-muted-foreground">Monthly payout</p>
+                      </div>
+                      <div className="text-right">
+                        <p className="font-bold">${payout.amount.toLocaleString()}</p>
+                        <p className="text-xs text-green-400">{payout.status}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </TabsContent>
 
