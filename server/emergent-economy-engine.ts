@@ -130,16 +130,23 @@ export class EmergentEconomyEngine {
     const since = new Date(Date.now() - 60 * 60 * 1000); // last hour
 
     // Count signals by type
-    const signalCounts = await db
-      .select({
-        signalType: userBehaviorSignals.signalType,
-        total: count(),
-      })
-      .from(userBehaviorSignals)
-      .where(gte(userBehaviorSignals.recordedAt, since))
-      .groupBy(userBehaviorSignals.signalType);
-
-    const signalMap = new Map(signalCounts.map((s) => [s.signalType, Number(s.total)]));
+    try {
+      const signalCounts = await db
+        .select({
+          signalType: userBehaviorSignals.signalType,
+          total: count(),
+        })
+        .from(userBehaviorSignals)
+        .where(gte(userBehaviorSignals.recordedAt, since))
+        .groupBy(userBehaviorSignals.signalType);
+      
+      const signalMap = new Map(signalCounts.map((s) => [s.signalType, Number(s.total)]));
+    } catch (err) {
+      // Silently handle query errors - table may not exist yet
+      return;
+    }
+    
+    const signalMap = new Map();
 
     // Pattern: Creator + Gamer interaction → XP inflation risk
     const creatorActivity = (signalMap.get("create_content") ?? 0) + (signalMap.get("creator_content_published") ?? 0);

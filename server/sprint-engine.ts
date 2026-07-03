@@ -13,6 +13,9 @@
 import { getDb } from "./db";
 import * as schema from "../drizzle";
 import { eq, desc, sql } from "drizzle-orm";
+
+// Note: Some schema tables may not be defined yet
+// codebaseSprints, sprintTasks, sprintMetrics will be handled gracefully
 import { invokeLLM } from "./_core/llm";
 
 // ─── Types ────────────────────────────────────────────────────

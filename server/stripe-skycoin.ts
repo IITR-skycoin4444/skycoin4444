@@ -1,7 +1,8 @@
 // @ts-nocheck
 import Stripe from "stripe";
 import { getDb } from "./db";
-import { orders, subscriptions } from "../drizzle";
+import { orders } from "../drizzle";
+// Note: subscriptions table not yet defined in schema
 import { eq } from "drizzle-orm";
 
 // Initialize Stripe only if API key is provided
