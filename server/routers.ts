@@ -207,6 +207,33 @@ export const adminRouter = router({
   })),
 });
 
+// ============ GAMEFI PROCEDURES ============
+export const gameFiRouter = router({
+  seasonPass: publicProcedure.query(async () => ({
+    id: "season-1",
+    name: "Season 1: Genesis",
+    level: 1,
+    progress: 45,
+    rewards: 1000,
+    endDate: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString(),
+  })),
+  leaderboard: publicProcedure.input(z.object({ limit: z.number().default(10) }))
+    .query(async ({ input }) => [
+      { rank: 1, username: "SkyMaster", score: 50000, earnings: 5000 },
+      { rank: 2, username: "CryptoKing", score: 45000, earnings: 4500 },
+      { rank: 3, username: "GameGod", score: 40000, earnings: 4000 },
+    ]),
+  quests: publicProcedure.query(async () => [
+    { id: "q1", title: "First Trade", reward: 100, completed: false },
+    { id: "q2", title: "Stake 100 SKY", reward: 500, completed: false },
+    { id: "q3", title: "Invite 5 Friends", reward: 1000, completed: false },
+  ]),
+  tournaments: publicProcedure.query(async () => [
+    { id: "t1", name: "Weekly Trading", prize: 10000, participants: 234, endDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString() },
+    { id: "t2", name: "Gaming Championship", prize: 50000, participants: 1200, endDate: new Date(Date.now() + 14 * 24 * 60 * 60 * 1000).toISOString() },
+  ]),
+});
+
 // ============ SEARCH PROCEDURES ============
 export const searchRouter = router({
   global: publicProcedure.input(z.object({ query: z.string() }))
@@ -258,6 +285,7 @@ export const appRouter = router({
   voice: voiceRouter,
   enterprise: enterpriseRouter,
   ai: aiRouter,
+  gamefi: gameFiRouter,
 });
 
 export type AppRouter = typeof appRouter;
