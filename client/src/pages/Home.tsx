@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faTwitter, faLinkedinIn, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { Card } from "@/components/ui/card";
-import { ArrowRight, Zap, Users, TrendingUp, Gamepad2, ShoppingCart, Radio, Brain } from "lucide-react";
+import { ArrowRight, Zap, Users, TrendingUp, Gamepad2, ShoppingCart, Radio, Brain, Award, Gem, Rocket, Lock, BarChart3, Zap as ZapIcon } from "lucide-react";
 import { Link } from "wouter";
 
 export default function Home() {
@@ -131,6 +131,144 @@ export default function Home() {
                 <p className="text-gray-400 text-sm">Real-time trading and swaps</p>
               </Card>
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ICO & Sign-Up Section */}
+      <section className="py-20 px-4 bg-gradient-to-b from-purple-900/10 to-black">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold mb-4">Join the SKY4444 Revolution</h2>
+            <p className="text-xl text-gray-300">Limited-time opportunity to become part of an exclusive ecosystem</p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+            {/* Value Proposition */}
+            <Card className="bg-gradient-to-br from-pink-900/20 to-purple-900/20 border-pink-500/30 p-8">
+              <Gem className="w-12 h-12 text-pink-500 mb-4" />
+              <h3 className="text-2xl font-bold mb-4">Unmatched Value</h3>
+              <ul className="space-y-3 text-gray-300">
+                <li className="flex items-start gap-2">
+                  <span className="text-pink-500 mt-1">✓</span>
+                  <span>Access to 444+ production pages</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-pink-500 mt-1">✓</span>
+                  <span>320 API endpoints for seamless integration</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-pink-500 mt-1">✓</span>
+                  <span>24/7 autonomous AI mining engine</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-pink-500 mt-1">✓</span>
+                  <span>Real-time trading with AI optimization</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-pink-500 mt-1">✓</span>
+                  <span>Creator monetization and revenue sharing</span>
+                </li>
+              </ul>
+            </Card>
+
+            {/* Rarity & Exclusivity */}
+            <Card className="bg-gradient-to-br from-purple-900/20 to-blue-900/20 border-purple-500/30 p-8">
+              <Award className="w-12 h-12 text-purple-500 mb-4" />
+              <h3 className="text-2xl font-bold mb-4">Exclusive Rarity</h3>
+              <ul className="space-y-3 text-gray-300">
+                <li className="flex items-start gap-2">
+                  <span className="text-purple-500 mt-1">◆</span>
+                  <span>Only 10,000 founding member slots available</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-purple-500 mt-1">◆</span>
+                  <span>Early adopters receive 50% lifetime discount</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-purple-500 mt-1">◆</span>
+                  <span>Exclusive NFT badge for founding members</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-purple-500 mt-1">◆</span>
+                  <span>Priority access to new features</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-purple-500 mt-1">◆</span>
+                  <span>Governance voting rights</span>
+                </li>
+              </ul>
+            </Card>
+
+            {/* ICO Details */}
+            <Card className="bg-gradient-to-br from-cyan-900/20 to-green-900/20 border-cyan-500/30 p-8">
+              <Rocket className="w-12 h-12 text-cyan-500 mb-4" />
+              <h3 className="text-2xl font-bold mb-4">ICO Details</h3>
+              <div className="space-y-4 text-gray-300">
+                <div>
+                  <p className="text-sm text-gray-400">Token Price</p>
+                  <p className="text-2xl font-bold text-cyan-400">$0.444</p>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-400">Total Supply</p>
+                  <p className="text-2xl font-bold text-cyan-400">1 Billion SKY</p>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-400">Minimum Investment</p>
+                  <p className="text-2xl font-bold text-cyan-400">$100 USD</p>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-400">Fundraising Goal</p>
+                  <p className="text-2xl font-bold text-cyan-400">$50M USD</p>
+                </div>
+              </div>
+            </Card>
+          </div>
+
+          {/* Benefits Grid */}
+          <div className="mb-16">
+            <h3 className="text-3xl font-bold text-center mb-8">What You Get</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+              <Card className="bg-black/50 border-purple-500/30 p-6">
+                <ZapIcon className="w-8 h-8 text-orange-500 mb-3" />
+                <h4 className="font-bold mb-2">Passive Income</h4>
+                <p className="text-sm text-gray-400">Earn from mining, staking, and platform revenue sharing</p>
+              </Card>
+              <Card className="bg-black/50 border-purple-500/30 p-6">
+                <BarChart3 className="w-8 h-8 text-green-500 mb-3" />
+                <h4 className="font-bold mb-2">Portfolio Growth</h4>
+                <p className="text-sm text-gray-400">Track and optimize your digital assets in real-time</p>
+              </Card>
+              <Card className="bg-black/50 border-purple-500/30 p-6">
+                <Users className="w-8 h-8 text-blue-500 mb-3" />
+                <h4 className="font-bold mb-2">Community Access</h4>
+                <p className="text-sm text-gray-400">Connect with 1M+ users and build your network</p>
+              </Card>
+              <Card className="bg-black/50 border-purple-500/30 p-6">
+                <Lock className="w-8 h-8 text-red-500 mb-3" />
+                <h4 className="font-bold mb-2">Security First</h4>
+                <p className="text-sm text-gray-400">Enterprise-grade security and insurance coverage</p>
+              </Card>
+            </div>
+          </div>
+
+          {/* Sign-Up CTA */}
+          <div className="bg-gradient-to-r from-pink-900/30 to-purple-900/30 border border-pink-500/50 rounded-lg p-12 text-center">
+            <h3 className="text-3xl font-bold mb-4">Ready to Become a Founding Member?</h3>
+            <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+              Join the SKY4444 ecosystem today and start your journey toward financial independence and digital empowerment. Limited slots available—secure yours now.
+            </p>
+            <div className="flex gap-4 justify-center flex-wrap">
+              <Link href="/signup">
+                <Button className="bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-700 hover:to-purple-700 text-white px-12 py-6 text-lg">
+                  Sign Up Now <ArrowRight className="ml-2 w-5 h-5" />
+                </Button>
+              </Link>
+              <Button variant="outline" className="border-cyan-500 text-cyan-400 hover:bg-cyan-500/10 px-12 py-6 text-lg">
+                Learn More About ICO
+              </Button>
+            </div>
+            <p className="text-sm text-gray-500 mt-6">🔒 Secure. Verified. Transparent. All transactions are recorded on the blockchain.</p>
           </div>
         </div>
       </section>
