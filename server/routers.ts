@@ -211,14 +211,6 @@ export const adminRouter = router({
   })),
 });
 
-// ============ FEED PROCEDURES ============
-export const feedRouter = router({
-  list: publicProcedure.input(z.object({ limit: z.number().default(20), offset: z.number().default(0) }))
-    .query(async ({ input }) => db.getPosts(input.limit, input.offset)),
-  create: protectedProcedure.input(z.object({ content: z.string(), media: z.string().optional() }))
-    .mutation(async ({ ctx, input }) => db.createPost(ctx.user.id, input.content, input.media)),
-});
-
 // ============ GAMEFI PROCEDURES ============
 export const gameFiRouter = router({
   seasonPass: publicProcedure.query(async () => ({
