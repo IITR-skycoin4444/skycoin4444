@@ -304,10 +304,10 @@ export default function Home() {
           <div>
             <h4 className="font-bold mb-4">Platform</h4>
             <ul className="space-y-2 text-gray-400 text-sm">
-              <li><Link href="/dashboard"><a className="hover:text-purple-400">Dashboard</a></Link></li>
-              <li><Link href="/walletoverview"><a className="hover:text-purple-400">Wallet</a></Link></li>
-              <li><Link href="/marketplace"><a className="hover:text-purple-400">Marketplace</a></Link></li>
-              <li><Link href="/school"><a className="hover:text-purple-400">Education</a></Link></li>
+              <li><Link href="/dashboard" className="hover:text-purple-400">Dashboard</Link></li>
+              <li><Link href="/walletoverview" className="hover:text-purple-400">Wallet</Link></li>
+              <li><Link href="/marketplace" className="hover:text-purple-400">Marketplace</Link></li>
+              <li><Link href="/school" className="hover:text-purple-400">Education</Link></li>
             </ul>
           </div>
           <div>
