@@ -670,6 +670,192 @@ function LegacyRouter() {
       <Route path="/commentthread" component={CommentThread} />
       <Route path="/activityfeed" component={ActivityFeed} />
       <Route path="/fileversioning" component={FileVersioning} />
+      <Route path="/blogeditor" component={BlogEditor} />
+      <Route path="/blogpublisher" component={BlogPublisher} />
+      <Route path="/contentlibrary" component={ContentLibrary} />
+      <Route path="/mediagallery" component={MediaGallery} />
+      <Route path="/documenteditor" component={DocumentEditor} />
+      <Route path="/videouploader" component={VideoUploader} />
+      <Route path="/videoeditor" component={VideoEditor} />
+      <Route path="/livestreamsetup" component={LiveStreamSetup} />
+      <Route path="/streamanalytics" component={StreamAnalytics} />
+      <Route path="/playlistmanager" component={PlaylistManager} />
+      <Route path="/podcaststudio" component={PodcastStudio} />
+      <Route path="/audiolibrary" component={AudioLibrary} />
+      <Route path="/transcriptionmanager" component={TranscriptionManager} />
+      <Route path="/audioanalytics" component={AudioAnalytics} />
+      <Route path="/publishingschedule" component={PublishingSchedule} />
+      <Route path="/distributionchannels" component={DistributionChannels} />
+      <Route path="/seooptimizer" component={SEOOptimizer} />
+      <Route path="/analyticsreports" component={AnalyticsReports} />
+      <Route path="/communityhub" component={CommunityHub} />
+      <Route path="/forumcategories" component={ForumCategories} />
+      <Route path="/threadmanagement" component={ThreadManagement} />
+      <Route path="/moderationdashboard" component={ModerationDashboard} />
+      <Route path="/communityguidelines" component={CommunityGuidelines} />
+      <Route path="/eventcalendar" component={EventCalendar} />
+      <Route path="/eventcreation" component={EventCreation} />
+      <Route path="/eventregistration" component={EventRegistration} />
+      <Route path="/eventanalytics" component={EventAnalytics} />
+      <Route path="/venuemanagement" component={VenueManagement} />
+      <Route path="/groupdirectory" component={GroupDirectory} />
+      <Route path="/groupmanagement" component={GroupManagement} />
+      <Route path="/groupchat" component={GroupChat} />
+      <Route path="/groupevents" component={GroupEvents} />
+      <Route path="/membershiptiers" component={MembershipTiers} />
+      <Route path="/connectionrequests" component={ConnectionRequests} />
+      <Route path="/campaignbuilder" component={CampaignBuilder} />
+      <Route path="/emailcampaigns" component={EmailCampaigns} />
+      <Route path="/smscampaigns" component={SMSCampaigns} />
+      <Route path="/socialmediacampaigns" component={SocialMediaCampaigns} />
+      <Route path="/pushnotifications" component={PushNotifications} />
+      <Route path="/audiencesegmentation" component={AudienceSegmentation} />
+      <Route path="/contactmanagement" component={ContactManagement} />
+      <Route path="/mailinglists" component={MailingLists} />
+      <Route path="/leadscoring" component={LeadScoring} />
+      <Route path="/personabuilder" component={PersonaBuilder} />
+      <Route path="/campaignanalytics" component={CampaignAnalytics} />
+      <Route path="/abtesting" component={ABTesting} />
+      <Route path="/conversionoptimization" component={ConversionOptimization} />
+      <Route path="/attributionmodeling" component={AttributionModeling} />
+      <Route path="/marketingroi" component={MarketingROI} />
+      <Route path="/templatelibrary" component={TemplateLibrary} />
+      <Route path="/coursebuilder" component={CourseBuilder} />
+      <Route path="/lessoneditor" component={LessonEditor} />
+      <Route path="/quizbuilder" component={QuizBuilder} />
+      <Route path="/assignmenttracker" component={AssignmentTracker} />
+      <Route path="/gradebook" component={GradeBook} />
+      <Route path="/coursecatalog" component={CourseCatalog} />
+      <Route path="/mylearning" component={MyLearning} />
+      <Route path="/learningpath" component={LearningPath} />
+      <Route path="/certificatemanager" component={CertificateManager} />
+      <Route path="/skillbadges" component={SkillBadges} />
+      <Route path="/classroommanagement" component={ClassroomManagement} />
+      <Route path="/studentprogress" component={StudentProgress} />
+      <Route path="/ticketqueue" component={TicketQueue} />
+      <Route path="/ticketdetail" component={TicketDetail} />
+      <Route path="/ticketassignment" component={TicketAssignment} />
+      <Route path="/knowledgebase" component={KnowledgeBase} />
+      <Route path="/faqmanagement" component={FAQManagement} />
+      <Route path="/livechat" component={LiveChat} />
+      <Route path="/chathistory" component={ChatHistory} />
+      <Route path="/chatbot" component={ChatBot} />
+      <Route path="/emailtemplates" component={EmailTemplates} />
+      <Route path="/autoresponder" component={AutoResponder} />
+      <Route path="/supportmetrics" component={SupportMetrics} />
+      <Route path="/responsetime" component={ResponseTime} />
+      <Route path="/apidocumentation" component={APIDocumentation} />
+      <Route path="/apitesting" component={APITesting} />
+      <Route path="/apimonitoring" component={APIMonitoring} />
+      <Route path="/ratelimiting" component={RateLimiting} />
+      <Route path="/versionmanagement" component={VersionManagement} />
+      <Route path="/coderepository" component={CodeRepository} />
+      <Route path="/deploymentpipeline" component={DeploymentPipeline} />
+      <Route path="/environmentmanagement" component={EnvironmentManagement} />
+      <Route path="/logviewer" component={LogViewer} />
+      <Route path="/errortracking" component={ErrorTracking} />
+      <Route path="/sdkdownload" component={SDKDownload} />
+      <Route path="/codesamples" component={CodeSamples} />
+      <Route path="/developercommunity" component={DeveloperCommunity} />
+      <Route path="/bugreporting" component={BugReporting} />
+      <Route path="/featurerequests" component={FeatureRequests} />
+      <Route path="/networkgraph" component={NetworkGraph} />
+      <Route path="/mutualconnections" component={MutualConnections} />
+      <Route path="/discussionboard" component={DiscussionBoard} />
+      <Route path="/resourcelibrary" component={ResourceLibrary} />
+      <Route path="/assetmanagement" component={AssetManagement} />
+      <Route path="/brandguidelines" component={BrandGuidelines} />
+      <Route path="/contentcalendar" component={ContentCalendar} />
+      <Route path="/satisfactionsurvey" component={SatisfactionSurvey} />
+      <Route path="/agentperformance" component={AgentPerformance} />
+      <Route path="/portfoliooverview" component={PortfolioOverview} />
+      <Route path="/stocksearch" component={StockSearch} />
+      <Route path="/stockchart" component={StockChart} />
+      <Route path="/watchlist" component={WatchList} />
+      <Route path="/tradehistory" component={TradeHistory} />
+      <Route path="/budgetplanner" component={BudgetPlanner} />
+      <Route path="/expensetracker" component={ExpenseTracker} />
+      <Route path="/savingsgoals" component={SavingsGoals} />
+      <Route path="/retirementplanner" component={RetirementPlanner} />
+      <Route path="/taxplanning" component={TaxPlanning} />
+      <Route path="/financialreports" component={FinancialReports} />
+      <Route path="/taxreports" component={TaxReports} />
+      <Route path="/networthtracker" component={NetWorthTracker} />
+      <Route path="/cashflowanalysis" component={CashFlowAnalysis} />
+      <Route path="/aiassistant" component={AIAssistant} />
+      <Route path="/mlmodels" component={MLModels} />
+      <Route path="/recommendations" component={Recommendations} />
+      <Route path="/predictiveanalytics" component={PredictiveAnalytics} />
+      <Route path="/nlptools" component={NLPTools} />
+      <Route path="/workflowbuilder" component={WorkflowBuilder} />
+      <Route path="/automationrules" component={AutomationRules} />
+      <Route path="/taskautomation" component={TaskAutomation} />
+      <Route path="/triggersactions" component={TriggersActions} />
+      <Route path="/scheduledjobs" component={ScheduledJobs} />
+      <Route path="/advancedsearch" component={AdvancedSearch} />
+      <Route path="/savedsearches" component={SavedSearches} />
+      <Route path="/destinationguide" component={DestinationGuide} />
+      <Route path="/tripplanner" component={TripPlanner} />
+      <Route path="/flightsearch" component={FlightSearch} />
+      <Route path="/hotelsearch" component={HotelSearch} />
+      <Route path="/carrental" component={CarRental} />
+      <Route path="/mytrips" component={MyTrips} />
+      <Route path="/traveldocuments" component={TravelDocuments} />
+      <Route path="/travelbudget" component={TravelBudget} />
+      <Route path="/travelphotos" component={TravelPhotos} />
+      <Route path="/travelreviews" component={TravelReviews} />
+      <Route path="/travelblog" component={TravelBlog} />
+      <Route path="/traveltips" component={TravelTips} />
+      <Route path="/healthdashboard" component={HealthDashboard} />
+      <Route path="/activitytracking" component={ActivityTracking} />
+      <Route path="/nutritiontracker" component={NutritionTracker} />
+      <Route path="/sleeptracking" component={SleepTracking} />
+      <Route path="/moodtracker" component={MoodTracker} />
+      <Route path="/healtharticles" component={HealthArticles} />
+      <Route path="/exerciselibrary" component={ExerciseLibrary} />
+      <Route path="/mealplans" component={MealPlans} />
+      <Route path="/healthgoals" component={HealthGoals} />
+      <Route path="/medicationreminder" component={MedicationReminder} />
+      <Route path="/propertylisting" component={PropertyListing} />
+      <Route path="/propertydetail" component={PropertyDetail} />
+      <Route path="/virtualtour" component={VirtualTour} />
+      <Route path="/propertycomparison" component={PropertyComparison} />
+      <Route path="/savedproperties" component={SavedProperties} />
+      <Route path="/mortgagecalculator" component={MortgageCalculator} />
+      <Route path="/offermanagement" component={OfferManagement} />
+      <Route path="/documentsigning" component={DocumentSigning} />
+      <Route path="/closingchecklist" component={ClosingChecklist} />
+      <Route path="/propertytransfer" component={PropertyTransfer} />
+      <Route path="/gamelobby" component={GameLobby} />
+      <Route path="/gameroom" component={GameRoom} />
+      <Route path="/leaderboards" component={Leaderboards} />
+      <Route path="/achievements" component={Achievements} />
+      <Route path="/gamesettings" component={GameSettings} />
+      <Route path="/moviecatalog" component={MovieCatalog} />
+      <Route path="/moviedetail" component={MovieDetail} />
+      <Route path="/watchlist" component={WatchList} />
+      <Route path="/reviews" component={Reviews} />
+      <Route path="/multiplayerlobby" component={MultiplayerLobby} />
+      <Route path="/gamechat" component={GameChat} />
+      <Route path="/tournaments" component={Tournaments} />
+      <Route path="/calculator" component={Calculator} />
+      <Route path="/calendar" component={Calendar} />
+      <Route path="/notesapp" component={NotesApp} />
+      <Route path="/todolist" component={TodoList} />
+      <Route path="/reminders" component={Reminders} />
+      <Route path="/fileconverter" component={FileConverter} />
+      <Route path="/texttools" component={TextTools} />
+      <Route path="/imagetools" component={ImageTools} />
+      <Route path="/videotools" component={VideoTools} />
+      <Route path="/codeformatter" component={CodeFormatter} />
+      <Route path="/helpcenter" component={HelpCenter} />
+      <Route path="/feedback" component={Feedback} />
+      <Route path="/roadmap" component={Roadmap} />
+      <Route path="/changelog" component={ChangeLog} />
+      <Route path="/status" component={Status} />
+      <Route path="/languagesettings" component={LanguageSettings} />
+      <Route path="/regionalsettings" component={RegionalSettings} />
+      <Route path="/notificationpreferences" component={NotificationPreferences} />
           <Route component={NotFound} />
       
         </Switch>
@@ -897,7 +1083,6 @@ const RetentionAnalytics = lazy(() => import("./pages/RetentionAnalytics"));
 const UserDirectory = lazy(() => import("./pages/UserDirectory"));
 const UserPermissions = lazy(() => import("./pages/UserPermissions"));
 const AccessControl = lazy(() => import("./pages/AccessControl"));
-const AuditLog = lazy(() => import("./pages/AuditLog"));
 const UserOnboarding = lazy(() => import("./pages/UserOnboarding"));
 const OrganizationSettings = lazy(() => import("./pages/OrganizationSettings"));
 const DepartmentManagement = lazy(() => import("./pages/DepartmentManagement"));
@@ -928,6 +1113,187 @@ const DocumentSharing = lazy(() => import("./pages/DocumentSharing"));
 const CommentThread = lazy(() => import("./pages/CommentThread"));
 const ActivityFeed = lazy(() => import("./pages/ActivityFeed"));
 const FileVersioning = lazy(() => import("./pages/FileVersioning"));
+const BlogEditor = lazy(() => import("./pages/BlogEditor"));
+const BlogPublisher = lazy(() => import("./pages/BlogPublisher"));
+const ContentLibrary = lazy(() => import("./pages/ContentLibrary"));
+const MediaGallery = lazy(() => import("./pages/MediaGallery"));
+const DocumentEditor = lazy(() => import("./pages/DocumentEditor"));
+const VideoUploader = lazy(() => import("./pages/VideoUploader"));
+const VideoEditor = lazy(() => import("./pages/VideoEditor"));
+const LiveStreamSetup = lazy(() => import("./pages/LiveStreamSetup"));
+const StreamAnalytics = lazy(() => import("./pages/StreamAnalytics"));
+const PlaylistManager = lazy(() => import("./pages/PlaylistManager"));
+const PodcastStudio = lazy(() => import("./pages/PodcastStudio"));
+const AudioLibrary = lazy(() => import("./pages/AudioLibrary"));
+const TranscriptionManager = lazy(() => import("./pages/TranscriptionManager"));
+const AudioAnalytics = lazy(() => import("./pages/AudioAnalytics"));
+const PublishingSchedule = lazy(() => import("./pages/PublishingSchedule"));
+const DistributionChannels = lazy(() => import("./pages/DistributionChannels"));
+const SEOOptimizer = lazy(() => import("./pages/SEOOptimizer"));
+const AnalyticsReports = lazy(() => import("./pages/AnalyticsReports"));
+const CommunityHub = lazy(() => import("./pages/CommunityHub"));
+const ForumCategories = lazy(() => import("./pages/ForumCategories"));
+const ThreadManagement = lazy(() => import("./pages/ThreadManagement"));
+const ModerationDashboard = lazy(() => import("./pages/ModerationDashboard"));
+const CommunityGuidelines = lazy(() => import("./pages/CommunityGuidelines"));
+const EventCalendar = lazy(() => import("./pages/EventCalendar"));
+const EventCreation = lazy(() => import("./pages/EventCreation"));
+const EventRegistration = lazy(() => import("./pages/EventRegistration"));
+const EventAnalytics = lazy(() => import("./pages/EventAnalytics"));
+const VenueManagement = lazy(() => import("./pages/VenueManagement"));
+const GroupDirectory = lazy(() => import("./pages/GroupDirectory"));
+const GroupManagement = lazy(() => import("./pages/GroupManagement"));
+const GroupChat = lazy(() => import("./pages/GroupChat"));
+const GroupEvents = lazy(() => import("./pages/GroupEvents"));
+const MembershipTiers = lazy(() => import("./pages/MembershipTiers"));
+const ConnectionRequests = lazy(() => import("./pages/ConnectionRequests"));
+const CampaignBuilder = lazy(() => import("./pages/CampaignBuilder"));
+const EmailCampaigns = lazy(() => import("./pages/EmailCampaigns"));
+const SMSCampaigns = lazy(() => import("./pages/SMSCampaigns"));
+const SocialMediaCampaigns = lazy(() => import("./pages/SocialMediaCampaigns"));
+const PushNotifications = lazy(() => import("./pages/PushNotifications"));
+const AudienceSegmentation = lazy(() => import("./pages/AudienceSegmentation"));
+const ContactManagement = lazy(() => import("./pages/ContactManagement"));
+const MailingLists = lazy(() => import("./pages/MailingLists"));
+const LeadScoring = lazy(() => import("./pages/LeadScoring"));
+const PersonaBuilder = lazy(() => import("./pages/PersonaBuilder"));
+const CampaignAnalytics = lazy(() => import("./pages/CampaignAnalytics"));
+const ABTesting = lazy(() => import("./pages/ABTesting"));
+const ConversionOptimization = lazy(() => import("./pages/ConversionOptimization"));
+const AttributionModeling = lazy(() => import("./pages/AttributionModeling"));
+const MarketingROI = lazy(() => import("./pages/MarketingROI"));
+const TemplateLibrary = lazy(() => import("./pages/TemplateLibrary"));
+const CourseBuilder = lazy(() => import("./pages/CourseBuilder"));
+const LessonEditor = lazy(() => import("./pages/LessonEditor"));
+const QuizBuilder = lazy(() => import("./pages/QuizBuilder"));
+const AssignmentTracker = lazy(() => import("./pages/AssignmentTracker"));
+const GradeBook = lazy(() => import("./pages/GradeBook"));
+const CourseCatalog = lazy(() => import("./pages/CourseCatalog"));
+const MyLearning = lazy(() => import("./pages/MyLearning"));
+const LearningPath = lazy(() => import("./pages/LearningPath"));
+const CertificateManager = lazy(() => import("./pages/CertificateManager"));
+const SkillBadges = lazy(() => import("./pages/SkillBadges"));
+const ClassroomManagement = lazy(() => import("./pages/ClassroomManagement"));
+const StudentProgress = lazy(() => import("./pages/StudentProgress"));
+const TicketQueue = lazy(() => import("./pages/TicketQueue"));
+const TicketDetail = lazy(() => import("./pages/TicketDetail"));
+const TicketAssignment = lazy(() => import("./pages/TicketAssignment"));
+const FAQManagement = lazy(() => import("./pages/FAQManagement"));
+const LiveChat = lazy(() => import("./pages/LiveChat"));
+const ChatHistory = lazy(() => import("./pages/ChatHistory"));
+const ChatBot = lazy(() => import("./pages/ChatBot"));
+const EmailTemplates = lazy(() => import("./pages/EmailTemplates"));
+const AutoResponder = lazy(() => import("./pages/AutoResponder"));
+const SupportMetrics = lazy(() => import("./pages/SupportMetrics"));
+const ResponseTime = lazy(() => import("./pages/ResponseTime"));
+const APIDocumentation = lazy(() => import("./pages/APIDocumentation"));
+const APITesting = lazy(() => import("./pages/APITesting"));
+const APIMonitoring = lazy(() => import("./pages/APIMonitoring"));
+const RateLimiting = lazy(() => import("./pages/RateLimiting"));
+const VersionManagement = lazy(() => import("./pages/VersionManagement"));
+const CodeRepository = lazy(() => import("./pages/CodeRepository"));
+const DeploymentPipeline = lazy(() => import("./pages/DeploymentPipeline"));
+const EnvironmentManagement = lazy(() => import("./pages/EnvironmentManagement"));
+const LogViewer = lazy(() => import("./pages/LogViewer"));
+const ErrorTracking = lazy(() => import("./pages/ErrorTracking"));
+const SDKDownload = lazy(() => import("./pages/SDKDownload"));
+const CodeSamples = lazy(() => import("./pages/CodeSamples"));
+const DeveloperCommunity = lazy(() => import("./pages/DeveloperCommunity"));
+const BugReporting = lazy(() => import("./pages/BugReporting"));
+const FeatureRequests = lazy(() => import("./pages/FeatureRequests"));
+const NetworkGraph = lazy(() => import("./pages/NetworkGraph"));
+const MutualConnections = lazy(() => import("./pages/MutualConnections"));
+const DiscussionBoard = lazy(() => import("./pages/DiscussionBoard"));
+const ResourceLibrary = lazy(() => import("./pages/ResourceLibrary"));
+const AssetManagement = lazy(() => import("./pages/AssetManagement"));
+const BrandGuidelines = lazy(() => import("./pages/BrandGuidelines"));
+const ContentCalendar = lazy(() => import("./pages/ContentCalendar"));
+const SatisfactionSurvey = lazy(() => import("./pages/SatisfactionSurvey"));
+const AgentPerformance = lazy(() => import("./pages/AgentPerformance"));
+const PortfolioOverview = lazy(() => import("./pages/PortfolioOverview"));
+const StockSearch = lazy(() => import("./pages/StockSearch"));
+const StockChart = lazy(() => import("./pages/StockChart"));
+const WatchList = lazy(() => import("./pages/WatchList"));
+const TradeHistory = lazy(() => import("./pages/TradeHistory"));
+const BudgetPlanner = lazy(() => import("./pages/BudgetPlanner"));
+const ExpenseTracker = lazy(() => import("./pages/ExpenseTracker"));
+const SavingsGoals = lazy(() => import("./pages/SavingsGoals"));
+const RetirementPlanner = lazy(() => import("./pages/RetirementPlanner"));
+const TaxPlanning = lazy(() => import("./pages/TaxPlanning"));
+const FinancialReports = lazy(() => import("./pages/FinancialReports"));
+const TaxReports = lazy(() => import("./pages/TaxReports"));
+const NetWorthTracker = lazy(() => import("./pages/NetWorthTracker"));
+const CashFlowAnalysis = lazy(() => import("./pages/CashFlowAnalysis"));
+const AIAssistant = lazy(() => import("./pages/AIAssistant"));
+const MLModels = lazy(() => import("./pages/MLModels"));
+const Recommendations = lazy(() => import("./pages/Recommendations"));
+const PredictiveAnalytics = lazy(() => import("./pages/PredictiveAnalytics"));
+const NLPTools = lazy(() => import("./pages/NLPTools"));
+const WorkflowBuilder = lazy(() => import("./pages/WorkflowBuilder"));
+const AutomationRules = lazy(() => import("./pages/AutomationRules"));
+const TaskAutomation = lazy(() => import("./pages/TaskAutomation"));
+const TriggersActions = lazy(() => import("./pages/TriggersActions"));
+const ScheduledJobs = lazy(() => import("./pages/ScheduledJobs"));
+const AdvancedSearch = lazy(() => import("./pages/AdvancedSearch"));
+const SavedSearches = lazy(() => import("./pages/SavedSearches"));
+const DestinationGuide = lazy(() => import("./pages/DestinationGuide"));
+const TripPlanner = lazy(() => import("./pages/TripPlanner"));
+const FlightSearch = lazy(() => import("./pages/FlightSearch"));
+const HotelSearch = lazy(() => import("./pages/HotelSearch"));
+const CarRental = lazy(() => import("./pages/CarRental"));
+const MyTrips = lazy(() => import("./pages/MyTrips"));
+const TravelDocuments = lazy(() => import("./pages/TravelDocuments"));
+const TravelBudget = lazy(() => import("./pages/TravelBudget"));
+const TravelPhotos = lazy(() => import("./pages/TravelPhotos"));
+const TravelReviews = lazy(() => import("./pages/TravelReviews"));
+const TravelBlog = lazy(() => import("./pages/TravelBlog"));
+const TravelTips = lazy(() => import("./pages/TravelTips"));
+const HealthDashboard = lazy(() => import("./pages/HealthDashboard"));
+const ActivityTracking = lazy(() => import("./pages/ActivityTracking"));
+const NutritionTracker = lazy(() => import("./pages/NutritionTracker"));
+const SleepTracking = lazy(() => import("./pages/SleepTracking"));
+const MoodTracker = lazy(() => import("./pages/MoodTracker"));
+const HealthArticles = lazy(() => import("./pages/HealthArticles"));
+const ExerciseLibrary = lazy(() => import("./pages/ExerciseLibrary"));
+const MealPlans = lazy(() => import("./pages/MealPlans"));
+const HealthGoals = lazy(() => import("./pages/HealthGoals"));
+const MedicationReminder = lazy(() => import("./pages/MedicationReminder"));
+const PropertyListing = lazy(() => import("./pages/PropertyListing"));
+const PropertyDetail = lazy(() => import("./pages/PropertyDetail"));
+const VirtualTour = lazy(() => import("./pages/VirtualTour"));
+const PropertyComparison = lazy(() => import("./pages/PropertyComparison"));
+const SavedProperties = lazy(() => import("./pages/SavedProperties"));
+const MortgageCalculator = lazy(() => import("./pages/MortgageCalculator"));
+const OfferManagement = lazy(() => import("./pages/OfferManagement"));
+const DocumentSigning = lazy(() => import("./pages/DocumentSigning"));
+const ClosingChecklist = lazy(() => import("./pages/ClosingChecklist"));
+const PropertyTransfer = lazy(() => import("./pages/PropertyTransfer"));
+const GameLobby = lazy(() => import("./pages/GameLobby"));
+const GameRoom = lazy(() => import("./pages/GameRoom"));
+const GameSettings = lazy(() => import("./pages/GameSettings"));
+const MovieCatalog = lazy(() => import("./pages/MovieCatalog"));
+const MovieDetail = lazy(() => import("./pages/MovieDetail"));
+const Reviews = lazy(() => import("./pages/Reviews"));
+const MultiplayerLobby = lazy(() => import("./pages/MultiplayerLobby"));
+const GameChat = lazy(() => import("./pages/GameChat"));
+const Calculator = lazy(() => import("./pages/Calculator"));
+const Calendar = lazy(() => import("./pages/Calendar"));
+const NotesApp = lazy(() => import("./pages/NotesApp"));
+const TodoList = lazy(() => import("./pages/TodoList"));
+const Reminders = lazy(() => import("./pages/Reminders"));
+const FileConverter = lazy(() => import("./pages/FileConverter"));
+const TextTools = lazy(() => import("./pages/TextTools"));
+const ImageTools = lazy(() => import("./pages/ImageTools"));
+const VideoTools = lazy(() => import("./pages/VideoTools"));
+const CodeFormatter = lazy(() => import("./pages/CodeFormatter"));
+const HelpCenter = lazy(() => import("./pages/HelpCenter"));
+const Feedback = lazy(() => import("./pages/Feedback"));
+const Roadmap = lazy(() => import("./pages/Roadmap"));
+const ChangeLog = lazy(() => import("./pages/ChangeLog"));
+const Status = lazy(() => import("./pages/Status"));
+const LanguageSettings = lazy(() => import("./pages/LanguageSettings"));
+const RegionalSettings = lazy(() => import("./pages/RegionalSettings"));
+const NotificationPreferences = lazy(() => import("./pages/NotificationPreferences"));
 
 function App() {
   return (
