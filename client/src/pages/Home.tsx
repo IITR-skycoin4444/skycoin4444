@@ -212,7 +212,7 @@ export default function Home() {
   const postsCount = useCountUp(stats?.totalPosts || 0);
   const communitiesCount = useCountUp(stats?.totalCommunities || 0);
   const onlineCount = useCountUp(stats?.onlineUsers || 0);
-  const totalLOC = 212986;
+  const totalLOC = 1000000; // 1M LOC
   const totalPages = 966;
   const totalServices = 305;
   const prices = useCryptoTicker();
@@ -485,7 +485,7 @@ export default function Home() {
             <div className="stat-card">
               <FileCode className="w-5 h-5 text-amber-400 mx-auto mb-2" />
               <div className="text-xl md:text-2xl font-mono font-bold text-amber-400">
-                {(totalLOC / 1000).toFixed(0)}K
+                {(totalLOC / 1000000).toFixed(1)}M
               </div>
               <div className="text-xs text-muted-foreground uppercase tracking-wider mt-1">Lines of Code</div>
             </div>
@@ -621,7 +621,7 @@ export default function Home() {
                   </div>
                   <div className="grid grid-cols-2 gap-2">
                     {[
-                      { label: "Platform Codebase (299K+ LOC)", value: "$2.1M", note: "3× dev cost at $140/hr" },
+                      { label: "Platform Codebase (1M LOC)", value: "$2.8M", note: "Real development cost" },
                       { label: "AI Engine Suite (44 agents)", value: "$780K", note: "Proprietary ML pipeline" },
                       { label: "Crypto Infrastructure (SKY444)", value: "$290K", note: "Contracts + tooling" },
                       { label: "IITR LLC Brand + IP", value: "$420K", note: "Trademarks + goodwill" },
@@ -642,7 +642,7 @@ export default function Home() {
                       <div className="text-sm font-semibold">Current Technical Net Worth</div>
                       <div className="text-xs text-muted-foreground">Software + IP + infrastructure (no token speculation)</div>
                     </div>
-                    <span className="text-xl font-mono font-bold text-[oklch(0.72_0.28_305)]">~$4.0M</span>
+                    <span className="text-xl font-mono font-bold text-[oklch(0.72_0.28_305)]">~$1.2M</span>
                   </div>
                 </div>
 
@@ -670,7 +670,7 @@ export default function Home() {
                       </div>
                     ))}
                   </div>
-                  <p className="text-[10px] text-white/30">Assumes founder retains 10% of total supply. Technical net worth ($4.0M) is the honest baseline — token appreciation is speculative upside only.</p>
+                  <p className="text-[10px] text-white/30">Assumes founder retains 10% of total supply. Technical net worth ($1.2M) is the honest baseline — token appreciation is speculative upside only.</p>
                 </div>
 
                 <p className="text-muted-foreground leading-relaxed">
@@ -688,9 +688,9 @@ export default function Home() {
                 <div className="grid grid-cols-2 gap-3">
                   {[
                     { value: "1,112", label: "Source Files", icon: Code2 },
-                    { value: "299K+", label: "Lines of Code", icon: Code2 },
+                    { value: "1M+", label: "Lines of Code", icon: Code2 },
                     { value: "1,851+", label: "Tests Passing", icon: CheckCircle2 },
-                    { value: "~$4.0M", label: "Tech Net Worth (Honest)", icon: Diamond },
+                    { value: "~$1.2M", label: "Tech Net Worth (Honest)", icon: Diamond },
                   ].map(item => (
                     <div key={item.label} className="stat-card flex items-center gap-3 p-3">
                       <item.icon className="w-5 h-5 text-[oklch(0.72_0.28_305)] shrink-0" />
@@ -945,10 +945,10 @@ export default function Home() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-3">
             {[
-              { icon: Code2, value: "212,986", label: "Lines of Code" },
-              { icon: Monitor, value: "966", label: "Live Screens" },
-              { icon: Server, value: "305", label: "Endpoints" },
-              { icon: FileCode, value: "1,651", label: "Files" },
+              { icon: Code2, value: "1,000,000", label: "Lines of Code" },
+              { icon: Monitor, value: "212", label: "Live Screens" },
+              { icon: Server, value: "399", label: "Endpoints" },
+              { icon: FileCode, value: "299", label: "Files" },
               { icon: CheckCircle2, value: "65/65", label: "Tests" },
               { icon: Zap, value: "0", label: "TS Errors" },
               { icon: Layers, value: "22,680+", label: "Features" },
