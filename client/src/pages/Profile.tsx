@@ -11,7 +11,7 @@ import { toast } from "sonner";
 import {
   Heart, MessageCircle, Share2, Bookmark, Calendar, MapPin,
   Link as LinkIcon, Zap, Camera, Crown, CheckCircle2, Twitter,
-  Youtube, Globe, Edit3, UserPlus, UserMinus,
+  Youtube as YoutubeIcon, Globe, Edit3, UserPlus, UserMinus,
   Star, Trophy, Flame, TrendingUp, BarChart3, Users,
   Grid3X3, Play, Sparkles, Shield, DollarSign
 } from "lucide-react";
@@ -293,7 +293,7 @@ export default function Profile() {
               {profile.website && <a href={profile.website} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-purple-400 transition-colors"><Globe className="w-3 h-3" />{profile.website.replace(/^https?:\/\//, "")}</a>}
               {profile.twitter && <a href={`https://twitter.com/${profile.twitter}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-sky-400 transition-colors"><Twitter className="w-3 h-3" />@{profile.twitter}</a>}
               {profile.instagram && <a href={`https://instagram.com/${profile.instagram}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-pink-400 transition-colors"><Instagram className="w-3 h-3" />@{profile.instagram}</a>}
-              {profile.youtube && <a href={profile.youtube} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-red-400 transition-colors"><Youtube className="w-3 h-3" />YouTube</a>}
+              {profile.youtube && <a href={profile.youtube} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-red-400 transition-colors"><YoutubeIcon as YoutubeIcon className="w-3 h-3" />YouTube</a>}
               {profile.createdAt && <span className="flex items-center gap-1"><Calendar className="w-3 h-3" />Joined {new Date(profile.createdAt).toLocaleDateString("en-US", { month: "long", year: "numeric" })}</span>}
             </div>
 

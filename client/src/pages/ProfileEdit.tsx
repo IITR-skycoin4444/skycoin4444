@@ -12,7 +12,7 @@ import { toast } from "sonner";
 import { Link, useLocation } from "wouter";
 import {
   User, Camera, Palette, Wallet, Globe, Twitter,
-  Instagram, Youtube, Link2, ArrowLeft, Zap,
+  Instagram, Youtube as YoutubeIcon, Link2, ArrowLeft, Zap,
   CheckCircle, Loader2, MapPin, Edit3
 } from "lucide-react";
 
@@ -291,7 +291,7 @@ export default function ProfileEdit() {
                   { key: "website", icon: Globe, placeholder: "https://yoursite.com", label: "Website" },
                   { key: "twitter", icon: Twitter, placeholder: "@username", label: "Twitter / X" },
                   { key: "instagram", icon: Instagram, placeholder: "@username", label: "Instagram" },
-                  { key: "youtube", icon: Youtube, placeholder: "Channel URL or @handle", label: "YouTube" },
+                  { key: "youtube", icon: Youtube as YoutubeIcon, placeholder: "Channel URL or @handle", label: "YouTube" },
                 ].map(({ key, icon: Icon, placeholder, label }) => (
                   <div key={key} className="space-y-1.5">
                     <Label className="text-white/70 text-xs flex items-center gap-1">
