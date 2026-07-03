@@ -11,33 +11,27 @@ import "./index.css";
 
 const queryClient = new QueryClient();
 
+// OAuth redirect disabled - public access enabled
 const redirectToLoginIfUnauthorized = (error: unknown) => {
-  if (!(error instanceof TRPCClientError)) return;
-  if (typeof window === "undefined") return;
-
-  const isUnauthorized = error.message === UNAUTHED_ERR_MSG;
-
-  if (!isUnauthorized) return;
-
-  window.location.href = getLoginUrl();
+  // Disabled: OAuth authentication removed
+  // Users can now access the platform without login
+  console.error("[API Error]", error);
 };
 
+// Query cache error handling - OAuth disabled
 queryClient.getQueryCache().subscribe(event => {
-  // Skip redirect on auth.me query - let useAuth handle it
   if (event.type === "updated" && event.action.type === "error") {
     const error = event.query.state.error;
-    const isAuthMeQuery = event.query.queryKey?.[0]?.[0] === "auth.me";
-    if (!isAuthMeQuery) {
-      redirectToLoginIfUnauthorized(error);
-    }
+    // OAuth redirect disabled - errors logged but not redirected
     console.error("[API Query Error]", error);
   }
 });
 
+// Mutation cache error handling - OAuth disabled
 queryClient.getMutationCache().subscribe(event => {
   if (event.type === "updated" && event.action.type === "error") {
     const error = event.mutation.state.error;
-    redirectToLoginIfUnauthorized(error);
+    // OAuth redirect disabled - errors logged but not redirected
     console.error("[API Mutation Error]", error);
   }
 });
