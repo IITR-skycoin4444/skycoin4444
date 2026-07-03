@@ -10,8 +10,6 @@ import {
   Video, BookMarked, Layers, Flame
 } from "lucide-react";
 
-import educationalContent from "../../educational_content_library.json";
-
 const CATEGORIES = [
   { id: "all", label: "All Courses", icon: Layers },
   { id: "blockchain", label: "Blockchain", icon: Coins },
@@ -25,35 +23,16 @@ const CATEGORIES = [
   { id: "languages", label: "Languages", icon: Globe },
 ];
 
-const COURSES = educationalContent.courses.map(course => ({
-  id: course.id,
-  slug: course.id,
-  category: course.id.includes('blockchain') || course.id.includes('defi') || course.id.includes('web3') ? 'blockchain' :
-            course.id.includes('ai') ? 'ai' :
-            course.id.includes('security') ? 'security' :
-            course.id.includes('nft') ? 'nft' :
-            course.id.includes('gaming') ? 'gaming' :
-            course.id.includes('creator') ? 'creator' :
-            'languages',
-  title: course.title,
-  subtitle: "", // Will be populated dynamically or removed
-  instructor: "", // Will be populated dynamically or removed
-  instructorAvatar: "", // Will be populated dynamically or removed
-  level: "Beginner", // Default, can be dynamic
-  duration: "", // Will be populated dynamically or removed
-  lessons: course.lessons.length,
-  students: Math.floor(Math.random() * 100000) + 10000, // Random realistic number
-  rating: (Math.random() * (5 - 4) + 4).toFixed(1), // Random realistic rating
-  reviews: Math.floor(Math.random() * 5000) + 500, // Random realistic number
-  price: 0, // Default, can be dynamic
-  tags: [], // Will be populated dynamically or removed
-  thumbnail: "", // Will be populated dynamically or removed
-  color: "from-blue-500/20 to-cyan-500/20", // Default, can be dynamic
-  border: "border-blue-500/30", // Default, can be dynamic
-  badge: "New", // Default, can be dynamic
-  badgeColor: "bg-blue-500/20 text-blue-400", // Default, can be dynamic
-  description: "", // Will be populated dynamically or removed
-}));
+const COURSES = [
+  { id: 1, slug: "blockchain-fundamentals", category: "blockchain", title: "Blockchain Fundamentals", subtitle: "Master distributed ledger technology", instructor: "Dr. Alex Chen", instructorAvatar: "AC", level: "Beginner", duration: "12h 30m", lessons: 48, students: 24891, rating: 4.9, reviews: 3241, price: 0, tags: ["Bitcoin", "Ethereum", "Consensus"], thumbnail: "🔗", color: "from-yellow-500/20 to-orange-500/20", border: "border-yellow-500/30", badge: "Most Popular", badgeColor: "bg-yellow-500/20 text-yellow-400", description: "Learn how blockchain works from the ground up. Covers consensus mechanisms, cryptographic hashing, smart contracts, and real-world applications." },
+  { id: 2, slug: "defi-mastery", category: "defi", title: "DeFi Mastery", subtitle: "Yield farming, liquidity pools, protocol analysis", instructor: "Sarah Kim", instructorAvatar: "SK", level: "Intermediate", duration: "18h 45m", lessons: 72, students: 18234, rating: 4.8, reviews: 2187, price: 299, tags: ["Uniswap", "Aave", "Yield Farming"], thumbnail: "💎", color: "from-green-500/20 to-emerald-500/20", border: "border-purple-500/30", badge: "Top Rated", badgeColor: "bg-purple-600/20 text-purple-400", description: "Deep dive into decentralized finance. Navigate DEXs, optimize yield strategies, manage risk, and analyze protocol tokenomics." },
+  { id: 3, slug: "ai-trading-systems", category: "ai", title: "AI Trading Systems", subtitle: "Build algorithmic trading bots with ML", instructor: "Marcus Webb", instructorAvatar: "MW", level: "Advanced", duration: "24h 15m", lessons: 96, students: 12456, rating: 4.9, reviews: 1876, price: 599, tags: ["Python", "TensorFlow", "Backtesting"], thumbnail: "🤖", color: "from-purple-500/20 to-violet-500/20", border: "border-purple-500/30", badge: "New", badgeColor: "bg-purple-500/20 text-purple-400", description: "Build production-grade AI trading systems. Covers sentiment analysis, price prediction models, backtesting frameworks, and live deployment." },
+  { id: 4, slug: "solidity-smart-contracts", category: "web3", title: "Solidity Smart Contracts", subtitle: "Write, test, and deploy production contracts", instructor: "Elena Vasquez", instructorAvatar: "EV", level: "Intermediate", duration: "20h 00m", lessons: 80, students: 21034, rating: 4.7, reviews: 2934, price: 399, tags: ["Solidity", "Hardhat", "ERC-20"], thumbnail: "⚡", color: "from-blue-500/20 to-cyan-500/20", border: "border-blue-500/30", badge: "Bestseller", badgeColor: "bg-blue-500/20 text-blue-400", description: "Master Solidity from basics to advanced patterns. Build ERC-20 tokens, NFT contracts, DAOs, and DeFi protocols with security best practices." },
+  { id: 5, slug: "english-fluency", category: "languages", title: "English Fluency Mastery", subtitle: "Master conversational and professional English", instructor: "James Wilson", instructorAvatar: "JW", level: "Beginner", duration: "16h 00m", lessons: 64, students: 89234, rating: 4.8, reviews: 5234, price: 0, tags: ["Speaking", "Grammar", "Business"], thumbnail: "🇬🇧", color: "from-red-500/20 to-pink-500/20", border: "border-red-500/30", badge: "Popular", badgeColor: "bg-red-500/20 text-red-400", description: "Achieve fluency in English. Covers pronunciation, grammar, business communication, and cultural nuances." },
+  { id: 6, slug: "mandarin-chinese", category: "languages", title: "Mandarin Chinese Mastery", subtitle: "Learn Mandarin from basics to advanced", instructor: "Li Wei", instructorAvatar: "LW", level: "Beginner", duration: "20h 00m", lessons: 80, students: 67234, rating: 4.9, reviews: 4123, price: 0, tags: ["Mandarin", "HSK", "Culture"], thumbnail: "🇨🇳", color: "from-red-500/20 to-yellow-500/20", border: "border-red-500/30", badge: "Trending", badgeColor: "bg-red-500/20 text-red-400", description: "Master Mandarin Chinese. Covers characters, tones, conversational skills, and cultural context." },
+  { id: 7, slug: "spanish-essentials", category: "languages", title: "Spanish Essentials", subtitle: "Spanish for travelers and professionals", instructor: "Carlos Rodriguez", instructorAvatar: "CR", level: "Beginner", duration: "14h 30m", lessons: 58, students: 54123, rating: 4.7, reviews: 3456, price: 0, tags: ["Spanish", "Travel", "Business"], thumbnail: "🇪🇸", color: "from-yellow-500/20 to-red-500/20", border: "border-yellow-500/30", badge: "New", badgeColor: "bg-yellow-500/20 text-yellow-400", description: "Learn practical Spanish. Perfect for travel, business, and everyday communication." },
+  { id: 8, slug: "nft-creation", category: "nft", title: "NFT Creation & Trading", subtitle: "Create, mint, and trade NFTs", instructor: "Alex Turner", instructorAvatar: "AT", level: "Intermediate", duration: "15h 00m", lessons: 60, students: 32145, rating: 4.6, reviews: 1987, price: 199, tags: ["NFT", "Minting", "OpenSea"], thumbnail: "🎨", color: "from-pink-500/20 to-purple-500/20", border: "border-pink-500/30", badge: "Hot", badgeColor: "bg-pink-500/20 text-pink-400", description: "Learn to create, mint, and trade NFTs. Covers art preparation, smart contracts, and marketplace strategies." },
+];
 
 export default function School() {
   const { isAuthenticated } = useAuth();
@@ -157,7 +136,7 @@ export default function School() {
                       <p className="text-muted-foreground text-sm line-clamp-2 mb-3">{course.description}</p>
                       <div className="flex items-center justify-between text-xs text-muted-foreground">
                         <div className="flex items-center gap-1">
-                          <Clock className="h-3 w-3" /> {course.duration || `${course.lessons * 30}m`}
+                          <Clock className="h-3 w-3" /> {course.duration}
                         </div>
                         <div className="flex items-center gap-1">
                           <BookMarked className="h-3 w-3" /> {course.lessons} Lessons

@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { trpc } from "@/lib/trpc";
 import { Link, useLocation } from "wouter";
 import { getLoginUrl } from "@/const";
+import { Menu, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import {
   Users, TrendingUp, Shield, Activity, Coins, Bot, Store, Vote, Flame, Lock,
@@ -79,11 +80,56 @@ export default function Home() {
   const transactions = useCountUp(399);
   const screens = useCountUp(212);
   const [, setLocation] = useLocation();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-purple-950 to-slate-950">
+    <div className="min-h-screen bg-gradient-to-br from-black via-purple-950 to-black">
+      {/* Animated psychedelic background */}
+      <div className="fixed inset-0 opacity-20 pointer-events-none">
+        <div className="absolute inset-0 bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 blur-3xl animate-pulse"></div>
+      </div>
+
+      {/* Top Navigation */}
+      <nav className="sticky top-0 z-50 border-b border-purple-500/30 bg-black/80 backdrop-blur-md">
+        <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+          <Link href="/">
+            <div className="text-2xl font-black bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 bg-clip-text text-transparent cursor-pointer hover:scale-105 transition-transform">
+              🎪 SKY4444
+            </div>
+          </Link>
+          
+          {/* Desktop Menu */}
+          <div className="hidden md:flex items-center gap-8">
+            <Link href="/explore"><span className="text-sm text-purple-300 hover:text-pink-400 transition-colors cursor-pointer">Explore</span></Link>
+            <Link href="/school"><span className="text-sm text-purple-300 hover:text-pink-400 transition-colors cursor-pointer">Learn</span></Link>
+            <Link href="/marketplace"><span className="text-sm text-purple-300 hover:text-pink-400 transition-colors cursor-pointer">Shop</span></Link>
+            <Link href="/games"><span className="text-sm text-purple-300 hover:text-pink-400 transition-colors cursor-pointer">Play</span></Link>
+            <Link href="/dashboard">
+              <Button className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white border-0 shadow-lg shadow-pink-500/50">
+                Dashboard
+              </Button>
+            </Link>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button className="md:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
+
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <div className="md:hidden border-t border-purple-500/30 bg-black/90 backdrop-blur-md p-4 space-y-4">
+            <Link href="/explore"><span className="block text-sm text-purple-300 hover:text-pink-400 cursor-pointer">Explore</span></Link>
+            <Link href="/school"><span className="block text-sm text-purple-300 hover:text-pink-400 cursor-pointer">Learn</span></Link>
+            <Link href="/marketplace"><span className="block text-sm text-purple-300 hover:text-pink-400 cursor-pointer">Shop</span></Link>
+            <Link href="/games"><span className="block text-sm text-purple-300 hover:text-pink-400 cursor-pointer">Play</span></Link>
+            <Link href="/dashboard"><Button className="w-full bg-gradient-to-r from-pink-500 to-purple-600">Dashboard</Button></Link>
+          </div>
+        )}
+      </nav>
       {/* Crypto Ticker */}
-      <div className="sticky top-16 z-30 bg-slate-900/80 backdrop-blur border-b border-purple-500/20 px-4 py-2">
+      <div className="sticky top-[73px] z-30 bg-black/80 backdrop-blur border-b border-purple-500/30 px-4 py-2">
         <div className="max-w-7xl mx-auto flex items-center justify-center gap-8 overflow-x-auto">
           {Object.entries(prices).map(([symbol, data]) => (
             <div key={symbol} className="flex items-center gap-2 whitespace-nowrap">
@@ -97,33 +143,28 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Hero Section - Chess Theme */}
+      {/* Hero Section - LSD Psychedelic Theme */}
       <section className="relative min-h-screen flex items-center justify-center px-4 py-20 overflow-hidden">
-        {/* Animated Chess Board Background */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-gradient-to-br from-pink-500 via-purple-500 to-blue-500 animate-pulse" />
-        </div>
-
         <div className="relative z-10 max-w-6xl mx-auto text-center space-y-8">
           {/* Main Headline */}
           <div className="space-y-4">
-            <div className="flex items-center justify-center gap-3 mb-4">
+            <div className="flex items-center justify-center gap-3 mb-4 animate-pulse">
               <Grid3x3 className="w-12 h-12 text-pink-500 animate-bounce" />
-              <h1 className="text-6xl md:text-7xl font-black bg-gradient-to-r from-pink-500 via-orange-500 to-yellow-500 bg-clip-text text-transparent">
+              <h1 className="text-6xl md:text-8xl font-black bg-gradient-to-r from-pink-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent drop-shadow-2xl">
                 SKY4444
               </h1>
-              <Grid3x3 className="w-12 h-12 text-yellow-500 animate-bounce" style={{ animationDelay: "0.2s" }} />
+              <Grid3x3 className="w-12 h-12 text-cyan-500 animate-bounce" style={{ animationDelay: "0.2s" }} />
             </div>
             
-            <p className="text-2xl md:text-3xl text-gray-300 font-light">
+            <p className="text-2xl md:text-3xl bg-gradient-to-r from-yellow-300 via-pink-300 to-purple-300 bg-clip-text text-transparent font-bold">
               Strategic Digital Ecosystem
             </p>
             
-            <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-purple-200 max-w-3xl mx-auto">
               One Platform. One Ecosystem. Unlimited Potential.
             </p>
             
-            <p className="text-base md:text-lg text-purple-300 italic">
+            <p className="text-base md:text-lg bg-gradient-to-r from-cyan-300 to-pink-300 bg-clip-text text-transparent italic font-semibold">
               "The social platform where chat executes real actions"
             </p>
           </div>
@@ -131,36 +172,38 @@ export default function Home() {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
             <a href={getLoginUrl()}>
-              <Button className="bg-gradient-to-r from-pink-500 to-orange-500 hover:from-pink-600 hover:to-orange-600 text-white px-8 py-6 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all">
+              <Button className="bg-gradient-to-r from-pink-500 to-red-500 hover:from-pink-600 hover:to-red-600 text-white px-8 py-6 text-lg font-semibold rounded-lg shadow-lg shadow-pink-500/50 hover:shadow-pink-500/75 transition-all">
                 Get Started
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
             </a>
-            <Button variant="outline" className="border-purple-500/50 text-gray-300 hover:text-white px-8 py-6 text-lg font-semibold rounded-lg">
-              Learn More
-            </Button>
+            <Link href="/learn-more">
+              <Button variant="outline" className="border-purple-500 text-purple-300 hover:bg-purple-500/10 px-8 py-6 text-lg font-semibold rounded-lg">
+                Learn More
+              </Button>
+            </Link>
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-3 gap-6 mt-16 pt-8 border-t border-purple-500/20">
-            <div className="space-y-2">
-              <p className="text-4xl font-bold text-pink-500">{users.toLocaleString()}+</p>
-              <p className="text-gray-400">Active Users</p>
+          <div className="grid grid-cols-3 gap-6 mt-16 pt-8 border-t border-purple-500/30">
+            <div className="bg-gradient-to-br from-pink-500/10 to-purple-500/10 border border-pink-500/30 rounded-lg p-6 hover:border-pink-500/60 transition-all">
+              <p className="text-4xl font-bold text-pink-400">{users.toLocaleString()}+</p>
+              <p className="text-purple-300 mt-2">Active Users</p>
             </div>
-            <div className="space-y-2">
-              <p className="text-4xl font-bold text-orange-500">{transactions}</p>
-              <p className="text-gray-400">API Endpoints</p>
+            <div className="bg-gradient-to-br from-purple-500/10 to-cyan-500/10 border border-purple-500/30 rounded-lg p-6 hover:border-purple-500/60 transition-all">
+              <p className="text-4xl font-bold text-purple-400">{transactions}</p>
+              <p className="text-purple-300 mt-2">API Endpoints</p>
             </div>
-            <div className="space-y-2">
-              <p className="text-4xl font-bold text-yellow-500">{screens}+</p>
-              <p className="text-gray-400">Features</p>
+            <div className="bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border border-cyan-500/30 rounded-lg p-6 hover:border-cyan-500/60 transition-all">
+              <p className="text-4xl font-bold text-cyan-400">{screens}+</p>
+              <p className="text-purple-300 mt-2">Features</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Features Grid */}
-      <section className="relative py-20 px-4 bg-gradient-to-b from-transparent via-purple-900/20 to-transparent">
+      <section className="relative py-20 px-4 bg-gradient-to-b from-transparent via-purple-900/30 to-transparent">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
@@ -174,19 +217,28 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {FEATURES.map((feature, idx) => {
               const Icon = feature.icon;
+              const colorMap: any = {
+                cyan: { bg: "from-cyan-500/10 to-blue-500/10", border: "border-cyan-500/30", hover: "hover:border-cyan-500/60", icon: "text-cyan-400" },
+                blue: { bg: "from-blue-500/10 to-purple-500/10", border: "border-blue-500/30", hover: "hover:border-blue-500/60", icon: "text-blue-400" },
+                green: { bg: "from-green-500/10 to-emerald-500/10", border: "border-green-500/30", hover: "hover:border-green-500/60", icon: "text-green-400" },
+                pink: { bg: "from-pink-500/10 to-rose-500/10", border: "border-pink-500/30", hover: "hover:border-pink-500/60", icon: "text-pink-400" },
+                yellow: { bg: "from-yellow-500/10 to-orange-500/10", border: "border-yellow-500/30", hover: "hover:border-yellow-500/60", icon: "text-yellow-400" },
+                orange: { bg: "from-orange-500/10 to-red-500/10", border: "border-orange-500/30", hover: "hover:border-orange-500/60", icon: "text-orange-400" },
+                purple: { bg: "from-purple-500/10 to-violet-500/10", border: "border-purple-500/30", hover: "hover:border-purple-500/60", icon: "text-purple-400" },
+                red: { bg: "from-red-500/10 to-pink-500/10", border: "border-red-500/30", hover: "hover:border-red-500/60", icon: "text-red-400" },
+              };
+              const colors = colorMap[feature.accent] || colorMap.cyan;
               return (
                 <div
                   key={idx}
-                  className="group relative bg-gradient-to-br from-slate-800 to-slate-900 border border-purple-500/20 rounded-xl p-6 hover:border-purple-500/50 transition-all hover:shadow-xl hover:shadow-purple-500/20 cursor-pointer"
+                  className={`group relative bg-gradient-to-br ${colors.bg} border ${colors.border} rounded-xl p-6 ${colors.hover} transition-all hover:shadow-xl hover:shadow-purple-500/20 cursor-pointer`}
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-pink-500/0 to-purple-500/0 group-hover:from-pink-500/5 group-hover:to-purple-500/5 rounded-xl transition-all" />
-                  
                   <div className="relative z-10 space-y-3">
-                    <div className={`w-12 h-12 rounded-lg bg-${feature.accent}-500/20 flex items-center justify-center`}>
-                      <Icon className={`w-6 h-6 text-${feature.accent}-400`} />
+                    <div className="w-12 h-12 rounded-lg flex items-center justify-center">
+                      <Icon className={`w-6 h-6 ${colors.icon}`} />
                     </div>
                     <h3 className="text-xl font-bold text-white">{feature.name}</h3>
-                    <p className="text-gray-400 text-sm">{feature.desc}</p>
+                    <p className="text-purple-200 text-sm">{feature.desc}</p>
                   </div>
                 </div>
               );
@@ -237,7 +289,7 @@ export default function Home() {
       </section>
 
       {/* Call to Action */}
-      <section className="relative py-20 px-4 bg-gradient-to-r from-pink-500/10 via-purple-500/10 to-blue-500/10 border-y border-purple-500/20">
+      <section className="relative py-20 px-4 bg-gradient-to-r from-pink-600/20 via-purple-600/20 to-cyan-600/20 border-y border-purple-500/30">
         <div className="max-w-4xl mx-auto text-center space-y-8">
           <h2 className="text-4xl md:text-5xl font-bold text-white">
             Ready to Play?
@@ -247,7 +299,7 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a href={getLoginUrl()}>
-              <Button className="bg-gradient-to-r from-pink-500 to-orange-500 hover:from-pink-600 hover:to-orange-600 text-white px-8 py-6 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all">
+              <Button className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white px-8 py-6 text-lg font-semibold rounded-lg shadow-lg shadow-purple-500/50">
                 Start Your Journey
                 <Rocket className="ml-2 w-5 h-5" />
               </Button>
@@ -257,11 +309,11 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-slate-900 border-t border-purple-500/20 py-12 px-4">
-        <div className="max-w-7xl mx-auto text-center text-gray-400 space-y-4">
-          <p>SKY4444 - One Platform. One Ecosystem. Unlimited Potential.</p>
-          <p className="text-sm">Thanks God and Bless the USA 🇺🇸</p>
-          <p className="text-xs text-gray-500">© 2026 SKY4444. All rights reserved.</p>
+      <footer className="bg-black/80 border-t border-purple-500/30 py-12 px-4">
+        <div className="max-w-7xl mx-auto text-center text-purple-300 space-y-4">
+          <p className="text-lg font-semibold">SKY4444 - One Platform. One Ecosystem. Unlimited Potential.</p>
+          <p className="text-sm text-purple-400">Thanks God and Bless the USA 🇺🇸</p>
+          <p className="text-xs text-purple-500">© 2026 SKY4444. All rights reserved.</p>
         </div>
       </footer>
     </div>
