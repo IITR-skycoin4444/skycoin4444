@@ -7,6 +7,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { MobileBottomNav } from "@/components/MobileBottomNav";
 import { BottomTabBar } from "@/components/BottomTabBar";
 
+import MarketTicker from "@/components/MarketTicker";
 // Lazy load all pages
 const ABTesting = lazy(() => import('./pages/ABTesting'));
 const ABTestingAdvanced = lazy(() => import('./pages/ABTestingAdvanced'));
