@@ -2127,6 +2127,7 @@ export default function App() {
           <Route path="/welcomeScreen" component={WelcomeScreen} />
           <Route path="/whaleMonitor" component={WhaleMonitor} />
           <Route path="/whitelistManagement" component={WhitelistManagement} />
+          <Route path="/wishlist" component={WishlistManagement} />
           <Route path="/wishlistManagement" component={WishlistManagement} />
           <Route path="/workflowAutomation" component={WorkflowAutomation} />
           <Route path="/workflowBuilder" component={WorkflowBuilder} />
