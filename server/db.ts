@@ -1,7 +1,18 @@
 
 import { users, posts, products, orders, transactions, wallets } from "../drizzle/schema";
-import { db } from "./_core/index";
 import { eq, desc, and } from "drizzle-orm";
+import { drizzle } from "drizzle-orm/d1";
+
+// Lazy load db to avoid circular imports
+let db: any = null;
+async function getDb() {
+  if (!db) {
+    const { DATABASE_URL } = process.env;
+    if (!DATABASE_URL) throw new Error("DATABASE_URL not set");
+    db = drizzle({ connection: { url: DATABASE_URL } });
+  }
+  return db;
+}
 
 // ============ USER HELPERS ============
 export async function getUserById(id: string) {

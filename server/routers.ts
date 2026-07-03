@@ -1,6 +1,7 @@
 
 import { z } from "zod";
 import { publicProcedure, protectedProcedure, router } from "./_core/trpc";
+import { miningRouter } from "./mining";
 import * as db from "./db";
 import { users, posts, transactions, products, orders, streams, comments, likes, wallets, notifications, messages, reviews, follows } from "../drizzle/schema";
 import { eq, desc, and, or } from "drizzle-orm";
@@ -185,6 +186,7 @@ export const settingsRouter = router({
 
 // ============ MAIN ROUTER ============
 export const appRouter = router({
+  mining: miningRouter,
   user: userRouter,
   post: postRouter,
   marketplace: marketplaceRouter,

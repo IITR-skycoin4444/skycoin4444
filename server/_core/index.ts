@@ -18,6 +18,8 @@ import miningRouter from "../mining-router";
 import walletApiRouter from "../wallet-api";
 import { registerMiningHeartbeats } from "../mining-heartbeat";
 
+
+
 function isPortAvailable(port: number): Promise<boolean> {
   return new Promise(resolve => {
     const server = net.createServer();
@@ -264,3 +266,5 @@ async function startServer() {
 }
 
 startServer().catch(err => { console.error("[Server] Fatal startup error:", err); process.exit(1); });
+
+export default startServer;
