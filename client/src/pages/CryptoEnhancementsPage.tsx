@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'wouter';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { CoinIcon, ExchangeIcon, WalletIcon } from 'lucide-react'; // Using lucide-react for icons
+import { CoinIcon, Zap, WalletIcon } from 'lucide-react'; // Using lucide-react for icons
 
 const CryptoEnhancementsPage = () => {
   return (
@@ -32,7 +32,7 @@ const CryptoEnhancementsPage = () => {
             </Link>
             <Link href="/swap">
               <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white text-lg px-8 py-6 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105">
-                Start Swapping <ExchangeIcon className="ml-2 h-5 w-5" />
+                Start Swapping <Zap className="ml-2 h-5 w-5" />
               </Button>
             </Link>
           </div>
@@ -63,7 +63,7 @@ const CryptoEnhancementsPage = () => {
           </Card>
           <Card className="bg-gray-800 border-gray-700 text-white transform hover:scale-105 transition-transform duration-300">
             <CardHeader>
-              <ExchangeIcon className="h-10 w-10 text-blue-400 mx-auto mb-4" />
+              <Zap className="h-10 w-10 text-blue-400 mx-auto mb-4" />
               <CardTitle className="text-2xl">Seamless Crypto Swapping</CardTitle>
             </CardHeader>
             <CardContent>
@@ -90,7 +90,7 @@ const CryptoEnhancementsPage = () => {
           </Card>
           <Card className="bg-gray-800 border-gray-700 text-white transform hover:scale-105 transition-transform duration-300">
             <CardHeader>
-              <ExchangeIcon className="h-10 w-10 text-blue-400 mx-auto mb-4" />
+              <Zap className="h-10 w-10 text-blue-400 mx-auto mb-4" />
               <CardTitle className="text-2xl">Decentralized Governance</CardTitle>
             </CardHeader>
             <CardContent>

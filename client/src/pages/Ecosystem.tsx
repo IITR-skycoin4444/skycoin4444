@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "wouter";
 import { trpc } from "@/lib/trpc";
-import { Github, Star, GitFork, ExternalLink } from "lucide-react";
+import { GitBranch, Star, GitFork, ExternalLink } from "lucide-react";
 import {
   Bot,
   TrendingUp,
