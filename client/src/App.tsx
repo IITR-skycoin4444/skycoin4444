@@ -8,6 +8,7 @@ import { MobileBottomNav } from "@/components/MobileBottomNav";
 import { BottomTabBar } from "@/components/BottomTabBar";
 
 import MarketTicker from "@/components/MarketTicker";
+import CurrencyTicker from "@/components/CurrencyTicker";
 // Lazy load all pages
 const ABTesting = lazy(() => import('./pages/ABTesting'));
 const ABTestingAdvanced = lazy(() => import('./pages/ABTestingAdvanced'));
@@ -697,6 +698,7 @@ const RecommendedMatches = lazy(() => import('./pages/RecommendedMatches'));
 const Reels = lazy(() => import('./pages/Reels'));
 const RefactoringTools = lazy(() => import('./pages/RefactoringTools'));
 const Referrals = lazy(() => import('./pages/Referrals'));
+const CurrencyExchange = lazy(() => import("./components/CurrencyTicker"));
 const Mobile = lazy(() => import('./pages/Mobile'));
 const RefundRequests = lazy(() => import('./pages/RefundRequests'));
 const RegionalSettings = lazy(() => import('./pages/RegionalSettings'));
@@ -1679,6 +1681,7 @@ const App = () => {
           <Route path="/refactoringtools" component={RefactoringTools} />
           <Route path="/referrals" component={Referrals} />
           <Route path="/mobile" component={Mobile} />
+      <Route path="/currency" component={CurrencyTicker} />
           <Route path="/refundrequests" component={RefundRequests} />
           <Route path="/regionalsettings" component={RegionalSettings} />
           <Route path="/reminders" component={Reminders} />
