@@ -1,4 +1,6 @@
 import { Button } from "@/components/ui/button";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebookF, faTwitter, faLinkedinIn, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { Card } from "@/components/ui/card";
 import { ArrowRight, Zap, Users, TrendingUp, Gamepad2, ShoppingCart, Radio, Brain } from "lucide-react";
 import { Link } from "wouter";
@@ -150,42 +152,47 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="border-t border-purple-500/20 py-12 px-4 bg-black/50">
-        <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-8">
+          <div className="md:col-span-2 space-y-4">
+            <h4 className="text-2xl font-bold bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 bg-clip-text text-transparent">SKY4444 Enterprise</h4>
+            <p className="text-gray-400 text-sm">The leading strategic digital ecosystem for Web3, AI, and decentralized finance. Empowering users to mine, trade, create, and earn with unparalleled security and innovation.</p>
+            <div className="flex space-x-4 mt-4">
+              <a href="#" className="text-gray-400 hover:text-purple-400"><i className="fab fa-facebook-f"></i></a>
+              <a href="#" className="text-gray-400 hover:text-purple-400"><i className="fab fa-twitter"></i></a>
+              <a href="#" className="text-gray-400 hover:text-purple-400"><i className="fab fa-linkedin-in"></i></a>
+              <a href="#" className="text-gray-400 hover:text-purple-400"><i className="fab fa-youtube"></i></a>
+            </div>
+          </div>
           <div>
             <h4 className="font-bold mb-4">Platform</h4>
             <ul className="space-y-2 text-gray-400 text-sm">
               <li><Link href="/dashboard"><a className="hover:text-purple-400">Dashboard</a></Link></li>
               <li><Link href="/walletoverview"><a className="hover:text-purple-400">Wallet</a></Link></li>
               <li><Link href="/marketplace"><a className="hover:text-purple-400">Marketplace</a></Link></li>
+              <li><Link href="/school"><a className="hover:text-purple-400">Education</a></Link></li>
             </ul>
           </div>
           <div>
-            <h4 className="font-bold mb-4">Community</h4>
+            <h4 className="font-bold mb-4">Company</h4>
             <ul className="space-y-2 text-gray-400 text-sm">
-              <li><Link href="/social"><a className="hover:text-purple-400">Social</a></Link></li>
-              <li><Link href="/communityhub"><a className="hover:text-purple-400">Communities</a></Link></li>
-              <li><Link href="/directmessages"><a className="hover:text-purple-400">Messages</a></Link></li>
+              <li><a href="#" className="hover:text-purple-400">About Us</a></li>
+              <li><a href="#" className="hover:text-purple-400">Careers</a></li>
+              <li><a href="#" className="hover:text-purple-400">Partnerships</a></li>
+              <li><a href="#" className="hover:text-purple-400">Press</a></li>
             </ul>
           </div>
           <div>
-            <h4 className="font-bold mb-4">Learn</h4>
+            <h4 className="font-bold mb-4">Support</h4>
             <ul className="space-y-2 text-gray-400 text-sm">
-              <li><Link href="/school"><a className="hover:text-purple-400">School</a></Link></li>
-              <li><Link href="/aiassistant"><a className="hover:text-purple-400">AI Assistant</a></Link></li>
-              <li><Link href="/videotutorials"><a className="hover:text-purple-400">Tutorials</a></Link></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-bold mb-4">Legal</h4>
-            <ul className="space-y-2 text-gray-400 text-sm">
-              <li><a href="#" className="hover:text-purple-400">Privacy</a></li>
-              <li><a href="#" className="hover:text-purple-400">Terms</a></li>
-              <li><a href="#" className="hover:text-purple-400">Contact</a></li>
+              <li><a href="#" className="hover:text-purple-400">Help Center</a></li>
+              <li><a href="#" className="hover:text-purple-400">Contact Us</a></li>
+              <li><a href="#" className="hover:text-purple-400">Privacy Policy</a></li>
+              <li><a href="#" className="hover:text-purple-400">Terms of Service</a></li>
             </ul>
           </div>
         </div>
         <div className="border-t border-purple-500/20 mt-8 pt-8 text-center text-gray-500 text-sm">
-          <p>&copy; 2026 SKY4444. All rights reserved.</p>
+          <p>&copy; 2026 SKY4444. All rights reserved. | Built with AI by Manus</p>
         </div>
       </footer>
     </div>

@@ -15,7 +15,7 @@
 
 import { getDb } from "./db";
 import * as schema from "../drizzle";
-import { eq, and, desc, sql, gte, lte, or, count } from "drizzle-orm";
+import { eq, and, desc, sql, gte, lte, or, count, distinct } from "drizzle-orm";
 
 // ═══════════════════════════════════════════════════════════════
 // TYPES
@@ -517,7 +517,7 @@ export class FunnelAnalysisService {
 
     const [totalUsers] = await db.select({ count: sql<number>`COUNT(*)` }).from(schema.users);
     const [withPosts] = await db.select({ count: sql<number>`COUNT(DISTINCT ${schema.posts.authorId})` }).from(schema.posts);
-    const [withFollows] = await db.select({ count: sql<number>`COUNT(DISTINCT ${schema.follows.followerId})` }).from(schema.follows);
+    const [withFollows] = await db.select({ followers: sql<number>`COUNT(DISTINCT ${sql.raw(schema.follows.followerId.name)})` }).from(schema.follows);
     const [withTokens] = await db.select({ count: sql<number>`COUNT(DISTINCT ${schema.tokenBalances.userId})` }).from(schema.tokenBalances);
     const [withStakes] = await db.select({ count: sql<number>`COUNT(DISTINCT ${schema.stakingPositions.userId})` }).from(schema.stakingPositions);
 

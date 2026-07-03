@@ -158,9 +158,7 @@ export default function ComprehensiveNavigation() {
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center justify-between">
           <Link href="/">
-            <div className="text-2xl font-black bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 bg-clip-text text-transparent cursor-pointer hover:scale-105 transition-transform">
-              🎪 SKY4444
-            </div>
+            <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663608806484/ebV4wfmMWhJ74jJTNddpvH/skycoin_444_logo-7e777mDBKBGyExP5rLjJpt.webp" alt="SKY4444 Logo" className="h-8 w-auto cursor-pointer hover:scale-105 transition-transform" />
           </Link>
 
           <div className="flex items-center gap-1 overflow-x-auto">
@@ -201,9 +199,7 @@ export default function ComprehensiveNavigation() {
         {/* Mobile Navigation */}
         <div className="lg:hidden flex items-center justify-between">
           <Link href="/">
-            <div className="text-xl font-black bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 bg-clip-text text-transparent cursor-pointer">
-              🎪 SKY4444
-            </div>
+            <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663608806484/ebV4wfmMWhJ74jJTNddpvH/skycoin_444_logo-7e777mDBKBGyExP5rLjJpt.webp" alt="SKY4444 Logo" className="h-7 w-auto cursor-pointer" />
           </Link>
 
           <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
