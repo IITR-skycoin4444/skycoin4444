@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'wouter';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { CoinIcon, Zap, WalletIcon } from 'lucide-react'; // Using lucide-react for icons
+import { Coins, Zap, Wallet } from 'lucide-react'; // Using lucide-react for icons
 
 const CryptoEnhancementsPage = () => {
   return (

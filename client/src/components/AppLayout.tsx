@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { Navigation } from "@/components/Navigation";
+// Navigation component removed - use DashboardLayout instead
 import { MobileBottomNav } from "@/components/MobileBottomNav";
 import { VoiceCommandBar } from "@/components/VoiceCommandBar";
 import { useAuth } from "@/_core/hooks/useAuth";
@@ -10,8 +10,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Premium Navigation */}
-      <Navigation />
+      {/* Navigation handled by parent layout */}
 
       {/* Main Content */}
       <main className="pt-16">{children}</main>
