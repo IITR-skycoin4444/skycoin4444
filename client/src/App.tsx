@@ -9,6 +9,7 @@ import { BottomTabBar } from "@/components/BottomTabBar";
 
 import MarketTicker from "@/components/MarketTicker";
 import CurrencyTicker from "@/components/CurrencyTicker";
+import ComprehensiveNavigation from "@/components/ComprehensiveNavigation";
 // Lazy load all pages
 const ABTesting = lazy(() => import('./pages/ABTesting'));
 const ABTestingAdvanced = lazy(() => import('./pages/ABTestingAdvanced'));
