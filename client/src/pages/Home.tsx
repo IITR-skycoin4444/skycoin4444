@@ -38,16 +38,16 @@ export default function Home() {
             {/* Stats */}
             <div className="grid grid-cols-3 gap-4 pt-12 max-w-2xl mx-auto">
               <Card className="bg-black/50 border-purple-500/30 p-4">
-                <div className="text-3xl font-bold text-pink-500">802K+</div>
-                <div className="text-sm text-gray-400">Active Users</div>
+                <div className="text-3xl font-bold text-pink-500">444+</div>
+                <div className="text-sm text-gray-400">Production Pages</div>
               </Card>
               <Card className="bg-black/50 border-purple-500/30 p-4">
                 <div className="text-3xl font-bold text-cyan-500">320</div>
                 <div className="text-sm text-gray-400">API Endpoints</div>
               </Card>
               <Card className="bg-black/50 border-purple-500/30 p-4">
-                <div className="text-3xl font-bold text-purple-500">170+</div>
-                <div className="text-sm text-gray-400">Features</div>
+                <div className="text-3xl font-bold text-purple-500">1M+</div>
+                <div className="text-sm text-gray-400">Lines of Code</div>
               </Card>
             </div>
           </div>
