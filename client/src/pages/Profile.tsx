@@ -11,7 +11,7 @@ import { toast } from "sonner";
 import {
   Heart, MessageCircle, Share2, Bookmark, Calendar, MapPin,
   Link as LinkIcon, Zap, Camera, Crown, CheckCircle2, Twitter,
-  Play as YoutubeIcon as Play as YoutubeIconIcon, Globe, Edit3, UserPlus, UserMinus,
+  Play as YoutubeIcon, Globe, Edit3, UserPlus, UserMinus,
   Star, Trophy, Flame, TrendingUp, BarChart3, Users,
   Grid3X3, Play, Sparkles, Shield, DollarSign
 } from "lucide-react";

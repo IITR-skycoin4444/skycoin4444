@@ -12,7 +12,7 @@ import { toast } from "sonner";
 import { Link, useLocation } from "wouter";
 import {
   User, Camera, Palette, Wallet, Globe, Twitter,
-  Share2 as InstagramIcon, Play as YoutubeIcon as Play as YoutubeIconIcon, Link2, ArrowLeft, Zap,
+  Share2 as InstagramIcon, Play as YoutubeIcon, Link2, ArrowLeft, Zap,
   CheckCircle, Loader2, MapPin, Edit3
 } from "lucide-react";
 
