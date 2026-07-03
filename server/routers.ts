@@ -1,9 +1,8 @@
 
-import { Router } from "express";
 import { z } from "zod";
-import { publicProcedure, protectedProcedure, router } from "./trpc";
-import { db } from "./db";
-import { users, posts, transactions, products, orders, streams, comments, likes } from "@/db/schema";
+import { publicProcedure, protectedProcedure, router } from "./_core/trpc";
+import * as db from "./db";
+import { users, posts, transactions, products, orders, streams, comments, likes } from "../drizzle/schema";
 import { eq, desc, and, or } from "drizzle-orm";
 
 // ============ USER PROCEDURES ============

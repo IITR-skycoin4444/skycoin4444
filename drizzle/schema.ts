@@ -1,5 +1,5 @@
 
-import { sqliteTable, text, integer, real, boolean, primaryKey } from "drizzle-orm/sqlite-core";
+import { sqliteTable, text, integer, real, primaryKey } from "drizzle-orm/sqlite-core";
 import { relations } from "drizzle-orm";
 
 // ============ USERS TABLE ============
@@ -12,7 +12,7 @@ export const users = sqliteTable("users", {
   avatar: text("avatar"),
   balance: real("balance").default(0),
   role: text("role").default("user"), // admin | user
-  verified: boolean("verified").default(false),
+  verified: integer("verified", { mode: "boolean" }).default(false),
   createdAt: integer("created_at", { mode: "timestamp" }).default(new Date()),
   updatedAt: integer("updated_at", { mode: "timestamp" }).default(new Date()),
 });
@@ -120,7 +120,7 @@ export const notifications = sqliteTable("notifications", {
   userId: text("user_id").references(() => users.id),
   type: text("type"), // like | comment | follow | message | order
   content: text("content"),
-  read: boolean("read").default(false),
+  read: integer("read", { mode: "boolean" }).default(false),
   createdAt: integer("created_at", { mode: "timestamp" }).default(new Date()),
 });
 
@@ -130,7 +130,7 @@ export const messages = sqliteTable("messages", {
   senderId: text("sender_id").references(() => users.id),
   recipientId: text("recipient_id").references(() => users.id),
   content: text("content"),
-  read: boolean("read").default(false),
+  read: integer("read", { mode: "boolean" }).default(false),
   createdAt: integer("created_at", { mode: "timestamp" }).default(new Date()),
 });
 

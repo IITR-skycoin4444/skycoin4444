@@ -1,6 +1,6 @@
 
-import { db } from ".";
-import { users, posts, products, orders, transactions, wallets } from "@/db/schema";
+import { users, posts, products, orders, transactions, wallets } from "../drizzle/schema";
+import { db } from "./_core/index";
 import { eq, desc, and } from "drizzle-orm";
 
 // ============ USER HELPERS ============
