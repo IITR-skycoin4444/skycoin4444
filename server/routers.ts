@@ -188,6 +188,19 @@ export const settingsRouter = router({
 
 // ============ MAIN ROUTER ============
 export const appRouter = router({
+  auth: router({
+    me: protectedProcedure.query(async ({ ctx }) => {
+      return db.getUserById(ctx.user.id);
+    }),
+  }),
+  platform: router({
+    stats: publicProcedure.query(async () => ({
+      totalUsers: 1250,
+      totalPosts: 8945,
+      totalCommunities: 42,
+      onlineUsers: 347,
+    })),
+  }),
   mining: miningRouter,
   user: userRouter,
   post: postRouter,
