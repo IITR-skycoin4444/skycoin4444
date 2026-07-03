@@ -10,7 +10,7 @@ import {
   Gamepad2, MessageCircle, Building2, Sparkles, ArrowRight, Mic, Wallet,
   BarChart3, Trophy, Heart, Layers, Crown, Target, DollarSign, Star, Brain,
   RefreshCw, ShieldCheck, Map, Key, Radio, Cpu, Terminal, Wrench, Settings,
-  Chess, Strategy, Move3D, Lightbulb, Zap as Lightning
+  Lightbulb, Grid3x3
 } from "lucide-react";
 
 function useCountUp(target: number, duration = 1500) {
@@ -108,11 +108,11 @@ export default function Home() {
           {/* Main Headline */}
           <div className="space-y-4">
             <div className="flex items-center justify-center gap-3 mb-4">
-              <Chess className="w-12 h-12 text-pink-500 animate-bounce" />
+              <Grid3x3 className="w-12 h-12 text-pink-500 animate-bounce" />
               <h1 className="text-6xl md:text-7xl font-black bg-gradient-to-r from-pink-500 via-orange-500 to-yellow-500 bg-clip-text text-transparent">
                 SKY4444
               </h1>
-              <Chess className="w-12 h-12 text-yellow-500 animate-bounce" style={{ animationDelay: "0.2s" }} />
+              <Grid3x3 className="w-12 h-12 text-yellow-500 animate-bounce" style={{ animationDelay: "0.2s" }} />
             </div>
             
             <p className="text-2xl md:text-3xl text-gray-300 font-light">
@@ -227,7 +227,7 @@ export default function Home() {
                 <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(68,68,68,.2)_25%,rgba(68,68,68,.2)_50%,transparent_50%,transparent_75%,rgba(68,68,68,.2)_75%,rgba(68,68,68,.2))] bg-[length:60px_60px] animate-pulse" />
               </div>
               <div className="relative z-10 text-center space-y-4">
-                <Chess className="w-24 h-24 text-pink-500 mx-auto animate-bounce" />
+                <Grid3x3 className="w-24 h-24 text-pink-500 mx-auto animate-bounce" />
                 <p className="text-xl font-bold text-white">Strategic Ecosystem</p>
                 <p className="text-gray-400">Every move creates value</p>
               </div>
