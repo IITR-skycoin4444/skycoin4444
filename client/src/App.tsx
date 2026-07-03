@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from "react";
+import { lazy, Suspense } from "react";
 import { Switch, Route } from "wouter";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -6,10 +6,10 @@ import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { Toaster } from "@/components/ui/sonner";
 import { MobileBottomNav } from "@/components/MobileBottomNav";
 import { BottomTabBar } from "@/components/BottomTabBar";
-
 import MarketTicker from "@/components/MarketTicker";
 import CurrencyTicker from "@/components/CurrencyTicker";
 import ComprehensiveNavigation from "@/components/ComprehensiveNavigation";
+
 // Lazy load all pages
 const ABTesting = lazy(() => import('./pages/ABTesting'));
 const ABTestingAdvanced = lazy(() => import('./pages/ABTestingAdvanced'));
@@ -21,6 +21,7 @@ const AICodeStudio = lazy(() => import('./pages/AICodeStudio'));
 const AICopyStudio = lazy(() => import('./pages/AICopyStudio'));
 const AICore = lazy(() => import('./pages/AICore'));
 const AIEngineer = lazy(() => import('./pages/AIEngineer'));
+const AIGovernance = lazy(() => import('./pages/AIGovernance'));
 const AIMarketAgents = lazy(() => import('./pages/AIMarketAgents'));
 const AIMatchmaker = lazy(() => import('./pages/AIMatchmaker'));
 const AIModerationQueue = lazy(() => import('./pages/AIModerationQueue'));
@@ -34,6 +35,7 @@ const APIDocumentation = lazy(() => import('./pages/APIDocumentation'));
 const APIIntegration = lazy(() => import('./pages/APIIntegration'));
 const APIKeys = lazy(() => import('./pages/APIKeys'));
 const APILogs = lazy(() => import('./pages/APILogs'));
+const APIManagement = lazy(() => import('./pages/APIManagement'));
 const APIMonitoring = lazy(() => import('./pages/APIMonitoring'));
 const APIStatus = lazy(() => import('./pages/APIStatus'));
 const APITesting = lazy(() => import('./pages/APITesting'));
@@ -67,6 +69,7 @@ const AdvancedAnalytics = lazy(() => import('./pages/AdvancedAnalytics'));
 const AdvancedOrders = lazy(() => import('./pages/AdvancedOrders'));
 const AdvancedSearch = lazy(() => import('./pages/AdvancedSearch'));
 const AffiliateDashboard = lazy(() => import('./pages/AffiliateDashboard'));
+const AffiliateProgram = lazy(() => import('./pages/AffiliateProgram'));
 const AgeGate = lazy(() => import('./pages/AgeGate'));
 const AgeVerification = lazy(() => import('./pages/AgeVerification'));
 const AgentBuilder = lazy(() => import('./pages/AgentBuilder'));
@@ -90,8 +93,10 @@ const AnalyticsReports = lazy(() => import('./pages/AnalyticsReports'));
 const AnomalyDetection = lazy(() => import('./pages/AnomalyDetection'));
 const AntiSurveillance = lazy(() => import('./pages/AntiSurveillance'));
 const ApprovalWorkflows = lazy(() => import('./pages/ApprovalWorkflows'));
+const ArbitrageBot = lazy(() => import('./pages/ArbitrageBot'));
 const Arcade = lazy(() => import('./pages/Arcade'));
 const ArchiveManagement = lazy(() => import('./pages/ArchiveManagement'));
+const AssetAllocation = lazy(() => import('./pages/AssetAllocation'));
 const AssetManagement = lazy(() => import('./pages/AssetManagement'));
 const AssetTracking = lazy(() => import('./pages/AssetTracking'));
 const AssignmentTracker = lazy(() => import('./pages/AssignmentTracker'));
@@ -121,6 +126,7 @@ const BlockRewards = lazy(() => import('./pages/BlockRewards'));
 const BlockUser = lazy(() => import('./pages/BlockUser'));
 const BlockchainCustody = lazy(() => import('./pages/BlockchainCustody'));
 const BlockchainMonitor = lazy(() => import('./pages/BlockchainMonitor'));
+const BlockedUsers = lazy(() => import('./pages/BlockedUsers'));
 const BlogEditor = lazy(() => import('./pages/BlogEditor'));
 const BlogPublisher = lazy(() => import('./pages/BlogPublisher'));
 const BookPage = lazy(() => import('./pages/BookPage'));
@@ -128,6 +134,7 @@ const Bookmarks = lazy(() => import('./pages/Bookmarks'));
 const BountySystem = lazy(() => import('./pages/BountySystem'));
 const BrandGuidelines = lazy(() => import('./pages/BrandGuidelines'));
 const BreadcrumbNavigation = lazy(() => import('./pages/BreadcrumbNavigation'));
+const BridgeProtocol = lazy(() => import('./pages/BridgeProtocol'));
 const BridgeTransactions = lazy(() => import('./pages/BridgeTransactions'));
 const BrowserExtension = lazy(() => import('./pages/BrowserExtension'));
 const BudgetPlanner = lazy(() => import('./pages/BudgetPlanner'));
@@ -138,7 +145,9 @@ const BulkOperations = lazy(() => import('./pages/BulkOperations'));
 const BulkOrdering = lazy(() => import('./pages/BulkOrdering'));
 const BulkUpload = lazy(() => import('./pages/BulkUpload'));
 const CCPA = lazy(() => import('./pages/CCPA'));
+const CDNManagement = lazy(() => import('./pages/CDNManagement'));
 const CRM = lazy(() => import('./pages/CRM'));
+const CacheManagement = lazy(() => import('./pages/CacheManagement'));
 const Calculator = lazy(() => import('./pages/Calculator'));
 const Calendar = lazy(() => import('./pages/Calendar'));
 const CalendarView = lazy(() => import('./pages/CalendarView'));
@@ -152,6 +161,7 @@ const CategoryManagement = lazy(() => import('./pages/CategoryManagement'));
 const CertificateManager = lazy(() => import('./pages/CertificateManager'));
 const ChainExplorer = lazy(() => import('./pages/ChainExplorer'));
 const ChangeLog = lazy(() => import('./pages/ChangeLog'));
+const ChannelCustomization = lazy(() => import('./pages/ChannelCustomization'));
 const Charity = lazy(() => import('./pages/Charity'));
 const CharityLeaderboard = lazy(() => import('./pages/CharityLeaderboard'));
 const ChartAnalysis = lazy(() => import('./pages/ChartAnalysis'));
@@ -194,6 +204,8 @@ const ComplianceCenter = lazy(() => import('./pages/ComplianceCenter'));
 const ComplianceChecker = lazy(() => import('./pages/ComplianceChecker'));
 const ComplianceChecking = lazy(() => import('./pages/ComplianceChecking'));
 const ComplianceDashboard = lazy(() => import('./pages/ComplianceDashboard'));
+const ComplianceReports = lazy(() => import('./pages/ComplianceReports'));
+const ComponentShowcase = lazy(() => import('./pages/ComponentShowcase'));
 const ComprehensiveEcosystemLanding = lazy(() => import('./pages/ComprehensiveEcosystemLanding'));
 const ConfirmationDialog = lazy(() => import('./pages/ConfirmationDialog'));
 const ConnectedApps = lazy(() => import('./pages/ConnectedApps'));
@@ -202,11 +214,14 @@ const ConnectionRequests = lazy(() => import('./pages/ConnectionRequests'));
 const ConnectorIntelligence = lazy(() => import('./pages/ConnectorIntelligence'));
 const ContactManagement = lazy(() => import('./pages/ContactManagement'));
 const ContactUsForm = lazy(() => import('./pages/ContactUsForm'));
+const ContentAnalytics = lazy(() => import('./pages/ContentAnalytics'));
 const ContentCalendar = lazy(() => import('./pages/ContentCalendar'));
+const ContentCollaboration = lazy(() => import('./pages/ContentCollaboration'));
 const ContentFlagging = lazy(() => import('./pages/ContentFlagging'));
 const ContentLibrary = lazy(() => import('./pages/ContentLibrary'));
 const ContentModeration = lazy(() => import('./pages/ContentModeration'));
 const ContentScheduler = lazy(() => import('./pages/ContentScheduler'));
+const ContentScheduling = lazy(() => import('./pages/ContentScheduling'));
 const ContentUpload = lazy(() => import('./pages/ContentUpload'));
 const ContentVault = lazy(() => import('./pages/ContentVault'));
 const ContextMenu = lazy(() => import('./pages/ContextMenu'));
@@ -218,6 +233,7 @@ const ConversationHistory = lazy(() => import('./pages/ConversationHistory'));
 const ConversionFunnel = lazy(() => import('./pages/ConversionFunnel'));
 const ConversionOptimization = lazy(() => import('./pages/ConversionOptimization'));
 const CookiePolicy = lazy(() => import('./pages/CookiePolicy'));
+const CopyrightManagement = lazy(() => import('./pages/CopyrightManagement'));
 const CostAllocation = lazy(() => import('./pages/CostAllocation'));
 const CostBasisCalculation = lazy(() => import('./pages/CostBasisCalculation'));
 const CourseBuilder = lazy(() => import('./pages/CourseBuilder'));
@@ -230,16 +246,22 @@ const CreateReel = lazy(() => import('./pages/CreateReel'));
 const CreatorAnalytics = lazy(() => import('./pages/CreatorAnalytics'));
 const CreatorDashboard = lazy(() => import('./pages/CreatorDashboard'));
 const CreatorEconomy = lazy(() => import('./pages/CreatorEconomy'));
+const CreatorFunding = lazy(() => import('./pages/CreatorFunding'));
+const CreatorGrants = lazy(() => import('./pages/CreatorGrants'));
 const CreatorIntelligence = lazy(() => import('./pages/CreatorIntelligence'));
 const CreatorMonetization = lazy(() => import('./pages/CreatorMonetization'));
+const CreatorNetwork = lazy(() => import('./pages/CreatorNetwork'));
 const CreatorOnboarding = lazy(() => import('./pages/CreatorOnboarding'));
 const CreatorProfile = lazy(() => import('./pages/CreatorProfile'));
 const CreatorSpotlight = lazy(() => import('./pages/CreatorSpotlight'));
 const CreatorStudio = lazy(() => import('./pages/CreatorStudio'));
 const CrossChainInterop = lazy(() => import('./pages/CrossChainInterop'));
+const CrossChainSwap = lazy(() => import('./pages/CrossChainSwap'));
 const Crypto = lazy(() => import('./pages/Crypto'));
 const CryptoEnhancementsPage = lazy(() => import('./pages/CryptoEnhancementsPage'));
+const CryptoExchange = lazy(() => import('./pages/CryptoExchange'));
 const CryptoHub = lazy(() => import('./pages/CryptoHub'));
+const CryptoNews = lazy(() => import('./pages/CryptoNews'));
 const CryptoResearchHub = lazy(() => import('./pages/CryptoResearchHub'));
 const CustomDashboard = lazy(() => import('./pages/CustomDashboard'));
 const CustomReports = lazy(() => import('./pages/CustomReports'));
@@ -247,8 +269,8 @@ const CustomerAnalytics = lazy(() => import('./pages/CustomerAnalytics'));
 const CustomerDisputes = lazy(() => import('./pages/CustomerDisputes'));
 const DAOGovernance = lazy(() => import('./pages/DAOGovernance'));
 const DAOTreasury = lazy(() => import('./pages/DAOTreasury'));
+const DCACalculator = lazy(() => import('./pages/DCACalculator'));
 const DEXDepthChart = lazy(() => import('./pages/DEXDepthChart'));
-// DHgate removed - using native marketplace instead
 const DMInbox = lazy(() => import('./pages/DMInbox'));
 const Dashboard = lazy(() => import('./pages/Dashboard'));
 const DashboardOverview = lazy(() => import('./pages/DashboardOverview'));
@@ -281,6 +303,7 @@ const DepartmentManagement = lazy(() => import('./pages/DepartmentManagement'));
 const DependencyGraph = lazy(() => import('./pages/DependencyGraph'));
 const DeploymentPipeline = lazy(() => import('./pages/DeploymentPipeline'));
 const DeprecationPolicy = lazy(() => import('./pages/DeprecationPolicy'));
+const DerivativeTrading = lazy(() => import('./pages/DerivativeTrading'));
 const DerivativesTrading = lazy(() => import('./pages/DerivativesTrading'));
 const DestinationGuide = lazy(() => import('./pages/DestinationGuide'));
 const DestinyEngine = lazy(() => import('./pages/DestinyEngine'));
@@ -309,6 +332,7 @@ const DocumentSharing = lazy(() => import('./pages/DocumentSharing'));
 const DocumentSigning = lazy(() => import('./pages/DocumentSigning'));
 const Documentation = lazy(() => import('./pages/Documentation'));
 const DogecoinPoolSelection = lazy(() => import('./pages/DogecoinPoolSelection'));
+const DomainManagement = lazy(() => import('./pages/DomainManagement'));
 const DonationProcessing = lazy(() => import('./pages/DonationProcessing'));
 const DropdownMenu = lazy(() => import('./pages/DropdownMenu'));
 const ENSResolver = lazy(() => import('./pages/ENSResolver'));
@@ -320,6 +344,7 @@ const EconomyControl = lazy(() => import('./pages/EconomyControl'));
 const Ecosystem = lazy(() => import('./pages/Ecosystem'));
 const EditProfile = lazy(() => import('./pages/EditProfile'));
 const EmailCampaigns = lazy(() => import('./pages/EmailCampaigns'));
+const EmailConfiguration = lazy(() => import('./pages/EmailConfiguration'));
 const EmailInputForm = lazy(() => import('./pages/EmailInputForm'));
 const EmailIntegration = lazy(() => import('./pages/EmailIntegration'));
 const EmailNotifications = lazy(() => import('./pages/EmailNotifications'));
@@ -328,10 +353,12 @@ const EmailVerification = lazy(() => import('./pages/EmailVerification'));
 const EmbedSDK = lazy(() => import('./pages/EmbedSDK'));
 const EmptySearchState = lazy(() => import('./pages/EmptySearchState'));
 const EngagementMetrics = lazy(() => import('./pages/EngagementMetrics'));
+const EngagementStats = lazy(() => import('./pages/EngagementStats'));
 const Engineer = lazy(() => import('./pages/Engineer'));
 const Enterprise = lazy(() => import('./pages/Enterprise'));
 const EnterpriseAPI = lazy(() => import('./pages/EnterpriseAPI'));
 const EnterpriseAnalytics = lazy(() => import('./pages/EnterpriseAnalytics'));
+const EnterpriseBilling = lazy(() => import('./pages/EnterpriseBilling'));
 const EntityProfile = lazy(() => import('./pages/EntityProfile'));
 const EnvironmentManagement = lazy(() => import('./pages/EnvironmentManagement'));
 const Error403 = lazy(() => import('./pages/Error403'));
@@ -380,11 +407,14 @@ const FileUploadProgress = lazy(() => import('./pages/FileUploadProgress'));
 const FileVersioning = lazy(() => import('./pages/FileVersioning'));
 const FilterPanel = lazy(() => import('./pages/FilterPanel'));
 const FinancialReports = lazy(() => import('./pages/FinancialReports'));
+const FlashLoans = lazy(() => import('./pages/FlashLoans'));
 const FlightSearch = lazy(() => import('./pages/FlightSearch'));
 const FollowList = lazy(() => import('./pages/FollowList'));
+const FollowRequests = lazy(() => import('./pages/FollowRequests'));
 const FollowSystem = lazy(() => import('./pages/FollowSystem'));
 const FollowUnfollow = lazy(() => import('./pages/FollowUnfollow'));
 const FollowerList = lazy(() => import('./pages/FollowerList'));
+const FollowersNetwork = lazy(() => import('./pages/FollowersNetwork'));
 const ForecastingEngine = lazy(() => import('./pages/ForecastingEngine'));
 const ForumCategories = lazy(() => import('./pages/ForumCategories'));
 const FrameworkTemplates = lazy(() => import('./pages/FrameworkTemplates'));
@@ -433,11 +463,11 @@ const HOPEAIControl = lazy(() => import('./pages/HOPEAIControl'));
 const HashRateMonitor = lazy(() => import('./pages/HashRateMonitor'));
 const HashtagExplorer = lazy(() => import('./pages/HashtagExplorer'));
 const HashtagSearch = lazy(() => import('./pages/HashtagSearch'));
+const Hashtags = lazy(() => import('./pages/Hashtags'));
 const HealthArticles = lazy(() => import('./pages/HealthArticles'));
 const HealthDashboard = lazy(() => import('./pages/HealthDashboard'));
 const HealthGoals = lazy(() => import('./pages/HealthGoals'));
 const HelpCenter = lazy(() => import('./pages/HelpCenter'));
-const Home = lazy(() => import('./pages/Home'));
 const HopeAI = lazy(() => import('./pages/HopeAI'));
 const HopeAIAdvanced = lazy(() => import('./pages/HopeAIAdvanced'));
 const HopeAIMeta = lazy(() => import('./pages/HopeAIMeta'));
@@ -447,6 +477,9 @@ const HotelSearch = lazy(() => import('./pages/HotelSearch'));
 const HubSpotIntegration = lazy(() => import('./pages/HubSpotIntegration'));
 const ICOLaunchpad = lazy(() => import('./pages/ICOLaunchpad'));
 const IFTTT = lazy(() => import('./pages/IFTTT'));
+const IITR = lazy(() => import('./pages/IITR'));
+const ITServicesLanding = lazy(() => import('./pages/ITServicesLanding'));
+const ITServicesPortal = lazy(() => import('./pages/ITServicesPortal'));
 const ImageEditor = lazy(() => import('./pages/ImageEditor'));
 const ImageGallery = lazy(() => import('./pages/ImageGallery'));
 const ImageTools = lazy(() => import('./pages/ImageTools'));
@@ -461,6 +494,7 @@ const InstructorDashboard = lazy(() => import('./pages/InstructorDashboard'));
 const IntegrationSetup = lazy(() => import('./pages/IntegrationSetup'));
 const Integrations = lazy(() => import('./pages/Integrations'));
 const InventoryManagement = lazy(() => import('./pages/InventoryManagement'));
+const InvestmentGoals = lazy(() => import('./pages/InvestmentGoals'));
 const InvestorMetrics = lazy(() => import('./pages/InvestorMetrics'));
 const InvestorPitch = lazy(() => import('./pages/InvestorPitch'));
 const InvestorPortal = lazy(() => import('./pages/InvestorPortal'));
@@ -483,12 +517,14 @@ const Learning = lazy(() => import('./pages/Learning'));
 const LearningPath = lazy(() => import('./pages/LearningPath'));
 const LegalDocuments = lazy(() => import('./pages/LegalDocuments'));
 const LegendaryStatus = lazy(() => import('./pages/LegendaryStatus'));
+const LendingBorrow = lazy(() => import('./pages/LendingBorrow'));
 const LendingBorrowing = lazy(() => import('./pages/LendingBorrowing'));
 const LessonEditor = lazy(() => import('./pages/LessonEditor'));
 const LifeCommand = lazy(() => import('./pages/LifeCommand'));
 const Lightbox = lazy(() => import('./pages/Lightbox'));
 const LikeReactionSystem = lazy(() => import('./pages/LikeReactionSystem'));
 const Likes = lazy(() => import('./pages/Likes'));
+const LiquidStaking = lazy(() => import('./pages/LiquidStaking'));
 const LiquidityPools = lazy(() => import('./pages/LiquidityPools'));
 const ListView = lazy(() => import('./pages/ListView'));
 const Live = lazy(() => import('./pages/Live'));
@@ -496,7 +532,9 @@ const LiveChat = lazy(() => import('./pages/LiveChat'));
 const LiveGifting = lazy(() => import('./pages/LiveGifting'));
 const LiveReactions = lazy(() => import('./pages/LiveReactions'));
 const LiveStreamSetup = lazy(() => import('./pages/LiveStreamSetup'));
+const LiveStreaming = lazy(() => import('./pages/LiveStreaming'));
 const LivestreamDashboard = lazy(() => import('./pages/LivestreamDashboard'));
+const LoadBalancing = lazy(() => import('./pages/LoadBalancing'));
 const LoadingDialog = lazy(() => import('./pages/LoadingDialog'));
 const LogViewer = lazy(() => import('./pages/LogViewer'));
 const Login = lazy(() => import('./pages/Login'));
@@ -507,7 +545,9 @@ const MailingLists = lazy(() => import('./pages/MailingLists'));
 const MainDashboard = lazy(() => import('./pages/MainDashboard'));
 const MaintenanceMode = lazy(() => import('./pages/MaintenanceMode'));
 const MapView = lazy(() => import('./pages/MapView'));
+const MarginTrading = lazy(() => import('./pages/MarginTrading'));
 const MarkdownRendering = lazy(() => import('./pages/MarkdownRendering'));
+const MarketSentiment = lazy(() => import('./pages/MarketSentiment'));
 const MarketingROI = lazy(() => import('./pages/MarketingROI'));
 const Marketplace = lazy(() => import('./pages/Marketplace'));
 const MarketplaceAnalytics = lazy(() => import('./pages/MarketplaceAnalytics'));
@@ -526,15 +566,18 @@ const MembershipTiers = lazy(() => import('./pages/MembershipTiers'));
 const MemoryConstellation = lazy(() => import('./pages/MemoryConstellation'));
 const MemoryGraphVisualizer = lazy(() => import('./pages/MemoryGraphVisualizer'));
 const MemorySystem = lazy(() => import('./pages/MemorySystem'));
+const Mentions = lazy(() => import('./pages/Mentions'));
 const MessageEncryption = lazy(() => import('./pages/MessageEncryption'));
 const MessageSearch = lazy(() => import('./pages/MessageSearch'));
 const Messages = lazy(() => import('./pages/Messages'));
+const MetaversePortal = lazy(() => import('./pages/MetaversePortal'));
 const MilestoneTracking = lazy(() => import('./pages/MilestoneTracking'));
 const MinerDashboard = lazy(() => import('./pages/MinerDashboard'));
 const MiningCalculator = lazy(() => import('./pages/MiningCalculator'));
 const MiningDashboard = lazy(() => import('./pages/MiningDashboard'));
 const MiningPoolSelector = lazy(() => import('./pages/MiningPoolSelector'));
 const MissionControl = lazy(() => import('./pages/MissionControl'));
+const Mobile = lazy(() => import('./pages/Mobile'));
 const MobileApp = lazy(() => import('./pages/MobileApp'));
 const MobileGaming = lazy(() => import('./pages/MobileGaming'));
 const MobileHome = lazy(() => import('./pages/MobileHome'));
@@ -549,6 +592,7 @@ const MobileStreaming = lazy(() => import('./pages/MobileStreaming'));
 const MobileTrading = lazy(() => import('./pages/MobileTrading'));
 const MobileWallet = lazy(() => import('./pages/MobileWallet'));
 const ModerationDashboard = lazy(() => import('./pages/ModerationDashboard'));
+const Monetization = lazy(() => import('./pages/Monetization'));
 const MoodTracker = lazy(() => import('./pages/MoodTracker'));
 const MortgageCalculator = lazy(() => import('./pages/MortgageCalculator'));
 const MovieCatalog = lazy(() => import('./pages/MovieCatalog'));
@@ -559,6 +603,7 @@ const MultiplayerLobby = lazy(() => import('./pages/MultiplayerLobby'));
 const MultivariateTesting = lazy(() => import('./pages/MultivariateTesting'));
 const MusicGeneration = lazy(() => import('./pages/MusicGeneration'));
 const MutualConnections = lazy(() => import('./pages/MutualConnections'));
+const MutualFriends = lazy(() => import('./pages/MutualFriends'));
 const MyLearning = lazy(() => import('./pages/MyLearning'));
 const MyTrips = lazy(() => import('./pages/MyTrips'));
 const NFTGallery = lazy(() => import('./pages/NFTGallery'));
@@ -587,6 +632,9 @@ const OAuthProviders = lazy(() => import('./pages/OAuthProviders'));
 const OfferManagement = lazy(() => import('./pages/OfferManagement'));
 const Onboarding = lazy(() => import('./pages/Onboarding'));
 const OnboardingTutorial = lazy(() => import('./pages/OnboardingTutorial'));
+const OptionsTrading = lazy(() => import('./pages/OptionsTrading'));
+const OracleNetwork = lazy(() => import('./pages/OracleNetwork'));
+const OrderBook = lazy(() => import('./pages/OrderBook'));
 const OrderConfirmation = lazy(() => import('./pages/OrderConfirmation'));
 const OrderHistory = lazy(() => import('./pages/OrderHistory'));
 const OrderPlacement = lazy(() => import('./pages/OrderPlacement'));
@@ -606,19 +654,25 @@ const Payments = lazy(() => import('./pages/Payments'));
 const PayoutDashboard = lazy(() => import('./pages/PayoutDashboard'));
 const PayoutManagement = lazy(() => import('./pages/PayoutManagement'));
 const PerformanceMetrics = lazy(() => import('./pages/PerformanceMetrics'));
+const PerformanceTuning = lazy(() => import('./pages/PerformanceTuning'));
+const PermissionManagement = lazy(() => import('./pages/PermissionManagement'));
+const PerpetualFutures = lazy(() => import('./pages/PerpetualFutures'));
 const PersonaBuilder = lazy(() => import('./pages/PersonaBuilder'));
 const Phase1Dashboard = lazy(() => import('./pages/Phase1Dashboard'));
 const Phase2to4Dashboard = lazy(() => import('./pages/Phase2to4Dashboard'));
 const PhoneVerification = lazy(() => import('./pages/PhoneVerification'));
 const PlatformMap = lazy(() => import('./pages/PlatformMap'));
 const PlatformStatus = lazy(() => import('./pages/PlatformStatus'));
+const PlaylistManagement = lazy(() => import('./pages/PlaylistManagement'));
 const PlaylistManager = lazy(() => import('./pages/PlaylistManager'));
 const PodcastStudio = lazy(() => import('./pages/PodcastStudio'));
 const PolicyManagement = lazy(() => import('./pages/PolicyManagement'));
 const PoolPerformance = lazy(() => import('./pages/PoolPerformance'));
 const Portfolio = lazy(() => import('./pages/Portfolio'));
+const PortfolioComparison = lazy(() => import('./pages/PortfolioComparison'));
 const PortfolioOptimization = lazy(() => import('./pages/PortfolioOptimization'));
 const PortfolioOverview = lazy(() => import('./pages/PortfolioOverview'));
+const PortfolioRebalance = lazy(() => import('./pages/PortfolioRebalance'));
 const PortfolioTracker = lazy(() => import('./pages/PortfolioTracker'));
 const PortfolioTracking = lazy(() => import('./pages/PortfolioTracking'));
 const PositionManagement = lazy(() => import('./pages/PositionManagement'));
@@ -636,6 +690,7 @@ const PricingEngine = lazy(() => import('./pages/PricingEngine'));
 const PricingManagement = lazy(() => import('./pages/PricingManagement'));
 const PricingRules = lazy(() => import('./pages/PricingRules'));
 const PriorityMatrix = lazy(() => import('./pages/PriorityMatrix'));
+const PrivacyMixer = lazy(() => import('./pages/PrivacyMixer'));
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
 const PrivacySettings = lazy(() => import('./pages/PrivacySettings'));
 const PrivacyVault = lazy(() => import('./pages/PrivacyVault'));
@@ -671,9 +726,12 @@ const PropertyDetail = lazy(() => import('./pages/PropertyDetail'));
 const PropertyListing = lazy(() => import('./pages/PropertyListing'));
 const PropertyTransfer = lazy(() => import('./pages/PropertyTransfer'));
 const ProtocolLayer = lazy(() => import('./pages/ProtocolLayer'));
+const PublishingQueue = lazy(() => import('./pages/PublishingQueue'));
 const PublishingSchedule = lazy(() => import('./pages/PublishingSchedule'));
 const PushNotifications = lazy(() => import('./pages/PushNotifications'));
 const QRCodeGenerator = lazy(() => import('./pages/QRCodeGenerator'));
+const QuantumComputing = lazy(() => import('./pages/QuantumComputing'));
+const QuantumSafe = lazy(() => import('./pages/QuantumSafe'));
 const QuickActions = lazy(() => import('./pages/QuickActions'));
 const QuickStats = lazy(() => import('./pages/QuickStats'));
 const QuizBuilder = lazy(() => import('./pages/QuizBuilder'));
@@ -699,8 +757,6 @@ const RecommendedMatches = lazy(() => import('./pages/RecommendedMatches'));
 const Reels = lazy(() => import('./pages/Reels'));
 const RefactoringTools = lazy(() => import('./pages/RefactoringTools'));
 const Referrals = lazy(() => import('./pages/Referrals'));
-const CurrencyExchange = lazy(() => import("./components/CurrencyTicker"));
-const Mobile = lazy(() => import('./pages/Mobile'));
 const RefundRequests = lazy(() => import('./pages/RefundRequests'));
 const RegionalSettings = lazy(() => import('./pages/RegionalSettings'));
 const Reminders = lazy(() => import('./pages/Reminders'));
@@ -718,6 +774,7 @@ const RetentionEngine = lazy(() => import('./pages/RetentionEngine'));
 const RetirementPlanner = lazy(() => import('./pages/RetirementPlanner'));
 const ReturnManagement = lazy(() => import('./pages/ReturnManagement'));
 const ReturnsRefunds = lazy(() => import('./pages/ReturnsRefunds'));
+const RevenueTracking = lazy(() => import('./pages/RevenueTracking'));
 const ReviewModeration = lazy(() => import('./pages/ReviewModeration'));
 const Reviews = lazy(() => import('./pages/Reviews'));
 const ReviewsRatings = lazy(() => import('./pages/ReviewsRatings'));
@@ -725,6 +782,7 @@ const RewardSystem = lazy(() => import('./pages/RewardSystem'));
 const RewardsMonitoring = lazy(() => import('./pages/RewardsMonitoring'));
 const RewardsTracking = lazy(() => import('./pages/RewardsTracking'));
 const RiskAnalysis = lazy(() => import('./pages/RiskAnalysis'));
+const RiskManagement = lazy(() => import('./pages/RiskManagement'));
 const Roadmap = lazy(() => import('./pages/Roadmap'));
 const RoadmapView = lazy(() => import('./pages/RoadmapView'));
 const RoleBasedAccess = lazy(() => import('./pages/RoleBasedAccess'));
@@ -736,7 +794,9 @@ const SKY444CentralBank = lazy(() => import('./pages/SKY444CentralBank'));
 const SMSCampaigns = lazy(() => import('./pages/SMSCampaigns'));
 const SMSIntegration = lazy(() => import('./pages/SMSIntegration'));
 const SMSTemplates = lazy(() => import('./pages/SMSTemplates'));
+const SMTPSettings = lazy(() => import('./pages/SMTPSettings'));
 const SOC2 = lazy(() => import('./pages/SOC2'));
+const SSLCertificates = lazy(() => import('./pages/SSLCertificates'));
 const SSO = lazy(() => import('./pages/SSO'));
 const SalesAnalytics = lazy(() => import('./pages/SalesAnalytics'));
 const SalesforceIntegration = lazy(() => import('./pages/SalesforceIntegration'));
@@ -779,6 +839,7 @@ const SetupWizard = lazy(() => import('./pages/SetupWizard'));
 const ShadowIdentity = lazy(() => import('./pages/ShadowIdentity'));
 const ShadowRelay = lazy(() => import('./pages/ShadowRelay'));
 const ShareDialog = lazy(() => import('./pages/ShareDialog'));
+const Shares = lazy(() => import('./pages/Shares'));
 const Sharing = lazy(() => import('./pages/Sharing'));
 const ShippingManagement = lazy(() => import('./pages/ShippingManagement'));
 const ShoppingCart = lazy(() => import('./pages/ShoppingCart'));
@@ -799,6 +860,9 @@ const SlippageProtection = lazy(() => import('./pages/SlippageProtection'));
 const SmartContractAudit = lazy(() => import('./pages/SmartContractAudit'));
 const SmartContractViewer = lazy(() => import('./pages/SmartContractViewer'));
 const SmartContracts = lazy(() => import('./pages/SmartContracts'));
+const SocialAnalytics = lazy(() => import('./pages/SocialAnalytics'));
+const SocialEvents = lazy(() => import('./pages/SocialEvents'));
+const SocialFeed = lazy(() => import('./pages/SocialFeed'));
 const SocialFeedV2 = lazy(() => import('./pages/SocialFeedV2'));
 const SocialGraph = lazy(() => import('./pages/SocialGraph'));
 const SocialMedia = lazy(() => import('./pages/SocialMedia'));
@@ -807,8 +871,10 @@ const SolanaValidatorSetup = lazy(() => import('./pages/SolanaValidatorSetup'));
 const SortOptions = lazy(() => import('./pages/SortOptions'));
 const SpeechToText = lazy(() => import('./pages/SpeechToText'));
 const SpinWheel = lazy(() => import('./pages/SpinWheel'));
+const Sponsorships = lazy(() => import('./pages/Sponsorships'));
 const StakeDelegation = lazy(() => import('./pages/StakeDelegation'));
 const StakingDashboard = lazy(() => import('./pages/StakingDashboard'));
+const StakingHub = lazy(() => import('./pages/StakingHub'));
 const StakingOptions = lazy(() => import('./pages/StakingOptions'));
 const StakingPortal = lazy(() => import('./pages/StakingPortal'));
 const StatisticsPanel = lazy(() => import('./pages/StatisticsPanel'));
@@ -820,10 +886,12 @@ const Stories = lazy(() => import('./pages/Stories'));
 const StreamAnalytics = lazy(() => import('./pages/StreamAnalytics'));
 const StreamClip = lazy(() => import('./pages/StreamClip'));
 const StreamGifting = lazy(() => import('./pages/StreamGifting'));
+const StreamingDashboard = lazy(() => import('./pages/StreamingDashboard'));
 const StripeCheckout = lazy(() => import('./pages/StripeCheckout'));
 const StripeIntegration = lazy(() => import('./pages/StripeIntegration'));
 const StudentProgress = lazy(() => import('./pages/StudentProgress'));
 const StyleSelector = lazy(() => import('./pages/StyleSelector'));
+const SubscriberManagement = lazy(() => import('./pages/SubscriberManagement'));
 const SubscriptionManagement = lazy(() => import('./pages/SubscriptionManagement'));
 const SubscriptionPlans = lazy(() => import('./pages/SubscriptionPlans'));
 const SubscriptionSetup = lazy(() => import('./pages/SubscriptionSetup'));
@@ -834,9 +902,12 @@ const SupportMetrics = lazy(() => import('./pages/SupportMetrics'));
 const SupportTicket = lazy(() => import('./pages/SupportTicket'));
 const SwapInterface = lazy(() => import('./pages/SwapInterface'));
 const SwipeInterface = lazy(() => import('./pages/SwipeInterface'));
+const Synthetics = lazy(() => import('./pages/Synthetics'));
 const SystemArchitecture = lazy(() => import('./pages/SystemArchitecture'));
 const SystemLogs = lazy(() => import('./pages/SystemLogs'));
+const SystemMonitoring = lazy(() => import('./pages/SystemMonitoring'));
 const SystemObservability = lazy(() => import('./pages/SystemObservability'));
+const SystemSettings = lazy(() => import('./pages/SystemSettings'));
 const SystemStatus = lazy(() => import('./pages/SystemStatus'));
 const TabsNavigation = lazy(() => import('./pages/TabsNavigation'));
 const TaskAutomation = lazy(() => import('./pages/TaskAutomation'));
@@ -844,6 +915,7 @@ const TaskDetail = lazy(() => import('./pages/TaskDetail'));
 const TaskList = lazy(() => import('./pages/TaskList'));
 const TaxDocumentation = lazy(() => import('./pages/TaxDocumentation'));
 const TaxPlanning = lazy(() => import('./pages/TaxPlanning'));
+const TaxReporting = lazy(() => import('./pages/TaxReporting'));
 const TaxReports = lazy(() => import('./pages/TaxReports'));
 const TeachingOpportunities = lazy(() => import('./pages/TeachingOpportunities'));
 const TeamManagement = lazy(() => import('./pages/TeamManagement'));
@@ -883,6 +955,8 @@ const TournamentBrackets = lazy(() => import('./pages/TournamentBrackets'));
 const Tournaments = lazy(() => import('./pages/Tournaments'));
 const TradeHistory = lazy(() => import('./pages/TradeHistory'));
 const Trading = lazy(() => import('./pages/Trading'));
+const TradingBots = lazy(() => import('./pages/TradingBots'));
+const TradingHistory = lazy(() => import('./pages/TradingHistory'));
 const TradingTerminal = lazy(() => import('./pages/TradingTerminal'));
 const TransactionExplorer = lazy(() => import('./pages/TransactionExplorer'));
 const TransactionHistory = lazy(() => import('./pages/TransactionHistory'));
@@ -900,6 +974,7 @@ const TravelTips = lazy(() => import('./pages/TravelTips'));
 const TreasuryManagement = lazy(() => import('./pages/TreasuryManagement'));
 const TrendAnalysis = lazy(() => import('./pages/TrendAnalysis'));
 const Trending = lazy(() => import('./pages/Trending'));
+const TrendingContent = lazy(() => import('./pages/TrendingContent'));
 const TrendingItems = lazy(() => import('./pages/TrendingItems'));
 const TrendingTopics = lazy(() => import('./pages/TrendingTopics'));
 const TriggersActions = lazy(() => import('./pages/TriggersActions'));
@@ -917,10 +992,12 @@ const UnifiedIdentity = lazy(() => import('./pages/UnifiedIdentity'));
 const UnifiedMessaging = lazy(() => import('./pages/UnifiedMessaging'));
 const UnifiedPaymentLedger = lazy(() => import('./pages/UnifiedPaymentLedger'));
 const UnifiedPlatformDashboard = lazy(() => import('./pages/UnifiedPlatformDashboard'));
+const UnifiedWallet = lazy(() => import('./pages/UnifiedWallet'));
 const UniversalSearch = lazy(() => import('./pages/UniversalSearch'));
 const UpdatedLandingPage = lazy(() => import('./pages/UpdatedLandingPage'));
 const UpgradeDowngradePlan = lazy(() => import('./pages/UpgradeDowngradePlan'));
 const Upscaling = lazy(() => import('./pages/Upscaling'));
+const UserActivity = lazy(() => import('./pages/UserActivity'));
 const UserBehavior = lazy(() => import('./pages/UserBehavior'));
 const UserBio = lazy(() => import('./pages/UserBio'));
 const UserDirectory = lazy(() => import('./pages/UserDirectory'));
@@ -931,8 +1008,11 @@ const UserOnboarding = lazy(() => import('./pages/UserOnboarding'));
 const UserPermissions = lazy(() => import('./pages/UserPermissions'));
 const UserProfile = lazy(() => import('./pages/UserProfile'));
 const UserProfiles = lazy(() => import('./pages/UserProfiles'));
+const UserReputation = lazy(() => import('./pages/UserReputation'));
+const UserSearch = lazy(() => import('./pages/UserSearch'));
 const UserStats = lazy(() => import('./pages/UserStats'));
 const UserSuggestions = lazy(() => import('./pages/UserSuggestions'));
+const UserTimeline = lazy(() => import('./pages/UserTimeline'));
 const VODArchive = lazy(() => import('./pages/VODArchive'));
 const ValidatorPerformance = lazy(() => import('./pages/ValidatorPerformance'));
 const ValidatorSetup = lazy(() => import('./pages/ValidatorSetup'));
@@ -954,7 +1034,9 @@ const VideoEditor = lazy(() => import('./pages/VideoEditor'));
 const VideoPlayer = lazy(() => import('./pages/VideoPlayer'));
 const VideoTools = lazy(() => import('./pages/VideoTools'));
 const VideoTutorials = lazy(() => import('./pages/VideoTutorials'));
+const VideoUpload = lazy(() => import('./pages/VideoUpload'));
 const VideoUploader = lazy(() => import('./pages/VideoUploader'));
+const ViewerMetrics = lazy(() => import('./pages/ViewerMetrics'));
 const VirtualTour = lazy(() => import('./pages/VirtualTour'));
 const VoiceCloning = lazy(() => import('./pages/VoiceCloning'));
 const VoiceCommands = lazy(() => import('./pages/VoiceCommands'));
@@ -968,7 +1050,9 @@ const WalletOverview = lazy(() => import('./pages/WalletOverview'));
 const WarningDialog = lazy(() => import('./pages/WarningDialog'));
 const WatchEarn = lazy(() => import('./pages/WatchEarn'));
 const WatchList = lazy(() => import('./pages/WatchList'));
+const WealthSimulator = lazy(() => import('./pages/WealthSimulator'));
 const Web3Auth = lazy(() => import('./pages/Web3Auth'));
+const WebhookManagement = lazy(() => import('./pages/WebhookManagement'));
 const WebhookManager = lazy(() => import('./pages/WebhookManager'));
 const Webhooks = lazy(() => import('./pages/Webhooks'));
 const WelcomeScreen = lazy(() => import('./pages/WelcomeScreen'));
@@ -981,1005 +1065,1087 @@ const WorldBrain = lazy(() => import('./pages/WorldBrain'));
 const WorldSimulationControl = lazy(() => import('./pages/WorldSimulationControl'));
 const YieldFarming = lazy(() => import('./pages/YieldFarming'));
 const ZapierIntegration = lazy(() => import('./pages/ZapierIntegration'));
-
+const ZeroKnowledgeProof = lazy(() => import('./pages/ZeroKnowledgeProof'));
+const Home = lazy(() => import('./pages/Home'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
-const App = () => {
+export default function App() {
   return (
     <ThemeProvider defaultTheme="dark">
       <TooltipProvider>
         <ErrorBoundary>
           <div className="flex min-h-screen flex-col">
+            <ComprehensiveNavigation />
+            <MarketTicker />
             <main className="flex-1">
-              <Suspense fallback={<div>Loading...</div>}>
+              <Suspense fallback={<div className="flex items-center justify-center min-h-screen"><div className="text-center"><div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-500 mx-auto mb-4"></div><p className="text-gray-400">Loading...</p></div></div>}>
                 <Switch>
-          <Route path="/abtesting" component={ABTesting} />
-          <Route path="/abtestingadvanced" component={ABTestingAdvanced} />
-          <Route path="/aiagenteconomy" component={AIAgentEconomy} />
-          <Route path="/aiagentmarket" component={AIAgentMarket} />
-          <Route path="/aiassistant" component={AIAssistant} />
-          <Route path="/aibrain" component={AIBrain} />
-          <Route path="/aicodestudio" component={AICodeStudio} />
-          <Route path="/aicopystudio" component={AICopyStudio} />
-          <Route path="/aicore" component={AICore} />
-          <Route path="/aiengineer" component={AIEngineer} />
-          <Route path="/aimarketagents" component={AIMarketAgents} />
-          <Route path="/aimatchmaker" component={AIMatchmaker} />
-          <Route path="/aimoderationqueue" component={AIModerationQueue} />
-          <Route path="/aipersonafeed" component={AIPersonaFeed} />
-          <Route path="/aipersonasystem" component={AIPersonaSystem} />
-          <Route path="/aitoolshub" component={AIToolsHub} />
-          <Route path="/aitrading" component={AITrading} />
-          <Route path="/aitrainingloops" component={AITrainingLoops} />
-          <Route path="/apidocs" component={APIDocs} />
-          <Route path="/apidocumentation" component={APIDocumentation} />
-          <Route path="/apiintegration" component={APIIntegration} />
-          <Route path="/apikeys" component={APIKeys} />
-          <Route path="/apilogs" component={APILogs} />
-          <Route path="/apimonitoring" component={APIMonitoring} />
-          <Route path="/apistatus" component={APIStatus} />
-          <Route path="/apitesting" component={APITesting} />
-          <Route path="/apiusage" component={APIUsage} />
-          <Route path="/apiversioning" component={APIVersioning} />
-          <Route path="/apytracking" component={APYTracking} />
+          <Route path="/aBTesting" component={ABTesting} />
+          <Route path="/aBTestingAdvanced" component={ABTestingAdvanced} />
+          <Route path="/aIAgentEconomy" component={AIAgentEconomy} />
+          <Route path="/aIAgentMarket" component={AIAgentMarket} />
+          <Route path="/aIAssistant" component={AIAssistant} />
+          <Route path="/aIBrain" component={AIBrain} />
+          <Route path="/aICodeStudio" component={AICodeStudio} />
+          <Route path="/aICopyStudio" component={AICopyStudio} />
+          <Route path="/aICore" component={AICore} />
+          <Route path="/aIEngineer" component={AIEngineer} />
+          <Route path="/aIGovernance" component={AIGovernance} />
+          <Route path="/aIMarketAgents" component={AIMarketAgents} />
+          <Route path="/aIMatchmaker" component={AIMatchmaker} />
+          <Route path="/aIModerationQueue" component={AIModerationQueue} />
+          <Route path="/aIPersonaFeed" component={AIPersonaFeed} />
+          <Route path="/aIPersonaSystem" component={AIPersonaSystem} />
+          <Route path="/aIToolsHub" component={AIToolsHub} />
+          <Route path="/aITrading" component={AITrading} />
+          <Route path="/aITrainingLoops" component={AITrainingLoops} />
+          <Route path="/aPIDocs" component={APIDocs} />
+          <Route path="/aPIDocumentation" component={APIDocumentation} />
+          <Route path="/aPIIntegration" component={APIIntegration} />
+          <Route path="/aPIKeys" component={APIKeys} />
+          <Route path="/aPILogs" component={APILogs} />
+          <Route path="/aPIManagement" component={APIManagement} />
+          <Route path="/aPIMonitoring" component={APIMonitoring} />
+          <Route path="/aPIStatus" component={APIStatus} />
+          <Route path="/aPITesting" component={APITesting} />
+          <Route path="/aPIUsage" component={APIUsage} />
+          <Route path="/aPIVersioning" component={APIVersioning} />
+          <Route path="/aPYTracking" component={APYTracking} />
           <Route path="/about" component={About} />
-          <Route path="/accesscontrol" component={AccessControl} />
-          <Route path="/accessibilitysettings" component={AccessibilitySettings} />
-          <Route path="/accordionnavigation" component={AccordionNavigation} />
-          <Route path="/accountsettings" component={AccountSettings} />
-          <Route path="/achievementbadges" component={AchievementBadges} />
+          <Route path="/accessControl" component={AccessControl} />
+          <Route path="/accessibilitySettings" component={AccessibilitySettings} />
+          <Route path="/accordionNavigation" component={AccordionNavigation} />
+          <Route path="/accountSettings" component={AccountSettings} />
+          <Route path="/achievementBadges" component={AchievementBadges} />
           <Route path="/achievements" component={Achievements} />
-          <Route path="/actionobjects" component={ActionObjects} />
-          <Route path="/actionpanel" component={ActionPanel} />
-          <Route path="/activityfeed" component={ActivityFeed} />
-          <Route path="/activitytracking" component={ActivityTracking} />
-          <Route path="/adaptivepersonalization" component={AdaptivePersonalization} />
-          <Route path="/adaptiveroadmap" component={AdaptiveRoadmap} />
-          <Route path="/addbankaccount" component={AddBankAccount} />
-          <Route path="/addcreditcard" component={AddCreditCard} />
-          <Route path="/addressbook" component={AddressBook} />
-          <Route path="/addresslookup" component={AddressLookup} />
+          <Route path="/actionObjects" component={ActionObjects} />
+          <Route path="/actionPanel" component={ActionPanel} />
+          <Route path="/activityFeed" component={ActivityFeed} />
+          <Route path="/activityTracking" component={ActivityTracking} />
+          <Route path="/adaptivePersonalization" component={AdaptivePersonalization} />
+          <Route path="/adaptiveRoadmap" component={AdaptiveRoadmap} />
+          <Route path="/addBankAccount" component={AddBankAccount} />
+          <Route path="/addCreditCard" component={AddCreditCard} />
+          <Route path="/addressBook" component={AddressBook} />
+          <Route path="/addressLookup" component={AddressLookup} />
           <Route path="/admin" component={Admin} />
-          <Route path="/admindashboard" component={AdminDashboard} />
-          <Route path="/adminorders" component={AdminOrders} />
-          <Route path="/adminpanel" component={AdminPanel} />
-          <Route path="/adminwalletmanager" component={AdminWalletManager} />
-          <Route path="/advancedadminpanel" component={AdvancedAdminPanel} />
-          <Route path="/advancedanalytics" component={AdvancedAnalytics} />
-          <Route path="/advancedorders" component={AdvancedOrders} />
-          <Route path="/advancedsearch" component={AdvancedSearch} />
-          <Route path="/affiliatedashboard" component={AffiliateDashboard} />
-          <Route path="/agegate" component={AgeGate} />
-          <Route path="/ageverification" component={AgeVerification} />
-          <Route path="/agentbuilder" component={AgentBuilder} />
-          <Route path="/agentcity" component={AgentCity} />
-          <Route path="/agentcoordination" component={AgentCoordination} />
-          <Route path="/agentcoordinationhub" component={AgentCoordinationHub} />
-          <Route path="/agentdebate" component={AgentDebate} />
-          <Route path="/agentdetail" component={AgentDetail} />
-          <Route path="/agentmarketplace" component={AgentMarketplace} />
-          <Route path="/agentperformance" component={AgentPerformance} />
-          <Route path="/agentsprint" component={AgentSprint} />
-          <Route path="/agentsdashboard" component={AgentsDashboard} />
-          <Route path="/alertconfiguration" component={AlertConfiguration} />
-          <Route path="/alertdialog" component={AlertDialog} />
-          <Route path="/alertmanagement" component={AlertManagement} />
-          <Route path="/ambientfeed" component={AmbientFeed} />
+          <Route path="/adminDashboard" component={AdminDashboard} />
+          <Route path="/adminOrders" component={AdminOrders} />
+          <Route path="/adminPanel" component={AdminPanel} />
+          <Route path="/adminWalletManager" component={AdminWalletManager} />
+          <Route path="/advancedAdminPanel" component={AdvancedAdminPanel} />
+          <Route path="/advancedAnalytics" component={AdvancedAnalytics} />
+          <Route path="/advancedOrders" component={AdvancedOrders} />
+          <Route path="/advancedSearch" component={AdvancedSearch} />
+          <Route path="/affiliateDashboard" component={AffiliateDashboard} />
+          <Route path="/affiliateProgram" component={AffiliateProgram} />
+          <Route path="/ageGate" component={AgeGate} />
+          <Route path="/ageVerification" component={AgeVerification} />
+          <Route path="/agentBuilder" component={AgentBuilder} />
+          <Route path="/agentCity" component={AgentCity} />
+          <Route path="/agentCoordination" component={AgentCoordination} />
+          <Route path="/agentCoordinationHub" component={AgentCoordinationHub} />
+          <Route path="/agentDebate" component={AgentDebate} />
+          <Route path="/agentDetail" component={AgentDetail} />
+          <Route path="/agentMarketplace" component={AgentMarketplace} />
+          <Route path="/agentPerformance" component={AgentPerformance} />
+          <Route path="/agentSprint" component={AgentSprint} />
+          <Route path="/agentsDashboard" component={AgentsDashboard} />
+          <Route path="/alertConfiguration" component={AlertConfiguration} />
+          <Route path="/alertDialog" component={AlertDialog} />
+          <Route path="/alertManagement" component={AlertManagement} />
+          <Route path="/ambientFeed" component={AmbientFeed} />
           <Route path="/analytics" component={Analytics} />
-          <Route path="/analyticsdashboard" component={AnalyticsDashboard} />
-          <Route path="/analyticsproducts" component={AnalyticsProducts} />
-          <Route path="/analyticsreports" component={AnalyticsReports} />
-          <Route path="/anomalydetection" component={AnomalyDetection} />
-          <Route path="/antisurveillance" component={AntiSurveillance} />
-          <Route path="/approvalworkflows" component={ApprovalWorkflows} />
+          <Route path="/analyticsDashboard" component={AnalyticsDashboard} />
+          <Route path="/analyticsProducts" component={AnalyticsProducts} />
+          <Route path="/analyticsReports" component={AnalyticsReports} />
+          <Route path="/anomalyDetection" component={AnomalyDetection} />
+          <Route path="/antiSurveillance" component={AntiSurveillance} />
+          <Route path="/approvalWorkflows" component={ApprovalWorkflows} />
+          <Route path="/arbitrageBot" component={ArbitrageBot} />
           <Route path="/arcade" component={Arcade} />
-          <Route path="/archivemanagement" component={ArchiveManagement} />
-          <Route path="/assetmanagement" component={AssetManagement} />
-          <Route path="/assettracking" component={AssetTracking} />
-          <Route path="/assignmenttracker" component={AssignmentTracker} />
-          <Route path="/attributionmodeling" component={AttributionModeling} />
-          <Route path="/audiencesegmentation" component={AudienceSegmentation} />
-          <Route path="/audioanalytics" component={AudioAnalytics} />
-          <Route path="/audioediting" component={AudioEditing} />
-          <Route path="/audiolibrary" component={AudioLibrary} />
-          <Route path="/audioplayer" component={AudioPlayer} />
-          <Route path="/auditlog" component={AuditLog} />
-          <Route path="/auditlogs" component={AuditLogs} />
-          <Route path="/audittrail" component={AuditTrail} />
-          <Route path="/autoresponder" component={AutoResponder} />
-          <Route path="/automationengine" component={AutomationEngine} />
-          <Route path="/automationrules" component={AutomationRules} />
-          <Route path="/automationworkflows" component={AutomationWorkflows} />
-          <Route path="/backupmanagement" component={BackupManagement} />
+          <Route path="/archiveManagement" component={ArchiveManagement} />
+          <Route path="/assetAllocation" component={AssetAllocation} />
+          <Route path="/assetManagement" component={AssetManagement} />
+          <Route path="/assetTracking" component={AssetTracking} />
+          <Route path="/assignmentTracker" component={AssignmentTracker} />
+          <Route path="/attributionModeling" component={AttributionModeling} />
+          <Route path="/audienceSegmentation" component={AudienceSegmentation} />
+          <Route path="/audioAnalytics" component={AudioAnalytics} />
+          <Route path="/audioEditing" component={AudioEditing} />
+          <Route path="/audioLibrary" component={AudioLibrary} />
+          <Route path="/audioPlayer" component={AudioPlayer} />
+          <Route path="/auditLog" component={AuditLog} />
+          <Route path="/auditLogs" component={AuditLogs} />
+          <Route path="/auditTrail" component={AuditTrail} />
+          <Route path="/autoResponder" component={AutoResponder} />
+          <Route path="/automationEngine" component={AutomationEngine} />
+          <Route path="/automationRules" component={AutomationRules} />
+          <Route path="/automationWorkflows" component={AutomationWorkflows} />
+          <Route path="/backupManagement" component={BackupManagement} />
           <Route path="/badges" component={Badges} />
-          <Route path="/bansuspenduser" component={BanSuspendUser} />
-          <Route path="/batchgeneration" component={BatchGeneration} />
-          <Route path="/battlepass" component={BattlePass} />
-          <Route path="/behavioralintelligence" component={BehavioralIntelligence} />
+          <Route path="/banSuspendUser" component={BanSuspendUser} />
+          <Route path="/batchGeneration" component={BatchGeneration} />
+          <Route path="/battlePass" component={BattlePass} />
+          <Route path="/behavioralIntelligence" component={BehavioralIntelligence} />
           <Route path="/beta" component={Beta} />
-          <Route path="/billinghistory" component={BillingHistory} />
-          <Route path="/blockbrowser" component={BlockBrowser} />
-          <Route path="/blockrewards" component={BlockRewards} />
-          <Route path="/blockuser" component={BlockUser} />
-          <Route path="/blockchaincustody" component={BlockchainCustody} />
-          <Route path="/blockchainmonitor" component={BlockchainMonitor} />
-          <Route path="/blogeditor" component={BlogEditor} />
-          <Route path="/blogpublisher" component={BlogPublisher} />
-          <Route path="/bookpage" component={BookPage} />
+          <Route path="/billingHistory" component={BillingHistory} />
+          <Route path="/blockBrowser" component={BlockBrowser} />
+          <Route path="/blockRewards" component={BlockRewards} />
+          <Route path="/blockUser" component={BlockUser} />
+          <Route path="/blockchainCustody" component={BlockchainCustody} />
+          <Route path="/blockchainMonitor" component={BlockchainMonitor} />
+          <Route path="/blockedUsers" component={BlockedUsers} />
+          <Route path="/blogEditor" component={BlogEditor} />
+          <Route path="/blogPublisher" component={BlogPublisher} />
+          <Route path="/bookPage" component={BookPage} />
           <Route path="/bookmarks" component={Bookmarks} />
-          <Route path="/bountysystem" component={BountySystem} />
-          <Route path="/brandguidelines" component={BrandGuidelines} />
-          <Route path="/breadcrumbnavigation" component={BreadcrumbNavigation} />
-          <Route path="/bridgetransactions" component={BridgeTransactions} />
-          <Route path="/browserextension" component={BrowserExtension} />
-          <Route path="/budgetplanner" component={BudgetPlanner} />
-          <Route path="/bugreporting" component={BugReporting} />
-          <Route path="/buildorder" component={BuildOrder} />
-          <Route path="/buildroadmap" component={BuildRoadmap} />
-          <Route path="/bulkoperations" component={BulkOperations} />
-          <Route path="/bulkordering" component={BulkOrdering} />
-          <Route path="/bulkupload" component={BulkUpload} />
-          <Route path="/ccpa" component={CCPA} />
-          <Route path="/crm" component={CRM} />
+          <Route path="/bountySystem" component={BountySystem} />
+          <Route path="/brandGuidelines" component={BrandGuidelines} />
+          <Route path="/breadcrumbNavigation" component={BreadcrumbNavigation} />
+          <Route path="/bridgeProtocol" component={BridgeProtocol} />
+          <Route path="/bridgeTransactions" component={BridgeTransactions} />
+          <Route path="/browserExtension" component={BrowserExtension} />
+          <Route path="/budgetPlanner" component={BudgetPlanner} />
+          <Route path="/bugReporting" component={BugReporting} />
+          <Route path="/buildOrder" component={BuildOrder} />
+          <Route path="/buildRoadmap" component={BuildRoadmap} />
+          <Route path="/bulkOperations" component={BulkOperations} />
+          <Route path="/bulkOrdering" component={BulkOrdering} />
+          <Route path="/bulkUpload" component={BulkUpload} />
+          <Route path="/cCPA" component={CCPA} />
+          <Route path="/cDNManagement" component={CDNManagement} />
+          <Route path="/cRM" component={CRM} />
+          <Route path="/cacheManagement" component={CacheManagement} />
           <Route path="/calculator" component={Calculator} />
           <Route path="/calendar" component={Calendar} />
-          <Route path="/calendarview" component={CalendarView} />
-          <Route path="/campaignanalytics" component={CampaignAnalytics} />
-          <Route path="/campaignbuilder" component={CampaignBuilder} />
-          <Route path="/campaigncreation" component={CampaignCreation} />
-          <Route path="/carrental" component={CarRental} />
-          <Route path="/cardgridview" component={CardGridView} />
-          <Route path="/cashflowanalysis" component={CashFlowAnalysis} />
-          <Route path="/categorymanagement" component={CategoryManagement} />
-          <Route path="/certificatemanager" component={CertificateManager} />
-          <Route path="/chainexplorer" component={ChainExplorer} />
-          <Route path="/changelog" component={ChangeLog} />
+          <Route path="/calendarView" component={CalendarView} />
+          <Route path="/campaignAnalytics" component={CampaignAnalytics} />
+          <Route path="/campaignBuilder" component={CampaignBuilder} />
+          <Route path="/campaignCreation" component={CampaignCreation} />
+          <Route path="/carRental" component={CarRental} />
+          <Route path="/cardGridView" component={CardGridView} />
+          <Route path="/cashFlowAnalysis" component={CashFlowAnalysis} />
+          <Route path="/categoryManagement" component={CategoryManagement} />
+          <Route path="/certificateManager" component={CertificateManager} />
+          <Route path="/chainExplorer" component={ChainExplorer} />
+          <Route path="/changeLog" component={ChangeLog} />
+          <Route path="/channelCustomization" component={ChannelCustomization} />
           <Route path="/charity" component={Charity} />
-          <Route path="/charityleaderboard" component={CharityLeaderboard} />
-          <Route path="/chartanalysis" component={ChartAnalysis} />
-          <Route path="/chartdashboard" component={ChartDashboard} />
-          <Route path="/chatbot" component={ChatBot} />
-          <Route path="/chathistory" component={ChatHistory} />
-          <Route path="/chatmvp" component={ChatMVP} />
-          <Route path="/checkboxgroupform" component={CheckboxGroupForm} />
+          <Route path="/charityLeaderboard" component={CharityLeaderboard} />
+          <Route path="/chartAnalysis" component={ChartAnalysis} />
+          <Route path="/chartDashboard" component={ChartDashboard} />
+          <Route path="/chatBot" component={ChatBot} />
+          <Route path="/chatHistory" component={ChatHistory} />
+          <Route path="/chatMVP" component={ChatMVP} />
+          <Route path="/checkboxGroupForm" component={CheckboxGroupForm} />
           <Route path="/checkout" component={Checkout} />
-          <Route path="/checkoutflow" component={CheckoutFlow} />
-          <Route path="/chinaedition" component={ChinaEdition} />
-          <Route path="/churnprediction" component={ChurnPrediction} />
-          <Route path="/citizenpassport" component={CitizenPassport} />
-          <Route path="/civilizationsimulator" component={CivilizationSimulator} />
-          <Route path="/clanwars" component={ClanWars} />
-          <Route path="/classroommanagement" component={ClassroomManagement} />
-          <Route path="/clientlibraries" component={ClientLibraries} />
-          <Route path="/closingchecklist" component={ClosingChecklist} />
-          <Route path="/codecompletion" component={CodeCompletion} />
-          <Route path="/codeformatter" component={CodeFormatter} />
-          <Route path="/codehighlighting" component={CodeHighlighting} />
-          <Route path="/codequality" component={CodeQuality} />
-          <Route path="/codequalitydashboard" component={CodeQualityDashboard} />
-          <Route path="/coderepository" component={CodeRepository} />
-          <Route path="/codesamples" component={CodeSamples} />
-          <Route path="/cohortanalysis" component={CohortAnalysis} />
-          <Route path="/colorpickerdialog" component={ColorPickerDialog} />
-          <Route path="/commentthread" component={CommentThread} />
+          <Route path="/checkoutFlow" component={CheckoutFlow} />
+          <Route path="/chinaEdition" component={ChinaEdition} />
+          <Route path="/churnPrediction" component={ChurnPrediction} />
+          <Route path="/citizenPassport" component={CitizenPassport} />
+          <Route path="/civilizationSimulator" component={CivilizationSimulator} />
+          <Route path="/clanWars" component={ClanWars} />
+          <Route path="/classroomManagement" component={ClassroomManagement} />
+          <Route path="/clientLibraries" component={ClientLibraries} />
+          <Route path="/closingChecklist" component={ClosingChecklist} />
+          <Route path="/codeCompletion" component={CodeCompletion} />
+          <Route path="/codeFormatter" component={CodeFormatter} />
+          <Route path="/codeHighlighting" component={CodeHighlighting} />
+          <Route path="/codeQuality" component={CodeQuality} />
+          <Route path="/codeQualityDashboard" component={CodeQualityDashboard} />
+          <Route path="/codeRepository" component={CodeRepository} />
+          <Route path="/codeSamples" component={CodeSamples} />
+          <Route path="/cohortAnalysis" component={CohortAnalysis} />
+          <Route path="/colorPickerDialog" component={ColorPickerDialog} />
+          <Route path="/commentThread" component={CommentThread} />
           <Route path="/comments" component={Comments} />
-          <Route path="/commentssection" component={CommentsSection} />
-          <Route path="/commissionmanagement" component={CommissionManagement} />
+          <Route path="/commentsSection" component={CommentsSection} />
+          <Route path="/commissionManagement" component={CommissionManagement} />
           <Route path="/community" component={Community} />
-          <Route path="/communitycreate" component={CommunityCreate} />
-          <Route path="/communityengagement" component={CommunityEngagement} />
-          <Route path="/communityguidelines" component={CommunityGuidelines} />
-          <Route path="/communityhub" component={CommunityHub} />
-          <Route path="/companysimulator" component={CompanySimulator} />
-          <Route path="/competitiveradar" component={CompetitiveRadar} />
-          <Route path="/compliancecenter" component={ComplianceCenter} />
-          <Route path="/compliancechecker" component={ComplianceChecker} />
-          <Route path="/compliancechecking" component={ComplianceChecking} />
-          <Route path="/compliancedashboard" component={ComplianceDashboard} />
-          <Route path="/comprehensiveecosystemlanding" component={ComprehensiveEcosystemLanding} />
-          <Route path="/confirmationdialog" component={ConfirmationDialog} />
-          <Route path="/connectedapps" component={ConnectedApps} />
-          <Route path="/connectionerror" component={ConnectionError} />
-          <Route path="/connectionrequests" component={ConnectionRequests} />
-          <Route path="/connectorintelligence" component={ConnectorIntelligence} />
-          <Route path="/contactmanagement" component={ContactManagement} />
-          <Route path="/contactusform" component={ContactUsForm} />
-          <Route path="/contentcalendar" component={ContentCalendar} />
-          <Route path="/contentflagging" component={ContentFlagging} />
-          <Route path="/contentlibrary" component={ContentLibrary} />
-          <Route path="/contentmoderation" component={ContentModeration} />
-          <Route path="/contentscheduler" component={ContentScheduler} />
-          <Route path="/contentupload" component={ContentUpload} />
-          <Route path="/contentvault" component={ContentVault} />
-          <Route path="/contextmenu" component={ContextMenu} />
-          <Route path="/contractabi" component={ContractABI} />
-          <Route path="/contractmanagement" component={ContractManagement} />
-          <Route path="/contributioninterface" component={ContributionInterface} />
-          <Route path="/conversationarchive" component={ConversationArchive} />
-          <Route path="/conversationhistory" component={ConversationHistory} />
-          <Route path="/conversionfunnel" component={ConversionFunnel} />
-          <Route path="/conversionoptimization" component={ConversionOptimization} />
-          <Route path="/cookiepolicy" component={CookiePolicy} />
-          <Route path="/costallocation" component={CostAllocation} />
-          <Route path="/costbasiscalculation" component={CostBasisCalculation} />
-          <Route path="/coursebuilder" component={CourseBuilder} />
-          <Route path="/coursecatalog" component={CourseCatalog} />
-          <Route path="/coverphoto" component={CoverPhoto} />
-          <Route path="/createarticle" component={CreateArticle} />
-          <Route path="/createaudio" component={CreateAudio} />
-          <Route path="/createdrop" component={CreateDrop} />
-          <Route path="/createreel" component={CreateReel} />
-          <Route path="/creatoranalytics" component={CreatorAnalytics} />
-          <Route path="/creatordashboard" component={CreatorDashboard} />
-          <Route path="/creatoreconomy" component={CreatorEconomy} />
-          <Route path="/creatorintelligence" component={CreatorIntelligence} />
-          <Route path="/creatormonetization" component={CreatorMonetization} />
-          <Route path="/creatoronboarding" component={CreatorOnboarding} />
-          <Route path="/creatorprofile" component={CreatorProfile} />
-          <Route path="/creatorspotlight" component={CreatorSpotlight} />
-          <Route path="/creatorstudio" component={CreatorStudio} />
-          <Route path="/crosschaininterop" component={CrossChainInterop} />
+          <Route path="/communityCreate" component={CommunityCreate} />
+          <Route path="/communityEngagement" component={CommunityEngagement} />
+          <Route path="/communityGuidelines" component={CommunityGuidelines} />
+          <Route path="/communityHub" component={CommunityHub} />
+          <Route path="/companySimulator" component={CompanySimulator} />
+          <Route path="/competitiveRadar" component={CompetitiveRadar} />
+          <Route path="/complianceCenter" component={ComplianceCenter} />
+          <Route path="/complianceChecker" component={ComplianceChecker} />
+          <Route path="/complianceChecking" component={ComplianceChecking} />
+          <Route path="/complianceDashboard" component={ComplianceDashboard} />
+          <Route path="/complianceReports" component={ComplianceReports} />
+          <Route path="/componentShowcase" component={ComponentShowcase} />
+          <Route path="/comprehensiveEcosystemLanding" component={ComprehensiveEcosystemLanding} />
+          <Route path="/confirmationDialog" component={ConfirmationDialog} />
+          <Route path="/connectedApps" component={ConnectedApps} />
+          <Route path="/connectionError" component={ConnectionError} />
+          <Route path="/connectionRequests" component={ConnectionRequests} />
+          <Route path="/connectorIntelligence" component={ConnectorIntelligence} />
+          <Route path="/contactManagement" component={ContactManagement} />
+          <Route path="/contactUsForm" component={ContactUsForm} />
+          <Route path="/contentAnalytics" component={ContentAnalytics} />
+          <Route path="/contentCalendar" component={ContentCalendar} />
+          <Route path="/contentCollaboration" component={ContentCollaboration} />
+          <Route path="/contentFlagging" component={ContentFlagging} />
+          <Route path="/contentLibrary" component={ContentLibrary} />
+          <Route path="/contentModeration" component={ContentModeration} />
+          <Route path="/contentScheduler" component={ContentScheduler} />
+          <Route path="/contentScheduling" component={ContentScheduling} />
+          <Route path="/contentUpload" component={ContentUpload} />
+          <Route path="/contentVault" component={ContentVault} />
+          <Route path="/contextMenu" component={ContextMenu} />
+          <Route path="/contractABI" component={ContractABI} />
+          <Route path="/contractManagement" component={ContractManagement} />
+          <Route path="/contributionInterface" component={ContributionInterface} />
+          <Route path="/conversationArchive" component={ConversationArchive} />
+          <Route path="/conversationHistory" component={ConversationHistory} />
+          <Route path="/conversionFunnel" component={ConversionFunnel} />
+          <Route path="/conversionOptimization" component={ConversionOptimization} />
+          <Route path="/cookiePolicy" component={CookiePolicy} />
+          <Route path="/copyrightManagement" component={CopyrightManagement} />
+          <Route path="/costAllocation" component={CostAllocation} />
+          <Route path="/costBasisCalculation" component={CostBasisCalculation} />
+          <Route path="/courseBuilder" component={CourseBuilder} />
+          <Route path="/courseCatalog" component={CourseCatalog} />
+          <Route path="/coverPhoto" component={CoverPhoto} />
+          <Route path="/createArticle" component={CreateArticle} />
+          <Route path="/createAudio" component={CreateAudio} />
+          <Route path="/createDrop" component={CreateDrop} />
+          <Route path="/createReel" component={CreateReel} />
+          <Route path="/creatorAnalytics" component={CreatorAnalytics} />
+          <Route path="/creatorDashboard" component={CreatorDashboard} />
+          <Route path="/creatorEconomy" component={CreatorEconomy} />
+          <Route path="/creatorFunding" component={CreatorFunding} />
+          <Route path="/creatorGrants" component={CreatorGrants} />
+          <Route path="/creatorIntelligence" component={CreatorIntelligence} />
+          <Route path="/creatorMonetization" component={CreatorMonetization} />
+          <Route path="/creatorNetwork" component={CreatorNetwork} />
+          <Route path="/creatorOnboarding" component={CreatorOnboarding} />
+          <Route path="/creatorProfile" component={CreatorProfile} />
+          <Route path="/creatorSpotlight" component={CreatorSpotlight} />
+          <Route path="/creatorStudio" component={CreatorStudio} />
+          <Route path="/crossChainInterop" component={CrossChainInterop} />
+          <Route path="/crossChainSwap" component={CrossChainSwap} />
           <Route path="/crypto" component={Crypto} />
-          <Route path="/cryptoenhancementspage" component={CryptoEnhancementsPage} />
-          <Route path="/cryptohub" component={CryptoHub} />
-          <Route path="/cryptoresearchhub" component={CryptoResearchHub} />
-          <Route path="/customdashboard" component={CustomDashboard} />
-          <Route path="/customreports" component={CustomReports} />
-          <Route path="/customeranalytics" component={CustomerAnalytics} />
-          <Route path="/customerdisputes" component={CustomerDisputes} />
-          <Route path="/daogovernance" component={DAOGovernance} />
-          <Route path="/daotreasury" component={DAOTreasury} />
-          <Route path="/dexdepthchart" component={DEXDepthChart} />
-
-          <Route path="/dminbox" component={DMInbox} />
+          <Route path="/cryptoEnhancementsPage" component={CryptoEnhancementsPage} />
+          <Route path="/cryptoExchange" component={CryptoExchange} />
+          <Route path="/cryptoHub" component={CryptoHub} />
+          <Route path="/cryptoNews" component={CryptoNews} />
+          <Route path="/cryptoResearchHub" component={CryptoResearchHub} />
+          <Route path="/customDashboard" component={CustomDashboard} />
+          <Route path="/customReports" component={CustomReports} />
+          <Route path="/customerAnalytics" component={CustomerAnalytics} />
+          <Route path="/customerDisputes" component={CustomerDisputes} />
+          <Route path="/dAOGovernance" component={DAOGovernance} />
+          <Route path="/dAOTreasury" component={DAOTreasury} />
+          <Route path="/dCACalculator" component={DCACalculator} />
+          <Route path="/dEXDepthChart" component={DEXDepthChart} />
+          <Route path="/dMInbox" component={DMInbox} />
           <Route path="/dashboard" component={Dashboard} />
-          <Route path="/dashboardoverview" component={DashboardOverview} />
-          <Route path="/dataexport" component={DataExport} />
-          <Route path="/datagrid" component={DataGrid} />
-          <Route path="/datalake" component={DataLake} />
-          <Route path="/dataprivacy" component={DataPrivacy} />
-          <Route path="/dataprocessing" component={DataProcessing} />
-          <Route path="/dataretention" component={DataRetention} />
-          <Route path="/datatable" component={DataTable} />
-          <Route path="/datavisualization" component={DataVisualization} />
-          <Route path="/databasemanagement" component={DatabaseManagement} />
-          <Route path="/dateinputform" component={DateInputForm} />
-          <Route path="/datepickerdialog" component={DatePickerDialog} />
-          <Route path="/datingdiscovery" component={DatingDiscovery} />
-          <Route path="/datinghome" component={DatingHome} />
-          <Route path="/datingmatches" component={DatingMatches} />
-          <Route path="/datingmessages" component={DatingMessages} />
-          <Route path="/datingpremium" component={DatingPremium} />
-          <Route path="/datingprofile" component={DatingProfile} />
-          <Route path="/datingprofilesetup" component={DatingProfileSetup} />
-          <Route path="/datingsubscription" component={DatingSubscription} />
-          <Route path="/daytraderoom" component={DayTradeRoom} />
-          <Route path="/defi" component={DeFi} />
-          <Route path="/decentralizedidentity" component={DecentralizedIdentity} />
-          <Route path="/defensibilitymoat" component={DefensibilityMoat} />
-          <Route path="/deleteaccount" component={DeleteAccount} />
-          <Route path="/deletecontent" component={DeleteContent} />
-          <Route path="/departmentmanagement" component={DepartmentManagement} />
-          <Route path="/dependencygraph" component={DependencyGraph} />
-          <Route path="/deploymentpipeline" component={DeploymentPipeline} />
-          <Route path="/deprecationpolicy" component={DeprecationPolicy} />
-          <Route path="/derivativestrading" component={DerivativesTrading} />
-          <Route path="/destinationguide" component={DestinationGuide} />
-          <Route path="/destinyengine" component={DestinyEngine} />
-          <Route path="/devops" component={DevOps} />
-          <Route path="/developerarea" component={DeveloperArea} />
-          <Route path="/developercommunity" component={DeveloperCommunity} />
-          <Route path="/developermarketplace" component={DeveloperMarketplace} />
-          <Route path="/developerprotocol" component={DeveloperProtocol} />
-          <Route path="/difficultycalculator" component={DifficultyCalculator} />
-          <Route path="/difficultytracking" component={DifficultyTracking} />
-          <Route path="/digitalartstore" component={DigitalArtStore} />
-          <Route path="/digitalnationmode" component={DigitalNationMode} />
-          <Route path="/digitaltwin" component={DigitalTwin} />
-          <Route path="/directmessages" component={DirectMessages} />
-          <Route path="/directmessaging" component={DirectMessaging} />
-          <Route path="/disasterrecovery" component={DisasterRecovery} />
-          <Route path="/discordintegration" component={DiscordIntegration} />
+          <Route path="/dashboardOverview" component={DashboardOverview} />
+          <Route path="/dataExport" component={DataExport} />
+          <Route path="/dataGrid" component={DataGrid} />
+          <Route path="/dataLake" component={DataLake} />
+          <Route path="/dataPrivacy" component={DataPrivacy} />
+          <Route path="/dataProcessing" component={DataProcessing} />
+          <Route path="/dataRetention" component={DataRetention} />
+          <Route path="/dataTable" component={DataTable} />
+          <Route path="/dataVisualization" component={DataVisualization} />
+          <Route path="/databaseManagement" component={DatabaseManagement} />
+          <Route path="/dateInputForm" component={DateInputForm} />
+          <Route path="/datePickerDialog" component={DatePickerDialog} />
+          <Route path="/datingDiscovery" component={DatingDiscovery} />
+          <Route path="/datingHome" component={DatingHome} />
+          <Route path="/datingMatches" component={DatingMatches} />
+          <Route path="/datingMessages" component={DatingMessages} />
+          <Route path="/datingPremium" component={DatingPremium} />
+          <Route path="/datingProfile" component={DatingProfile} />
+          <Route path="/datingProfileSetup" component={DatingProfileSetup} />
+          <Route path="/datingSubscription" component={DatingSubscription} />
+          <Route path="/dayTradeRoom" component={DayTradeRoom} />
+          <Route path="/deFi" component={DeFi} />
+          <Route path="/decentralizedIdentity" component={DecentralizedIdentity} />
+          <Route path="/defensibilityMoat" component={DefensibilityMoat} />
+          <Route path="/deleteAccount" component={DeleteAccount} />
+          <Route path="/deleteContent" component={DeleteContent} />
+          <Route path="/departmentManagement" component={DepartmentManagement} />
+          <Route path="/dependencyGraph" component={DependencyGraph} />
+          <Route path="/deploymentPipeline" component={DeploymentPipeline} />
+          <Route path="/deprecationPolicy" component={DeprecationPolicy} />
+          <Route path="/derivativeTrading" component={DerivativeTrading} />
+          <Route path="/derivativesTrading" component={DerivativesTrading} />
+          <Route path="/destinationGuide" component={DestinationGuide} />
+          <Route path="/destinyEngine" component={DestinyEngine} />
+          <Route path="/devOps" component={DevOps} />
+          <Route path="/developerArea" component={DeveloperArea} />
+          <Route path="/developerCommunity" component={DeveloperCommunity} />
+          <Route path="/developerMarketplace" component={DeveloperMarketplace} />
+          <Route path="/developerProtocol" component={DeveloperProtocol} />
+          <Route path="/difficultyCalculator" component={DifficultyCalculator} />
+          <Route path="/difficultyTracking" component={DifficultyTracking} />
+          <Route path="/digitalArtStore" component={DigitalArtStore} />
+          <Route path="/digitalNationMode" component={DigitalNationMode} />
+          <Route path="/digitalTwin" component={DigitalTwin} />
+          <Route path="/directMessages" component={DirectMessages} />
+          <Route path="/directMessaging" component={DirectMessaging} />
+          <Route path="/disasterRecovery" component={DisasterRecovery} />
+          <Route path="/discordIntegration" component={DiscordIntegration} />
           <Route path="/discover" component={Discover} />
-          <Route path="/discussionboard" component={DiscussionBoard} />
-          <Route path="/discussionforums" component={DiscussionForums} />
-          <Route path="/disputeresolution" component={DisputeResolution} />
-          <Route path="/distributionchannels" component={DistributionChannels} />
-          <Route path="/documenteditor" component={DocumentEditor} />
-          <Route path="/documentmanagement" component={DocumentManagement} />
-          <Route path="/documentsharing" component={DocumentSharing} />
-          <Route path="/documentsigning" component={DocumentSigning} />
+          <Route path="/discussionBoard" component={DiscussionBoard} />
+          <Route path="/discussionForums" component={DiscussionForums} />
+          <Route path="/disputeResolution" component={DisputeResolution} />
+          <Route path="/distributionChannels" component={DistributionChannels} />
+          <Route path="/documentEditor" component={DocumentEditor} />
+          <Route path="/documentManagement" component={DocumentManagement} />
+          <Route path="/documentSharing" component={DocumentSharing} />
+          <Route path="/documentSigning" component={DocumentSigning} />
           <Route path="/documentation" component={Documentation} />
-          <Route path="/dogecoinpoolselection" component={DogecoinPoolSelection} />
-          <Route path="/donationprocessing" component={DonationProcessing} />
-          <Route path="/dropdownmenu" component={DropdownMenu} />
-          <Route path="/ensresolver" component={ENSResolver} />
-          <Route path="/earningstracker" component={EarningsTracker} />
-          <Route path="/earningstracking" component={EarningsTracking} />
-          <Route path="/economiclayer" component={EconomicLayer} />
+          <Route path="/dogecoinPoolSelection" component={DogecoinPoolSelection} />
+          <Route path="/domainManagement" component={DomainManagement} />
+          <Route path="/donationProcessing" component={DonationProcessing} />
+          <Route path="/dropdownMenu" component={DropdownMenu} />
+          <Route path="/eNSResolver" component={ENSResolver} />
+          <Route path="/earningsTracker" component={EarningsTracker} />
+          <Route path="/earningsTracking" component={EarningsTracking} />
+          <Route path="/economicLayer" component={EconomicLayer} />
           <Route path="/economics" component={Economics} />
-          <Route path="/economycontrol" component={EconomyControl} />
+          <Route path="/economyControl" component={EconomyControl} />
           <Route path="/ecosystem" component={Ecosystem} />
-          <Route path="/editprofile" component={EditProfile} />
-          <Route path="/emailcampaigns" component={EmailCampaigns} />
-          <Route path="/emailinputform" component={EmailInputForm} />
-          <Route path="/emailintegration" component={EmailIntegration} />
-          <Route path="/emailnotifications" component={EmailNotifications} />
-          <Route path="/emailtemplates" component={EmailTemplates} />
-          <Route path="/emailverification" component={EmailVerification} />
-          <Route path="/embedsdk" component={EmbedSDK} />
-          <Route path="/emptysearchstate" component={EmptySearchState} />
-          <Route path="/engagementmetrics" component={EngagementMetrics} />
+          <Route path="/editProfile" component={EditProfile} />
+          <Route path="/emailCampaigns" component={EmailCampaigns} />
+          <Route path="/emailConfiguration" component={EmailConfiguration} />
+          <Route path="/emailInputForm" component={EmailInputForm} />
+          <Route path="/emailIntegration" component={EmailIntegration} />
+          <Route path="/emailNotifications" component={EmailNotifications} />
+          <Route path="/emailTemplates" component={EmailTemplates} />
+          <Route path="/emailVerification" component={EmailVerification} />
+          <Route path="/embedSDK" component={EmbedSDK} />
+          <Route path="/emptySearchState" component={EmptySearchState} />
+          <Route path="/engagementMetrics" component={EngagementMetrics} />
+          <Route path="/engagementStats" component={EngagementStats} />
           <Route path="/engineer" component={Engineer} />
           <Route path="/enterprise" component={Enterprise} />
-          <Route path="/enterpriseapi" component={EnterpriseAPI} />
-          <Route path="/enterpriseanalytics" component={EnterpriseAnalytics} />
-          <Route path="/entityprofile" component={EntityProfile} />
-          <Route path="/environmentmanagement" component={EnvironmentManagement} />
+          <Route path="/enterpriseAPI" component={EnterpriseAPI} />
+          <Route path="/enterpriseAnalytics" component={EnterpriseAnalytics} />
+          <Route path="/enterpriseBilling" component={EnterpriseBilling} />
+          <Route path="/entityProfile" component={EntityProfile} />
+          <Route path="/environmentManagement" component={EnvironmentManagement} />
           <Route path="/error403" component={Error403} />
           <Route path="/error404" component={Error404} />
           <Route path="/error500" component={Error500} />
           <Route path="/error503" component={Error503} />
-          <Route path="/errordialog" component={ErrorDialog} />
-          <Route path="/errortracking" component={ErrorTracking} />
-          <Route path="/escrowshop" component={EscrowShop} />
-          <Route path="/ethereumpoolselector" component={EthereumPoolSelector} />
-          <Route path="/eventanalytics" component={EventAnalytics} />
-          <Route path="/eventcalendar" component={EventCalendar} />
-          <Route path="/eventcreation" component={EventCreation} />
-          <Route path="/eventplanner" component={EventPlanner} />
-          <Route path="/eventregistration" component={EventRegistration} />
+          <Route path="/errorDialog" component={ErrorDialog} />
+          <Route path="/errorTracking" component={ErrorTracking} />
+          <Route path="/escrowShop" component={EscrowShop} />
+          <Route path="/ethereumPoolSelector" component={EthereumPoolSelector} />
+          <Route path="/eventAnalytics" component={EventAnalytics} />
+          <Route path="/eventCalendar" component={EventCalendar} />
+          <Route path="/eventCreation" component={EventCreation} />
+          <Route path="/eventPlanner" component={EventPlanner} />
+          <Route path="/eventRegistration" component={EventRegistration} />
           <Route path="/events" component={Events} />
-          <Route path="/executionhistory" component={ExecutionHistory} />
-          <Route path="/exerciselibrary" component={ExerciseLibrary} />
-          <Route path="/expensemanagement" component={ExpenseManagement} />
-          <Route path="/expensetracker" component={ExpenseTracker} />
-          <Route path="/experimentfactory" component={ExperimentFactory} />
-          <Route path="/experimenttracker" component={ExperimentTracker} />
+          <Route path="/executionHistory" component={ExecutionHistory} />
+          <Route path="/exerciseLibrary" component={ExerciseLibrary} />
+          <Route path="/expenseManagement" component={ExpenseManagement} />
+          <Route path="/expenseTracker" component={ExpenseTracker} />
+          <Route path="/experimentFactory" component={ExperimentFactory} />
+          <Route path="/experimentTracker" component={ExperimentTracker} />
           <Route path="/explore" component={Explore} />
-          <Route path="/exportdata" component={ExportData} />
-          <Route path="/faqmanagement" component={FAQManagement} />
-          <Route path="/faqpage" component={FAQPage} />
+          <Route path="/exportData" component={ExportData} />
+          <Route path="/fAQManagement" component={FAQManagement} />
+          <Route path="/fAQPage" component={FAQPage} />
           <Route path="/farming" component={Farming} />
           <Route path="/favorites" component={Favorites} />
-          <Route path="/featurerequests" component={FeatureRequests} />
-          <Route path="/featuretour" component={FeatureTour} />
+          <Route path="/featureRequests" component={FeatureRequests} />
+          <Route path="/featureTour" component={FeatureTour} />
           <Route path="/features" component={Features} />
-          <Route path="/feecalculation" component={FeeCalculation} />
-          <Route path="/feedwithposts" component={FeedWithPosts} />
+          <Route path="/feeCalculation" component={FeeCalculation} />
+          <Route path="/feedWithPosts" component={FeedWithPosts} />
           <Route path="/feedback" component={Feedback} />
-          <Route path="/feedbackdialog" component={FeedbackDialog} />
-          <Route path="/feedbackform" component={FeedbackForm} />
-          <Route path="/feedbackhub" component={FeedbackHub} />
-          <Route path="/filebrowser" component={FileBrowser} />
-          <Route path="/fileconverter" component={FileConverter} />
-          <Route path="/filedownload" component={FileDownload} />
-          <Route path="/filepreview" component={FilePreview} />
-          <Route path="/filesharing" component={FileSharing} />
-          <Route path="/fileuploaddialog" component={FileUploadDialog} />
-          <Route path="/fileuploadform" component={FileUploadForm} />
-          <Route path="/fileuploadprogress" component={FileUploadProgress} />
-          <Route path="/fileversioning" component={FileVersioning} />
-          <Route path="/filterpanel" component={FilterPanel} />
-          <Route path="/financialreports" component={FinancialReports} />
-          <Route path="/flightsearch" component={FlightSearch} />
-          <Route path="/followlist" component={FollowList} />
-          <Route path="/followsystem" component={FollowSystem} />
-          <Route path="/followunfollow" component={FollowUnfollow} />
-          <Route path="/followerlist" component={FollowerList} />
-          <Route path="/forecastingengine" component={ForecastingEngine} />
-          <Route path="/forumcategories" component={ForumCategories} />
-          <Route path="/frameworktemplates" component={FrameworkTemplates} />
-          <Route path="/freewilldashboard" component={FreeWillDashboard} />
-          <Route path="/fundraisertools" component={FundraiserTools} />
-          <Route path="/gdpr" component={GDPR} />
-          <Route path="/gtmstrategy" component={GTMStrategy} />
-          <Route path="/gainlosstracking" component={GainLossTracking} />
-          <Route path="/gameblackjack" component={GameBlackjack} />
-          <Route path="/gameblockbuilder" component={GameBlockBuilder} />
-          <Route path="/gamechat" component={GameChat} />
-          <Route path="/gamecrash" component={GameCrash} />
-          <Route path="/gamecryptoquiz" component={GameCryptoQuiz} />
-          <Route path="/gamefiquestboard" component={GameFiQuestBoard} />
-          <Route path="/gamelobby" component={GameLobby} />
-          <Route path="/gameroom" component={GameRoom} />
-          <Route path="/gamesettings" component={GameSettings} />
-          <Route path="/gameslots" component={GameSlots} />
-          <Route path="/gametokentap" component={GameTokenTap} />
+          <Route path="/feedbackDialog" component={FeedbackDialog} />
+          <Route path="/feedbackForm" component={FeedbackForm} />
+          <Route path="/feedbackHub" component={FeedbackHub} />
+          <Route path="/fileBrowser" component={FileBrowser} />
+          <Route path="/fileConverter" component={FileConverter} />
+          <Route path="/fileDownload" component={FileDownload} />
+          <Route path="/filePreview" component={FilePreview} />
+          <Route path="/fileSharing" component={FileSharing} />
+          <Route path="/fileUploadDialog" component={FileUploadDialog} />
+          <Route path="/fileUploadForm" component={FileUploadForm} />
+          <Route path="/fileUploadProgress" component={FileUploadProgress} />
+          <Route path="/fileVersioning" component={FileVersioning} />
+          <Route path="/filterPanel" component={FilterPanel} />
+          <Route path="/financialReports" component={FinancialReports} />
+          <Route path="/flashLoans" component={FlashLoans} />
+          <Route path="/flightSearch" component={FlightSearch} />
+          <Route path="/followList" component={FollowList} />
+          <Route path="/followRequests" component={FollowRequests} />
+          <Route path="/followSystem" component={FollowSystem} />
+          <Route path="/followUnfollow" component={FollowUnfollow} />
+          <Route path="/followerList" component={FollowerList} />
+          <Route path="/followersNetwork" component={FollowersNetwork} />
+          <Route path="/forecastingEngine" component={ForecastingEngine} />
+          <Route path="/forumCategories" component={ForumCategories} />
+          <Route path="/frameworkTemplates" component={FrameworkTemplates} />
+          <Route path="/freeWillDashboard" component={FreeWillDashboard} />
+          <Route path="/fundraiserTools" component={FundraiserTools} />
+          <Route path="/gDPR" component={GDPR} />
+          <Route path="/gTMStrategy" component={GTMStrategy} />
+          <Route path="/gainLossTracking" component={GainLossTracking} />
+          <Route path="/gameBlackjack" component={GameBlackjack} />
+          <Route path="/gameBlockBuilder" component={GameBlockBuilder} />
+          <Route path="/gameChat" component={GameChat} />
+          <Route path="/gameCrash" component={GameCrash} />
+          <Route path="/gameCryptoQuiz" component={GameCryptoQuiz} />
+          <Route path="/gameFiQuestBoard" component={GameFiQuestBoard} />
+          <Route path="/gameLobby" component={GameLobby} />
+          <Route path="/gameRoom" component={GameRoom} />
+          <Route path="/gameSettings" component={GameSettings} />
+          <Route path="/gameSlots" component={GameSlots} />
+          <Route path="/gameTokenTap" component={GameTokenTap} />
           <Route path="/gaming" component={Gaming} />
-          <Route path="/gamingforcharity" component={GamingForCharity} />
-          <Route path="/ganttchart" component={GanttChart} />
-          <Route path="/gasfeeestimator" component={GasFeeEstimator} />
-          <Route path="/gaspricemonitor" component={GasPriceMonitor} />
-          <Route path="/gastracker" component={GasTracker} />
-          <Route path="/generalsettings" component={GeneralSettings} />
-          <Route path="/generatedapiexplorer" component={GeneratedApiExplorer} />
-          <Route path="/generatedgallery" component={GeneratedGallery} />
-          <Route path="/gettingstartedguide" component={GettingStartedGuide} />
-          <Route path="/ghostmode" component={GhostMode} />
-          <Route path="/globaloperationscenter" component={GlobalOperationsCenter} />
-          <Route path="/globalsearch" component={GlobalSearch} />
+          <Route path="/gamingForCharity" component={GamingForCharity} />
+          <Route path="/ganttChart" component={GanttChart} />
+          <Route path="/gasFeeEstimator" component={GasFeeEstimator} />
+          <Route path="/gasPriceMonitor" component={GasPriceMonitor} />
+          <Route path="/gasTracker" component={GasTracker} />
+          <Route path="/generalSettings" component={GeneralSettings} />
+          <Route path="/generatedApiExplorer" component={GeneratedApiExplorer} />
+          <Route path="/generatedGallery" component={GeneratedGallery} />
+          <Route path="/gettingStartedGuide" component={GettingStartedGuide} />
+          <Route path="/ghostMode" component={GhostMode} />
+          <Route path="/globalOperationsCenter" component={GlobalOperationsCenter} />
+          <Route path="/globalSearch" component={GlobalSearch} />
           <Route path="/governance" component={Governance} />
-          <Route path="/governancevoting" component={GovernanceVoting} />
-          <Route path="/governancewizard" component={GovernanceWizard} />
-          <Route path="/gradebook" component={GradeBook} />
-          <Route path="/groupchat" component={GroupChat} />
-          <Route path="/groupchats" component={GroupChats} />
-          <Route path="/groupdirectory" component={GroupDirectory} />
-          <Route path="/groupevents" component={GroupEvents} />
-          <Route path="/groupmanagement" component={GroupManagement} />
+          <Route path="/governanceVoting" component={GovernanceVoting} />
+          <Route path="/governanceWizard" component={GovernanceWizard} />
+          <Route path="/gradeBook" component={GradeBook} />
+          <Route path="/groupChat" component={GroupChat} />
+          <Route path="/groupChats" component={GroupChats} />
+          <Route path="/groupDirectory" component={GroupDirectory} />
+          <Route path="/groupEvents" component={GroupEvents} />
+          <Route path="/groupManagement" component={GroupManagement} />
           <Route path="/growth" component={Growth} />
           <Route path="/guilds" component={Guilds} />
-          <Route path="/hipaa" component={HIPAA} />
-          <Route path="/hopeaicontrol" component={HOPEAIControl} />
-          <Route path="/hashratemonitor" component={HashRateMonitor} />
-          <Route path="/hashtagexplorer" component={HashtagExplorer} />
-          <Route path="/hashtagsearch" component={HashtagSearch} />
-          <Route path="/healtharticles" component={HealthArticles} />
-          <Route path="/healthdashboard" component={HealthDashboard} />
-          <Route path="/healthgoals" component={HealthGoals} />
-          <Route path="/helpcenter" component={HelpCenter} />
-          <Route path="/home" component={Home} />
-          <Route path="/hopeai" component={HopeAI} />
-          <Route path="/hopeaiadvanced" component={HopeAIAdvanced} />
-          <Route path="/hopeaimeta" component={HopeAIMeta} />
-          <Route path="/hopeaipage" component={HopeAIPage} />
-          <Route path="/hopeaiupgrades" component={HopeAIUpgrades} />
-          <Route path="/hotelsearch" component={HotelSearch} />
-          <Route path="/hubspotintegration" component={HubSpotIntegration} />
-          <Route path="/icolaunchpad" component={ICOLaunchpad} />
-          <Route path="/ifttt" component={IFTTT} />
-          <Route path="/imageeditor" component={ImageEditor} />
-          <Route path="/imagegallery" component={ImageGallery} />
-          <Route path="/imagetools" component={ImageTools} />
-          <Route path="/imageviewer" component={ImageViewer} />
-          <Route path="/impactmap" component={ImpactMap} />
-          <Route path="/impactmetrics" component={ImpactMetrics} />
-          <Route path="/inappnotifications" component={InAppNotifications} />
-          <Route path="/ingamecurrency" component={InGameCurrency} />
-          <Route path="/incidentmanagement" component={IncidentManagement} />
-          <Route path="/inputdialog" component={InputDialog} />
-          <Route path="/instructordashboard" component={InstructorDashboard} />
-          <Route path="/integrationsetup" component={IntegrationSetup} />
+          <Route path="/hIPAA" component={HIPAA} />
+          <Route path="/hOPEAIControl" component={HOPEAIControl} />
+          <Route path="/hashRateMonitor" component={HashRateMonitor} />
+          <Route path="/hashtagExplorer" component={HashtagExplorer} />
+          <Route path="/hashtagSearch" component={HashtagSearch} />
+          <Route path="/hashtags" component={Hashtags} />
+          <Route path="/healthArticles" component={HealthArticles} />
+          <Route path="/healthDashboard" component={HealthDashboard} />
+          <Route path="/healthGoals" component={HealthGoals} />
+          <Route path="/helpCenter" component={HelpCenter} />
+          <Route path="/hopeAI" component={HopeAI} />
+          <Route path="/hopeAIAdvanced" component={HopeAIAdvanced} />
+          <Route path="/hopeAIMeta" component={HopeAIMeta} />
+          <Route path="/hopeAIPage" component={HopeAIPage} />
+          <Route path="/hopeAIUpgrades" component={HopeAIUpgrades} />
+          <Route path="/hotelSearch" component={HotelSearch} />
+          <Route path="/hubSpotIntegration" component={HubSpotIntegration} />
+          <Route path="/iCOLaunchpad" component={ICOLaunchpad} />
+          <Route path="/iFTTT" component={IFTTT} />
+          <Route path="/iITR" component={IITR} />
+          <Route path="/iTServicesLanding" component={ITServicesLanding} />
+          <Route path="/iTServicesPortal" component={ITServicesPortal} />
+          <Route path="/imageEditor" component={ImageEditor} />
+          <Route path="/imageGallery" component={ImageGallery} />
+          <Route path="/imageTools" component={ImageTools} />
+          <Route path="/imageViewer" component={ImageViewer} />
+          <Route path="/impactMap" component={ImpactMap} />
+          <Route path="/impactMetrics" component={ImpactMetrics} />
+          <Route path="/inAppNotifications" component={InAppNotifications} />
+          <Route path="/inGameCurrency" component={InGameCurrency} />
+          <Route path="/incidentManagement" component={IncidentManagement} />
+          <Route path="/inputDialog" component={InputDialog} />
+          <Route path="/instructorDashboard" component={InstructorDashboard} />
+          <Route path="/integrationSetup" component={IntegrationSetup} />
           <Route path="/integrations" component={Integrations} />
-          <Route path="/inventorymanagement" component={InventoryManagement} />
-          <Route path="/investormetrics" component={InvestorMetrics} />
-          <Route path="/investorpitch" component={InvestorPitch} />
-          <Route path="/investorportal" component={InvestorPortal} />
-          <Route path="/investorroom" component={InvestorRoom} />
-          <Route path="/invoicedetails" component={InvoiceDetails} />
-          <Route path="/invoicemanagement" component={InvoiceManagement} />
-          <Route path="/kycverification" component={KYCVerification} />
-          <Route path="/knowledgebase" component={KnowledgeBase} />
-          <Route path="/ldapintegration" component={LDAPIntegration} />
-          <Route path="/ltvanalysis" component={LTVAnalysis} />
-          <Route path="/landingpage" component={LandingPage} />
-          <Route path="/languageexchangeadmin" component={LanguageExchangeAdmin} />
-          <Route path="/languagepartnerdiscovery" component={LanguagePartnerDiscovery} />
-          <Route path="/languageselector" component={LanguageSelector} />
-          <Route path="/languagesettings" component={LanguageSettings} />
-          <Route path="/leadscoring" component={LeadScoring} />
+          <Route path="/inventoryManagement" component={InventoryManagement} />
+          <Route path="/investmentGoals" component={InvestmentGoals} />
+          <Route path="/investorMetrics" component={InvestorMetrics} />
+          <Route path="/investorPitch" component={InvestorPitch} />
+          <Route path="/investorPortal" component={InvestorPortal} />
+          <Route path="/investorRoom" component={InvestorRoom} />
+          <Route path="/invoiceDetails" component={InvoiceDetails} />
+          <Route path="/invoiceManagement" component={InvoiceManagement} />
+          <Route path="/kYCVerification" component={KYCVerification} />
+          <Route path="/knowledgeBase" component={KnowledgeBase} />
+          <Route path="/lDAPIntegration" component={LDAPIntegration} />
+          <Route path="/lTVAnalysis" component={LTVAnalysis} />
+          <Route path="/landingPage" component={LandingPage} />
+          <Route path="/languageExchangeAdmin" component={LanguageExchangeAdmin} />
+          <Route path="/languagePartnerDiscovery" component={LanguagePartnerDiscovery} />
+          <Route path="/languageSelector" component={LanguageSelector} />
+          <Route path="/languageSettings" component={LanguageSettings} />
+          <Route path="/leadScoring" component={LeadScoring} />
           <Route path="/leaderboard" component={Leaderboard} />
           <Route path="/leaderboards" component={Leaderboards} />
           <Route path="/learning" component={Learning} />
-          <Route path="/learningpath" component={LearningPath} />
-          <Route path="/legaldocuments" component={LegalDocuments} />
-          <Route path="/legendarystatus" component={LegendaryStatus} />
-          <Route path="/lendingborrowing" component={LendingBorrowing} />
-          <Route path="/lessoneditor" component={LessonEditor} />
-          <Route path="/lifecommand" component={LifeCommand} />
+          <Route path="/learningPath" component={LearningPath} />
+          <Route path="/legalDocuments" component={LegalDocuments} />
+          <Route path="/legendaryStatus" component={LegendaryStatus} />
+          <Route path="/lendingBorrow" component={LendingBorrow} />
+          <Route path="/lendingBorrowing" component={LendingBorrowing} />
+          <Route path="/lessonEditor" component={LessonEditor} />
+          <Route path="/lifeCommand" component={LifeCommand} />
           <Route path="/lightbox" component={Lightbox} />
-          <Route path="/likereactionsystem" component={LikeReactionSystem} />
+          <Route path="/likeReactionSystem" component={LikeReactionSystem} />
           <Route path="/likes" component={Likes} />
-          <Route path="/liquiditypools" component={LiquidityPools} />
-          <Route path="/listview" component={ListView} />
+          <Route path="/liquidStaking" component={LiquidStaking} />
+          <Route path="/liquidityPools" component={LiquidityPools} />
+          <Route path="/listView" component={ListView} />
           <Route path="/live" component={Live} />
-          <Route path="/livechat" component={LiveChat} />
-          <Route path="/livegifting" component={LiveGifting} />
-          <Route path="/livereactions" component={LiveReactions} />
-          <Route path="/livestreamsetup" component={LiveStreamSetup} />
-          <Route path="/livestreamdashboard" component={LivestreamDashboard} />
-          <Route path="/loadingdialog" component={LoadingDialog} />
-          <Route path="/logviewer" component={LogViewer} />
+          <Route path="/liveChat" component={LiveChat} />
+          <Route path="/liveGifting" component={LiveGifting} />
+          <Route path="/liveReactions" component={LiveReactions} />
+          <Route path="/liveStreamSetup" component={LiveStreamSetup} />
+          <Route path="/liveStreaming" component={LiveStreaming} />
+          <Route path="/livestreamDashboard" component={LivestreamDashboard} />
+          <Route path="/loadBalancing" component={LoadBalancing} />
+          <Route path="/loadingDialog" component={LoadingDialog} />
+          <Route path="/logViewer" component={LogViewer} />
           <Route path="/login" component={Login} />
-          <Route path="/logisticsoptimizer" component={LogisticsOptimizer} />
-          <Route path="/mlinsights" component={MLInsights} />
-          <Route path="/mlmodels" component={MLModels} />
-          <Route path="/mailinglists" component={MailingLists} />
-          <Route path="/maindashboard" component={MainDashboard} />
-          <Route path="/maintenancemode" component={MaintenanceMode} />
-          <Route path="/mapview" component={MapView} />
-          <Route path="/markdownrendering" component={MarkdownRendering} />
-          <Route path="/marketingroi" component={MarketingROI} />
+          <Route path="/logisticsOptimizer" component={LogisticsOptimizer} />
+          <Route path="/mLInsights" component={MLInsights} />
+          <Route path="/mLModels" component={MLModels} />
+          <Route path="/mailingLists" component={MailingLists} />
+          <Route path="/mainDashboard" component={MainDashboard} />
+          <Route path="/maintenanceMode" component={MaintenanceMode} />
+          <Route path="/mapView" component={MapView} />
+          <Route path="/marginTrading" component={MarginTrading} />
+          <Route path="/markdownRendering" component={MarkdownRendering} />
+          <Route path="/marketSentiment" component={MarketSentiment} />
+          <Route path="/marketingROI" component={MarketingROI} />
           <Route path="/marketplace" component={Marketplace} />
-          <Route path="/marketplaceanalytics" component={MarketplaceAnalytics} />
-          <Route path="/masterarchitecture" component={MasterArchitecture} />
-          <Route path="/matchchat" component={MatchChat} />
-          <Route path="/matchfeed" component={MatchFeed} />
-          <Route path="/matchspace" component={MatchSpace} />
-          <Route path="/matchingalgorithm" component={MatchingAlgorithm} />
+          <Route path="/marketplaceAnalytics" component={MarketplaceAnalytics} />
+          <Route path="/masterArchitecture" component={MasterArchitecture} />
+          <Route path="/matchChat" component={MatchChat} />
+          <Route path="/matchFeed" component={MatchFeed} />
+          <Route path="/matchSpace" component={MatchSpace} />
+          <Route path="/matchingAlgorithm" component={MatchingAlgorithm} />
           <Route path="/matchmaking" component={Matchmaking} />
-          <Route path="/mealplans" component={MealPlans} />
-          <Route path="/mediacarousel" component={MediaCarousel} />
-          <Route path="/mediagallery" component={MediaGallery} />
-          <Route path="/medicationreminder" component={MedicationReminder} />
-          <Route path="/megamarketplace" component={MegaMarketplace} />
-          <Route path="/membershiptiers" component={MembershipTiers} />
-          <Route path="/memoryconstellation" component={MemoryConstellation} />
-          <Route path="/memorygraphvisualizer" component={MemoryGraphVisualizer} />
-          <Route path="/memorysystem" component={MemorySystem} />
-          <Route path="/messageencryption" component={MessageEncryption} />
-          <Route path="/messagesearch" component={MessageSearch} />
+          <Route path="/mealPlans" component={MealPlans} />
+          <Route path="/mediaCarousel" component={MediaCarousel} />
+          <Route path="/mediaGallery" component={MediaGallery} />
+          <Route path="/medicationReminder" component={MedicationReminder} />
+          <Route path="/megaMarketplace" component={MegaMarketplace} />
+          <Route path="/membershipTiers" component={MembershipTiers} />
+          <Route path="/memoryConstellation" component={MemoryConstellation} />
+          <Route path="/memoryGraphVisualizer" component={MemoryGraphVisualizer} />
+          <Route path="/memorySystem" component={MemorySystem} />
+          <Route path="/mentions" component={Mentions} />
+          <Route path="/messageEncryption" component={MessageEncryption} />
+          <Route path="/messageSearch" component={MessageSearch} />
           <Route path="/messages" component={Messages} />
-          <Route path="/milestonetracking" component={MilestoneTracking} />
-          <Route path="/minerdashboard" component={MinerDashboard} />
-          <Route path="/miningcalculator" component={MiningCalculator} />
-          <Route path="/miningdashboard" component={MiningDashboard} />
-          <Route path="/miningpoolselector" component={MiningPoolSelector} />
-          <Route path="/missioncontrol" component={MissionControl} />
-          <Route path="/mobileapp" component={MobileApp} />
-          <Route path="/mobilegaming" component={MobileGaming} />
-          <Route path="/mobilehome" component={MobileHome} />
-          <Route path="/mobilemenu" component={MobileMenu} />
-          <Route path="/mobilemessages" component={MobileMessages} />
-          <Route path="/mobilenotifications" component={MobileNotifications} />
-          <Route path="/mobileprofile" component={MobileProfile} />
-          <Route path="/mobilesearch" component={MobileSearch} />
-          <Route path="/mobilesettings" component={MobileSettings} />
-          <Route path="/mobileshop" component={MobileShop} />
-          <Route path="/mobilestreaming" component={MobileStreaming} />
-          <Route path="/mobiletrading" component={MobileTrading} />
-          <Route path="/mobilewallet" component={MobileWallet} />
-          <Route path="/moderationdashboard" component={ModerationDashboard} />
-          <Route path="/moodtracker" component={MoodTracker} />
-          <Route path="/mortgagecalculator" component={MortgageCalculator} />
-          <Route path="/moviecatalog" component={MovieCatalog} />
-          <Route path="/moviedetail" component={MovieDetail} />
-          <Route path="/multimodelselector" component={MultiModelSelector} />
-          <Route path="/multiselectform" component={MultiSelectForm} />
-          <Route path="/multiplayerlobby" component={MultiplayerLobby} />
-          <Route path="/multivariatetesting" component={MultivariateTesting} />
-          <Route path="/musicgeneration" component={MusicGeneration} />
-          <Route path="/mutualconnections" component={MutualConnections} />
-          <Route path="/mylearning" component={MyLearning} />
-          <Route path="/mytrips" component={MyTrips} />
-          <Route path="/nftgallery" component={NFTGallery} />
-          <Route path="/nftminting" component={NFTMinting} />
-          <Route path="/nftwallet" component={NFTWallet} />
-          <Route path="/nlptools" component={NLPTools} />
-          <Route path="/nsfwfeed" component={NSFWFeed} />
-          <Route path="/nsfwplatform" component={NSFWPlatform} />
-          <Route path="/narrativeengine" component={NarrativeEngine} />
-          <Route path="/networthtracker" component={NetWorthTracker} />
-          <Route path="/networkgraph" component={NetworkGraph} />
-          <Route path="/networkhealth" component={NetworkHealth} />
-          <Route path="/networkstatistics" component={NetworkStatistics} />
-          <Route path="/notesapp" component={NotesApp} />
-          <Route path="/notificationcenter" component={NotificationCenter} />
-          <Route path="/notificationhistory" component={NotificationHistory} />
-          <Route path="/notificationintelligence" component={NotificationIntelligence} />
-          <Route path="/notificationpreferences" component={NotificationPreferences} />
-          <Route path="/notificationsettings" component={NotificationSettings} />
-          <Route path="/notifications" component={Notifications} />
-          <Route path="/notificationscenter" component={NotificationsCenter} />
-          <Route path="/notificationshub" component={NotificationsHub} />
-          <Route path="/numberinputform" component={NumberInputForm} />
-          <Route path="/nutritiontracker" component={NutritionTracker} />
-          <Route path="/oauthproviders" component={OAuthProviders} />
-          <Route path="/offermanagement" component={OfferManagement} />
-          <Route path="/onboarding" component={Onboarding} />
-          <Route path="/onboardingtutorial" component={OnboardingTutorial} />
-          <Route path="/orderconfirmation" component={OrderConfirmation} />
-          <Route path="/orderhistory" component={OrderHistory} />
-          <Route path="/orderplacement" component={OrderPlacement} />
-          <Route path="/ordertracking" component={OrderTracking} />
-          <Route path="/ordertypes" component={OrderTypes} />
-          <Route path="/organizationsettings" component={OrganizationSettings} />
-          <Route path="/p2eshop" component={P2EShop} />
-          <Route path="/pagination" component={Pagination} />
-          <Route path="/passwordinputform" component={PasswordInputForm} />
-          <Route path="/passwordreset" component={PasswordReset} />
-          <Route path="/paypalintegration" component={PayPalIntegration} />
-          <Route path="/paymentconfirmation" component={PaymentConfirmation} />
-          <Route path="/paymentinfra" component={PaymentInfra} />
-          <Route path="/paymentmethods" component={PaymentMethods} />
-          <Route path="/paymentsetup" component={PaymentSetup} />
-          <Route path="/payments" component={Payments} />
-          <Route path="/payoutdashboard" component={PayoutDashboard} />
-          <Route path="/payoutmanagement" component={PayoutManagement} />
-          <Route path="/performancemetrics" component={PerformanceMetrics} />
-          <Route path="/personabuilder" component={PersonaBuilder} />
-          <Route path="/phase1dashboard" component={Phase1Dashboard} />
-          <Route path="/phase2to4dashboard" component={Phase2to4Dashboard} />
-          <Route path="/phoneverification" component={PhoneVerification} />
-          <Route path="/platformmap" component={PlatformMap} />
-          <Route path="/platformstatus" component={PlatformStatus} />
-          <Route path="/playlistmanager" component={PlaylistManager} />
-          <Route path="/podcaststudio" component={PodcastStudio} />
-          <Route path="/policymanagement" component={PolicyManagement} />
-          <Route path="/poolperformance" component={PoolPerformance} />
-          <Route path="/portfolio" component={Portfolio} />
-          <Route path="/portfoliooptimization" component={PortfolioOptimization} />
-          <Route path="/portfoliooverview" component={PortfolioOverview} />
-          <Route path="/portfoliotracker" component={PortfolioTracker} />
-          <Route path="/portfoliotracking" component={PortfolioTracking} />
-          <Route path="/positionmanagement" component={PositionManagement} />
-          <Route path="/powerusertools" component={PowerUserTools} />
-          <Route path="/practicesessions" component={PracticeSessions} />
-          <Route path="/predictiveanalytics" component={PredictiveAnalytics} />
-          <Route path="/predictivemodels" component={PredictiveModels} />
-          <Route path="/predictivesystems" component={PredictiveSystems} />
-          <Route path="/preferencessetup" component={PreferencesSetup} />
-          <Route path="/premiumfeatures" component={PremiumFeatures} />
-          <Route path="/presentationwithchat" component={PresentationWithChat} />
-          <Route path="/pricealerts" component={PriceAlerts} />
-          <Route path="/pricing" component={Pricing} />
-          <Route path="/pricingengine" component={PricingEngine} />
-          <Route path="/pricingmanagement" component={PricingManagement} />
-          <Route path="/pricingrules" component={PricingRules} />
-          <Route path="/prioritymatrix" component={PriorityMatrix} />
-          <Route path="/privacypolicy" component={PrivacyPolicy} />
-          <Route path="/privacysettings" component={PrivacySettings} />
-          <Route path="/privacyvault" component={PrivacyVault} />
-          <Route path="/productapproval" component={ProductApproval} />
-          <Route path="/productbrain" component={ProductBrain} />
-          <Route path="/productcatalog" component={ProductCatalog} />
-          <Route path="/productcomparison" component={ProductComparison} />
-          <Route path="/productdetail" component={ProductDetail} />
-          <Route path="/productlisting" component={ProductListing} />
-          <Route path="/productlistings" component={ProductListings} />
-          <Route path="/productreviews" component={ProductReviews} />
-          <Route path="/productionarchitecture" component={ProductionArchitecture} />
-          <Route path="/profile" component={Profile} />
-          <Route path="/profilecompletion" component={ProfileCompletion} />
-          <Route path="/profilecreation" component={ProfileCreation} />
-          <Route path="/profilecustomization" component={ProfileCustomization} />
-          <Route path="/profiledashboard" component={ProfileDashboard} />
-          <Route path="/profileedit" component={ProfileEdit} />
-          <Route path="/profilepicture" component={ProfilePicture} />
-          <Route path="/profilepreview" component={ProfilePreview} />
-          <Route path="/profileview" component={ProfileView} />
-          <Route path="/profilewallet" component={ProfileWallet} />
-          <Route path="/profitability" component={Profitability} />
-          <Route path="/progressbar" component={ProgressBar} />
-          <Route path="/progresstracking" component={ProgressTracking} />
-          <Route path="/projectboard" component={ProjectBoard} />
-          <Route path="/projectlisting" component={ProjectListing} />
-          <Route path="/promotionengine" component={PromotionEngine} />
-          <Route path="/promptbuilder" component={PromptBuilder} />
-          <Route path="/proofvault" component={ProofVault} />
-          <Route path="/propertycomparison" component={PropertyComparison} />
-          <Route path="/propertydetail" component={PropertyDetail} />
-          <Route path="/propertylisting" component={PropertyListing} />
-          <Route path="/propertytransfer" component={PropertyTransfer} />
-          <Route path="/protocollayer" component={ProtocolLayer} />
-          <Route path="/publishingschedule" component={PublishingSchedule} />
-          <Route path="/pushnotifications" component={PushNotifications} />
-          <Route path="/qrcodegenerator" component={QRCodeGenerator} />
-          <Route path="/quickactions" component={QuickActions} />
-          <Route path="/quickstats" component={QuickStats} />
-          <Route path="/quizbuilder" component={QuizBuilder} />
-          <Route path="/rfmanalysis" component={RFMAnalysis} />
-          <Route path="/rfqsystem" component={RFQSystem} />
-          <Route path="/radiobuttonform" component={RadioButtonForm} />
-          <Route path="/ratelimitconfig" component={RateLimitConfig} />
-          <Route path="/ratelimitdashboard" component={RateLimitDashboard} />
-          <Route path="/ratelimiterror" component={RateLimitError} />
-          <Route path="/ratelimiting" component={RateLimiting} />
-          <Route path="/ratingsystem" component={RatingSystem} />
-          <Route path="/readreceipts" component={ReadReceipts} />
-          <Route path="/realtimegameengine" component={RealTimeGameEngine} />
-          <Route path="/realtimemonitoring" component={RealTimeMonitoring} />
-          <Route path="/realtimestreaming" component={RealTimeStreaming} />
-          <Route path="/rebalancingtools" component={RebalancingTools} />
-          <Route path="/receiptdownload" component={ReceiptDownload} />
-          <Route path="/receivecrypto" component={ReceiveCrypto} />
-          <Route path="/recentactivity" component={RecentActivity} />
-          <Route path="/recommendations" component={Recommendations} />
-          <Route path="/recommendationsfeed" component={RecommendationsFeed} />
-          <Route path="/recommendedmatches" component={RecommendedMatches} />
-          <Route path="/reels" component={Reels} />
-          <Route path="/refactoringtools" component={RefactoringTools} />
-          <Route path="/referrals" component={Referrals} />
+          <Route path="/metaversePortal" component={MetaversePortal} />
+          <Route path="/milestoneTracking" component={MilestoneTracking} />
+          <Route path="/minerDashboard" component={MinerDashboard} />
+          <Route path="/miningCalculator" component={MiningCalculator} />
+          <Route path="/miningDashboard" component={MiningDashboard} />
+          <Route path="/miningPoolSelector" component={MiningPoolSelector} />
+          <Route path="/missionControl" component={MissionControl} />
           <Route path="/mobile" component={Mobile} />
-      <Route path="/currency" component={CurrencyTicker} />
-          <Route path="/refundrequests" component={RefundRequests} />
-          <Route path="/regionalsettings" component={RegionalSettings} />
+          <Route path="/mobileApp" component={MobileApp} />
+          <Route path="/mobileGaming" component={MobileGaming} />
+          <Route path="/mobileHome" component={MobileHome} />
+          <Route path="/mobileMenu" component={MobileMenu} />
+          <Route path="/mobileMessages" component={MobileMessages} />
+          <Route path="/mobileNotifications" component={MobileNotifications} />
+          <Route path="/mobileProfile" component={MobileProfile} />
+          <Route path="/mobileSearch" component={MobileSearch} />
+          <Route path="/mobileSettings" component={MobileSettings} />
+          <Route path="/mobileShop" component={MobileShop} />
+          <Route path="/mobileStreaming" component={MobileStreaming} />
+          <Route path="/mobileTrading" component={MobileTrading} />
+          <Route path="/mobileWallet" component={MobileWallet} />
+          <Route path="/moderationDashboard" component={ModerationDashboard} />
+          <Route path="/monetization" component={Monetization} />
+          <Route path="/moodTracker" component={MoodTracker} />
+          <Route path="/mortgageCalculator" component={MortgageCalculator} />
+          <Route path="/movieCatalog" component={MovieCatalog} />
+          <Route path="/movieDetail" component={MovieDetail} />
+          <Route path="/multiModelSelector" component={MultiModelSelector} />
+          <Route path="/multiSelectForm" component={MultiSelectForm} />
+          <Route path="/multiplayerLobby" component={MultiplayerLobby} />
+          <Route path="/multivariateTesting" component={MultivariateTesting} />
+          <Route path="/musicGeneration" component={MusicGeneration} />
+          <Route path="/mutualConnections" component={MutualConnections} />
+          <Route path="/mutualFriends" component={MutualFriends} />
+          <Route path="/myLearning" component={MyLearning} />
+          <Route path="/myTrips" component={MyTrips} />
+          <Route path="/nFTGallery" component={NFTGallery} />
+          <Route path="/nFTMinting" component={NFTMinting} />
+          <Route path="/nFTWallet" component={NFTWallet} />
+          <Route path="/nLPTools" component={NLPTools} />
+          <Route path="/nSFWFeed" component={NSFWFeed} />
+          <Route path="/nSFWPlatform" component={NSFWPlatform} />
+          <Route path="/narrativeEngine" component={NarrativeEngine} />
+          <Route path="/netWorthTracker" component={NetWorthTracker} />
+          <Route path="/networkGraph" component={NetworkGraph} />
+          <Route path="/networkHealth" component={NetworkHealth} />
+          <Route path="/networkStatistics" component={NetworkStatistics} />
+          <Route path="/notesApp" component={NotesApp} />
+          <Route path="/notificationCenter" component={NotificationCenter} />
+          <Route path="/notificationHistory" component={NotificationHistory} />
+          <Route path="/notificationIntelligence" component={NotificationIntelligence} />
+          <Route path="/notificationPreferences" component={NotificationPreferences} />
+          <Route path="/notificationSettings" component={NotificationSettings} />
+          <Route path="/notifications" component={Notifications} />
+          <Route path="/notificationsCenter" component={NotificationsCenter} />
+          <Route path="/notificationsHub" component={NotificationsHub} />
+          <Route path="/numberInputForm" component={NumberInputForm} />
+          <Route path="/nutritionTracker" component={NutritionTracker} />
+          <Route path="/oAuthProviders" component={OAuthProviders} />
+          <Route path="/offerManagement" component={OfferManagement} />
+          <Route path="/onboarding" component={Onboarding} />
+          <Route path="/onboardingTutorial" component={OnboardingTutorial} />
+          <Route path="/optionsTrading" component={OptionsTrading} />
+          <Route path="/oracleNetwork" component={OracleNetwork} />
+          <Route path="/orderBook" component={OrderBook} />
+          <Route path="/orderConfirmation" component={OrderConfirmation} />
+          <Route path="/orderHistory" component={OrderHistory} />
+          <Route path="/orderPlacement" component={OrderPlacement} />
+          <Route path="/orderTracking" component={OrderTracking} />
+          <Route path="/orderTypes" component={OrderTypes} />
+          <Route path="/organizationSettings" component={OrganizationSettings} />
+          <Route path="/p2EShop" component={P2EShop} />
+          <Route path="/pagination" component={Pagination} />
+          <Route path="/passwordInputForm" component={PasswordInputForm} />
+          <Route path="/passwordReset" component={PasswordReset} />
+          <Route path="/payPalIntegration" component={PayPalIntegration} />
+          <Route path="/paymentConfirmation" component={PaymentConfirmation} />
+          <Route path="/paymentInfra" component={PaymentInfra} />
+          <Route path="/paymentMethods" component={PaymentMethods} />
+          <Route path="/paymentSetup" component={PaymentSetup} />
+          <Route path="/payments" component={Payments} />
+          <Route path="/payoutDashboard" component={PayoutDashboard} />
+          <Route path="/payoutManagement" component={PayoutManagement} />
+          <Route path="/performanceMetrics" component={PerformanceMetrics} />
+          <Route path="/performanceTuning" component={PerformanceTuning} />
+          <Route path="/permissionManagement" component={PermissionManagement} />
+          <Route path="/perpetualFutures" component={PerpetualFutures} />
+          <Route path="/personaBuilder" component={PersonaBuilder} />
+          <Route path="/phase1Dashboard" component={Phase1Dashboard} />
+          <Route path="/phase2to4Dashboard" component={Phase2to4Dashboard} />
+          <Route path="/phoneVerification" component={PhoneVerification} />
+          <Route path="/platformMap" component={PlatformMap} />
+          <Route path="/platformStatus" component={PlatformStatus} />
+          <Route path="/playlistManagement" component={PlaylistManagement} />
+          <Route path="/playlistManager" component={PlaylistManager} />
+          <Route path="/podcastStudio" component={PodcastStudio} />
+          <Route path="/policyManagement" component={PolicyManagement} />
+          <Route path="/poolPerformance" component={PoolPerformance} />
+          <Route path="/portfolio" component={Portfolio} />
+          <Route path="/portfolioComparison" component={PortfolioComparison} />
+          <Route path="/portfolioOptimization" component={PortfolioOptimization} />
+          <Route path="/portfolioOverview" component={PortfolioOverview} />
+          <Route path="/portfolioRebalance" component={PortfolioRebalance} />
+          <Route path="/portfolioTracker" component={PortfolioTracker} />
+          <Route path="/portfolioTracking" component={PortfolioTracking} />
+          <Route path="/positionManagement" component={PositionManagement} />
+          <Route path="/powerUserTools" component={PowerUserTools} />
+          <Route path="/practiceSessions" component={PracticeSessions} />
+          <Route path="/predictiveAnalytics" component={PredictiveAnalytics} />
+          <Route path="/predictiveModels" component={PredictiveModels} />
+          <Route path="/predictiveSystems" component={PredictiveSystems} />
+          <Route path="/preferencesSetup" component={PreferencesSetup} />
+          <Route path="/premiumFeatures" component={PremiumFeatures} />
+          <Route path="/presentationWithChat" component={PresentationWithChat} />
+          <Route path="/priceAlerts" component={PriceAlerts} />
+          <Route path="/pricing" component={Pricing} />
+          <Route path="/pricingEngine" component={PricingEngine} />
+          <Route path="/pricingManagement" component={PricingManagement} />
+          <Route path="/pricingRules" component={PricingRules} />
+          <Route path="/priorityMatrix" component={PriorityMatrix} />
+          <Route path="/privacyMixer" component={PrivacyMixer} />
+          <Route path="/privacyPolicy" component={PrivacyPolicy} />
+          <Route path="/privacySettings" component={PrivacySettings} />
+          <Route path="/privacyVault" component={PrivacyVault} />
+          <Route path="/productApproval" component={ProductApproval} />
+          <Route path="/productBrain" component={ProductBrain} />
+          <Route path="/productCatalog" component={ProductCatalog} />
+          <Route path="/productComparison" component={ProductComparison} />
+          <Route path="/productDetail" component={ProductDetail} />
+          <Route path="/productListing" component={ProductListing} />
+          <Route path="/productListings" component={ProductListings} />
+          <Route path="/productReviews" component={ProductReviews} />
+          <Route path="/productionArchitecture" component={ProductionArchitecture} />
+          <Route path="/profile" component={Profile} />
+          <Route path="/profileCompletion" component={ProfileCompletion} />
+          <Route path="/profileCreation" component={ProfileCreation} />
+          <Route path="/profileCustomization" component={ProfileCustomization} />
+          <Route path="/profileDashboard" component={ProfileDashboard} />
+          <Route path="/profileEdit" component={ProfileEdit} />
+          <Route path="/profilePicture" component={ProfilePicture} />
+          <Route path="/profilePreview" component={ProfilePreview} />
+          <Route path="/profileView" component={ProfileView} />
+          <Route path="/profileWallet" component={ProfileWallet} />
+          <Route path="/profitability" component={Profitability} />
+          <Route path="/progressBar" component={ProgressBar} />
+          <Route path="/progressTracking" component={ProgressTracking} />
+          <Route path="/projectBoard" component={ProjectBoard} />
+          <Route path="/projectListing" component={ProjectListing} />
+          <Route path="/promotionEngine" component={PromotionEngine} />
+          <Route path="/promptBuilder" component={PromptBuilder} />
+          <Route path="/proofVault" component={ProofVault} />
+          <Route path="/propertyComparison" component={PropertyComparison} />
+          <Route path="/propertyDetail" component={PropertyDetail} />
+          <Route path="/propertyListing" component={PropertyListing} />
+          <Route path="/propertyTransfer" component={PropertyTransfer} />
+          <Route path="/protocolLayer" component={ProtocolLayer} />
+          <Route path="/publishingQueue" component={PublishingQueue} />
+          <Route path="/publishingSchedule" component={PublishingSchedule} />
+          <Route path="/pushNotifications" component={PushNotifications} />
+          <Route path="/qRCodeGenerator" component={QRCodeGenerator} />
+          <Route path="/quantumComputing" component={QuantumComputing} />
+          <Route path="/quantumSafe" component={QuantumSafe} />
+          <Route path="/quickActions" component={QuickActions} />
+          <Route path="/quickStats" component={QuickStats} />
+          <Route path="/quizBuilder" component={QuizBuilder} />
+          <Route path="/rFMAnalysis" component={RFMAnalysis} />
+          <Route path="/rFQSystem" component={RFQSystem} />
+          <Route path="/radioButtonForm" component={RadioButtonForm} />
+          <Route path="/rateLimitConfig" component={RateLimitConfig} />
+          <Route path="/rateLimitDashboard" component={RateLimitDashboard} />
+          <Route path="/rateLimitError" component={RateLimitError} />
+          <Route path="/rateLimiting" component={RateLimiting} />
+          <Route path="/ratingSystem" component={RatingSystem} />
+          <Route path="/readReceipts" component={ReadReceipts} />
+          <Route path="/realTimeGameEngine" component={RealTimeGameEngine} />
+          <Route path="/realTimeMonitoring" component={RealTimeMonitoring} />
+          <Route path="/realTimeStreaming" component={RealTimeStreaming} />
+          <Route path="/rebalancingTools" component={RebalancingTools} />
+          <Route path="/receiptDownload" component={ReceiptDownload} />
+          <Route path="/receiveCrypto" component={ReceiveCrypto} />
+          <Route path="/recentActivity" component={RecentActivity} />
+          <Route path="/recommendations" component={Recommendations} />
+          <Route path="/recommendationsFeed" component={RecommendationsFeed} />
+          <Route path="/recommendedMatches" component={RecommendedMatches} />
+          <Route path="/reels" component={Reels} />
+          <Route path="/refactoringTools" component={RefactoringTools} />
+          <Route path="/referrals" component={Referrals} />
+          <Route path="/refundRequests" component={RefundRequests} />
+          <Route path="/regionalSettings" component={RegionalSettings} />
           <Route path="/reminders" component={Reminders} />
-          <Route path="/reportdialog" component={ReportDialog} />
-          <Route path="/reportuser" component={ReportUser} />
-          <Route path="/reportsdashboard" component={ReportsDashboard} />
+          <Route path="/reportDialog" component={ReportDialog} />
+          <Route path="/reportUser" component={ReportUser} />
+          <Route path="/reportsDashboard" component={ReportsDashboard} />
           <Route path="/reputation" component={Reputation} />
-          <Route path="/reputationsystem" component={ReputationSystem} />
-          <Route path="/resourceallocation" component={ResourceAllocation} />
-          <Route path="/resourcelibrary" component={ResourceLibrary} />
-          <Route path="/responsetime" component={ResponseTime} />
+          <Route path="/reputationSystem" component={ReputationSystem} />
+          <Route path="/resourceAllocation" component={ResourceAllocation} />
+          <Route path="/resourceLibrary" component={ResourceLibrary} />
+          <Route path="/responseTime" component={ResponseTime} />
           <Route path="/retention" component={Retention} />
-          <Route path="/retentionanalytics" component={RetentionAnalytics} />
-          <Route path="/retentionengine" component={RetentionEngine} />
-          <Route path="/retirementplanner" component={RetirementPlanner} />
-          <Route path="/returnmanagement" component={ReturnManagement} />
-          <Route path="/returnsrefunds" component={ReturnsRefunds} />
-          <Route path="/reviewmoderation" component={ReviewModeration} />
+          <Route path="/retentionAnalytics" component={RetentionAnalytics} />
+          <Route path="/retentionEngine" component={RetentionEngine} />
+          <Route path="/retirementPlanner" component={RetirementPlanner} />
+          <Route path="/returnManagement" component={ReturnManagement} />
+          <Route path="/returnsRefunds" component={ReturnsRefunds} />
+          <Route path="/revenueTracking" component={RevenueTracking} />
+          <Route path="/reviewModeration" component={ReviewModeration} />
           <Route path="/reviews" component={Reviews} />
-          <Route path="/reviewsratings" component={ReviewsRatings} />
-          <Route path="/rewardsystem" component={RewardSystem} />
-          <Route path="/rewardsmonitoring" component={RewardsMonitoring} />
-          <Route path="/rewardstracking" component={RewardsTracking} />
-          <Route path="/riskanalysis" component={RiskAnalysis} />
+          <Route path="/reviewsRatings" component={ReviewsRatings} />
+          <Route path="/rewardSystem" component={RewardSystem} />
+          <Route path="/rewardsMonitoring" component={RewardsMonitoring} />
+          <Route path="/rewardsTracking" component={RewardsTracking} />
+          <Route path="/riskAnalysis" component={RiskAnalysis} />
+          <Route path="/riskManagement" component={RiskManagement} />
           <Route path="/roadmap" component={Roadmap} />
-          <Route path="/roadmapview" component={RoadmapView} />
-          <Route path="/rolebasedaccess" component={RoleBasedAccess} />
-          <Route path="/rolemanagement" component={RoleManagement} />
-          <Route path="/sdkdownload" component={SDKDownload} />
-          <Route path="/sdkmanagement" component={SDKManagement} />
-          <Route path="/seooptimizer" component={SEOOptimizer} />
-          <Route path="/sky444centralbank" component={SKY444CentralBank} />
-          <Route path="/smscampaigns" component={SMSCampaigns} />
-          <Route path="/smsintegration" component={SMSIntegration} />
-          <Route path="/smstemplates" component={SMSTemplates} />
-          <Route path="/soc2" component={SOC2} />
-          <Route path="/sso" component={SSO} />
-          <Route path="/salesanalytics" component={SalesAnalytics} />
-          <Route path="/salesforceintegration" component={SalesforceIntegration} />
-          <Route path="/satisfactionsurvey" component={SatisfactionSurvey} />
-          <Route path="/savedproperties" component={SavedProperties} />
-          <Route path="/savedsearches" component={SavedSearches} />
-          <Route path="/savingsgoals" component={SavingsGoals} />
-          <Route path="/scheduledjobs" component={ScheduledJobs} />
-          <Route path="/scheduledreports" component={ScheduledReports} />
+          <Route path="/roadmapView" component={RoadmapView} />
+          <Route path="/roleBasedAccess" component={RoleBasedAccess} />
+          <Route path="/roleManagement" component={RoleManagement} />
+          <Route path="/sDKDownload" component={SDKDownload} />
+          <Route path="/sDKManagement" component={SDKManagement} />
+          <Route path="/sEOOptimizer" component={SEOOptimizer} />
+          <Route path="/sKY444CentralBank" component={SKY444CentralBank} />
+          <Route path="/sMSCampaigns" component={SMSCampaigns} />
+          <Route path="/sMSIntegration" component={SMSIntegration} />
+          <Route path="/sMSTemplates" component={SMSTemplates} />
+          <Route path="/sMTPSettings" component={SMTPSettings} />
+          <Route path="/sOC2" component={SOC2} />
+          <Route path="/sSLCertificates" component={SSLCertificates} />
+          <Route path="/sSO" component={SSO} />
+          <Route path="/salesAnalytics" component={SalesAnalytics} />
+          <Route path="/salesforceIntegration" component={SalesforceIntegration} />
+          <Route path="/satisfactionSurvey" component={SatisfactionSurvey} />
+          <Route path="/savedProperties" component={SavedProperties} />
+          <Route path="/savedSearches" component={SavedSearches} />
+          <Route path="/savingsGoals" component={SavingsGoals} />
+          <Route path="/scheduledJobs" component={ScheduledJobs} />
+          <Route path="/scheduledReports" component={ScheduledReports} />
           <Route path="/school" component={School} />
-          <Route path="/schoolcertificate" component={SchoolCertificate} />
-          <Route path="/schoolcourse" component={SchoolCourse} />
-          <Route path="/schooldashboard" component={SchoolDashboard} />
-          <Route path="/schoollesson" component={SchoolLesson} />
-          <Route path="/schoolquiz" component={SchoolQuiz} />
+          <Route path="/schoolCertificate" component={SchoolCertificate} />
+          <Route path="/schoolCourse" component={SchoolCourse} />
+          <Route path="/schoolDashboard" component={SchoolDashboard} />
+          <Route path="/schoolLesson" component={SchoolLesson} />
+          <Route path="/schoolQuiz" component={SchoolQuiz} />
           <Route path="/search" component={Search} />
-          <Route path="/searchanalytics" component={SearchAnalytics} />
-          <Route path="/searchhistory" component={SearchHistory} />
-          <Route path="/searchresults" component={SearchResults} />
-          <Route path="/searchsuggestions" component={SearchSuggestions} />
-          <Route path="/seasonalevents" component={SeasonalEvents} />
+          <Route path="/searchAnalytics" component={SearchAnalytics} />
+          <Route path="/searchHistory" component={SearchHistory} />
+          <Route path="/searchResults" component={SearchResults} />
+          <Route path="/searchSuggestions" component={SearchSuggestions} />
+          <Route path="/seasonalEvents" component={SeasonalEvents} />
           <Route path="/security" component={Security} />
-          <Route path="/securityaudit" component={SecurityAudit} />
-          <Route path="/securitycompliance" component={SecurityCompliance} />
-          <Route path="/securitydashboard" component={SecurityDashboard} />
-          <Route path="/securitysettings" component={SecuritySettings} />
-          <Route path="/segmentationanalysis" component={SegmentationAnalysis} />
-          <Route path="/selectdropdownform" component={SelectDropdownForm} />
-          <Route path="/selfhealinginfra" component={SelfHealingInfra} />
-          <Route path="/sellerdashboard" component={SellerDashboard} />
-          <Route path="/sellerprofile" component={SellerProfile} />
-          <Route path="/sendcrypto" component={SendCrypto} />
-          <Route path="/sentimentpipeline" component={SentimentPipeline} />
-          <Route path="/serverhealth" component={ServerHealth} />
-          <Route path="/serverinstaller" component={ServerInstaller} />
-          <Route path="/serverstatus" component={ServerStatus} />
+          <Route path="/securityAudit" component={SecurityAudit} />
+          <Route path="/securityCompliance" component={SecurityCompliance} />
+          <Route path="/securityDashboard" component={SecurityDashboard} />
+          <Route path="/securitySettings" component={SecuritySettings} />
+          <Route path="/segmentationAnalysis" component={SegmentationAnalysis} />
+          <Route path="/selectDropdownForm" component={SelectDropdownForm} />
+          <Route path="/selfHealingInfra" component={SelfHealingInfra} />
+          <Route path="/sellerDashboard" component={SellerDashboard} />
+          <Route path="/sellerProfile" component={SellerProfile} />
+          <Route path="/sendCrypto" component={SendCrypto} />
+          <Route path="/sentimentPipeline" component={SentimentPipeline} />
+          <Route path="/serverHealth" component={ServerHealth} />
+          <Route path="/serverInstaller" component={ServerInstaller} />
+          <Route path="/serverStatus" component={ServerStatus} />
           <Route path="/settings" component={Settings} />
-          <Route path="/settingsdialog" component={SettingsDialog} />
-          <Route path="/setupwizard" component={SetupWizard} />
-          <Route path="/shadowidentity" component={ShadowIdentity} />
-          <Route path="/shadowrelay" component={ShadowRelay} />
-          <Route path="/sharedialog" component={ShareDialog} />
+          <Route path="/settingsDialog" component={SettingsDialog} />
+          <Route path="/setupWizard" component={SetupWizard} />
+          <Route path="/shadowIdentity" component={ShadowIdentity} />
+          <Route path="/shadowRelay" component={ShadowRelay} />
+          <Route path="/shareDialog" component={ShareDialog} />
+          <Route path="/shares" component={Shares} />
           <Route path="/sharing" component={Sharing} />
-          <Route path="/shippingmanagement" component={ShippingManagement} />
-          <Route path="/shoppingcart" component={ShoppingCart} />
-          <Route path="/sidebarnavigation" component={SidebarNavigation} />
-          <Route path="/signup" component={SignUp} />
-          <Route path="/signupflow" component={SignUpFlow} />
-          <Route path="/signup_old" component={SignUp_old} />
+          <Route path="/shippingManagement" component={ShippingManagement} />
+          <Route path="/shoppingCart" component={ShoppingCart} />
+          <Route path="/sidebarNavigation" component={SidebarNavigation} />
+          <Route path="/signUp" component={SignUp} />
+          <Route path="/signUpFlow" component={SignUpFlow} />
+          <Route path="/signUp_old" component={SignUp_old} />
           <Route path="/signin" component={Signin} />
-          <Route path="/situationroom" component={SituationRoom} />
-          <Route path="/skillbadges" component={SkillBadges} />
-          <Route path="/skyschool" component={SkySchool} />
-          <Route path="/skyschoolai" component={SkySchoolAI} />
-          <Route path="/skyschoolquiz" component={SkySchoolQuiz} />
-          <Route path="/skystore" component={SkyStore} />
-          <Route path="/slackintegration" component={SlackIntegration} />
-          <Route path="/sleeptracking" component={SleepTracking} />
-          <Route path="/slippageprotection" component={SlippageProtection} />
-          <Route path="/smartcontractaudit" component={SmartContractAudit} />
-          <Route path="/smartcontractviewer" component={SmartContractViewer} />
-          <Route path="/smartcontracts" component={SmartContracts} />
-          <Route path="/socialfeedv2" component={SocialFeedV2} />
-          <Route path="/socialgraph" component={SocialGraph} />
-          <Route path="/socialmedia" component={SocialMedia} />
-          <Route path="/socialmediacampaigns" component={SocialMediaCampaigns} />
-          <Route path="/solanavalidatorsetup" component={SolanaValidatorSetup} />
-          <Route path="/sortoptions" component={SortOptions} />
-          <Route path="/speechtotext" component={SpeechToText} />
-          <Route path="/spinwheel" component={SpinWheel} />
-          <Route path="/stakedelegation" component={StakeDelegation} />
-          <Route path="/stakingdashboard" component={StakingDashboard} />
-          <Route path="/stakingoptions" component={StakingOptions} />
-          <Route path="/stakingportal" component={StakingPortal} />
-          <Route path="/statisticspanel" component={StatisticsPanel} />
+          <Route path="/situationRoom" component={SituationRoom} />
+          <Route path="/skillBadges" component={SkillBadges} />
+          <Route path="/skySchool" component={SkySchool} />
+          <Route path="/skySchoolAI" component={SkySchoolAI} />
+          <Route path="/skySchoolQuiz" component={SkySchoolQuiz} />
+          <Route path="/skyStore" component={SkyStore} />
+          <Route path="/slackIntegration" component={SlackIntegration} />
+          <Route path="/sleepTracking" component={SleepTracking} />
+          <Route path="/slippageProtection" component={SlippageProtection} />
+          <Route path="/smartContractAudit" component={SmartContractAudit} />
+          <Route path="/smartContractViewer" component={SmartContractViewer} />
+          <Route path="/smartContracts" component={SmartContracts} />
+          <Route path="/socialAnalytics" component={SocialAnalytics} />
+          <Route path="/socialEvents" component={SocialEvents} />
+          <Route path="/socialFeed" component={SocialFeed} />
+          <Route path="/socialFeedV2" component={SocialFeedV2} />
+          <Route path="/socialGraph" component={SocialGraph} />
+          <Route path="/socialMedia" component={SocialMedia} />
+          <Route path="/socialMediaCampaigns" component={SocialMediaCampaigns} />
+          <Route path="/solanaValidatorSetup" component={SolanaValidatorSetup} />
+          <Route path="/sortOptions" component={SortOptions} />
+          <Route path="/speechToText" component={SpeechToText} />
+          <Route path="/spinWheel" component={SpinWheel} />
+          <Route path="/sponsorships" component={Sponsorships} />
+          <Route path="/stakeDelegation" component={StakeDelegation} />
+          <Route path="/stakingDashboard" component={StakingDashboard} />
+          <Route path="/stakingHub" component={StakingHub} />
+          <Route path="/stakingOptions" component={StakingOptions} />
+          <Route path="/stakingPortal" component={StakingPortal} />
+          <Route path="/statisticsPanel" component={StatisticsPanel} />
           <Route path="/status" component={Status} />
-          <Route path="/stepperwizard" component={StepperWizard} />
-          <Route path="/stockchart" component={StockChart} />
-          <Route path="/stocksearch" component={StockSearch} />
+          <Route path="/stepperWizard" component={StepperWizard} />
+          <Route path="/stockChart" component={StockChart} />
+          <Route path="/stockSearch" component={StockSearch} />
           <Route path="/stories" component={Stories} />
-          <Route path="/streamanalytics" component={StreamAnalytics} />
-          <Route path="/streamclip" component={StreamClip} />
-          <Route path="/streamgifting" component={StreamGifting} />
-          <Route path="/stripecheckout" component={StripeCheckout} />
-          <Route path="/stripeintegration" component={StripeIntegration} />
-          <Route path="/studentprogress" component={StudentProgress} />
-          <Route path="/styleselector" component={StyleSelector} />
-          <Route path="/subscriptionmanagement" component={SubscriptionManagement} />
-          <Route path="/subscriptionplans" component={SubscriptionPlans} />
-          <Route path="/subscriptionsetup" component={SubscriptionSetup} />
+          <Route path="/streamAnalytics" component={StreamAnalytics} />
+          <Route path="/streamClip" component={StreamClip} />
+          <Route path="/streamGifting" component={StreamGifting} />
+          <Route path="/streamingDashboard" component={StreamingDashboard} />
+          <Route path="/stripeCheckout" component={StripeCheckout} />
+          <Route path="/stripeIntegration" component={StripeIntegration} />
+          <Route path="/studentProgress" component={StudentProgress} />
+          <Route path="/styleSelector" component={StyleSelector} />
+          <Route path="/subscriberManagement" component={SubscriberManagement} />
+          <Route path="/subscriptionManagement" component={SubscriptionManagement} />
+          <Route path="/subscriptionPlans" component={SubscriptionPlans} />
+          <Route path="/subscriptionSetup" component={SubscriptionSetup} />
           <Route path="/subscriptions" component={Subscriptions} />
-          <Route path="/successdialog" component={SuccessDialog} />
-          <Route path="/successscreen" component={SuccessScreen} />
-          <Route path="/supportmetrics" component={SupportMetrics} />
-          <Route path="/supportticket" component={SupportTicket} />
-          <Route path="/swapinterface" component={SwapInterface} />
-          <Route path="/swipeinterface" component={SwipeInterface} />
-          <Route path="/systemarchitecture" component={SystemArchitecture} />
-          <Route path="/systemlogs" component={SystemLogs} />
-          <Route path="/systemobservability" component={SystemObservability} />
-          <Route path="/systemstatus" component={SystemStatus} />
-          <Route path="/tabsnavigation" component={TabsNavigation} />
-          <Route path="/taskautomation" component={TaskAutomation} />
-          <Route path="/taskdetail" component={TaskDetail} />
-          <Route path="/tasklist" component={TaskList} />
-          <Route path="/taxdocumentation" component={TaxDocumentation} />
-          <Route path="/taxplanning" component={TaxPlanning} />
-          <Route path="/taxreports" component={TaxReports} />
-          <Route path="/teachingopportunities" component={TeachingOpportunities} />
-          <Route path="/teammanagement" component={TeamManagement} />
-          <Route path="/teamworkspace" component={TeamWorkspace} />
-          <Route path="/technicalindicators" component={TechnicalIndicators} />
-          <Route path="/telegramintegration" component={TelegramIntegration} />
-          <Route path="/templatelibrary" component={TemplateLibrary} />
-          <Route path="/termsacceptance" component={TermsAcceptance} />
-          <Route path="/termsofservice" component={TermsOfService} />
-          <Route path="/testingframework" component={TestingFramework} />
-          <Route path="/textinputform" component={TextInputForm} />
-          <Route path="/texttospeech" component={TextToSpeech} />
-          <Route path="/texttools" component={TextTools} />
-          <Route path="/themesettings" component={ThemeSettings} />
-          <Route path="/threadmanagement" component={ThreadManagement} />
-          <Route path="/ticketassignment" component={TicketAssignment} />
-          <Route path="/ticketdetail" component={TicketDetail} />
-          <Route path="/ticketqueue" component={TicketQueue} />
-          <Route path="/tiercomparison" component={TierComparison} />
-          <Route path="/timeinputform" component={TimeInputForm} />
-          <Route path="/timepickerdialog" component={TimePickerDialog} />
-          <Route path="/timetracking" component={TimeTracking} />
-          <Route path="/timelineview" component={TimelineView} />
-          <Route path="/timeouterror" component={TimeoutError} />
-          <Route path="/tipjar" component={TipJar} />
-          <Route path="/toastnotifications" component={ToastNotifications} />
-          <Route path="/todolist" component={TodoList} />
-          <Route path="/toggleswitchform" component={ToggleSwitchForm} />
-          <Route path="/tokendashboard" component={TokenDashboard} />
-          <Route path="/tokengovernance" component={TokenGovernance} />
-          <Route path="/tokeninformation" component={TokenInformation} />
-          <Route path="/tokenmetrics" component={TokenMetrics} />
-          <Route path="/tokenomicscalculator" component={TokenomicsCalculator} />
-          <Route path="/torbridge" component={TorBridge} />
-          <Route path="/tournamentbracket" component={TournamentBracket} />
-          <Route path="/tournamentbrackets" component={TournamentBrackets} />
+          <Route path="/successDialog" component={SuccessDialog} />
+          <Route path="/successScreen" component={SuccessScreen} />
+          <Route path="/supportMetrics" component={SupportMetrics} />
+          <Route path="/supportTicket" component={SupportTicket} />
+          <Route path="/swapInterface" component={SwapInterface} />
+          <Route path="/swipeInterface" component={SwipeInterface} />
+          <Route path="/synthetics" component={Synthetics} />
+          <Route path="/systemArchitecture" component={SystemArchitecture} />
+          <Route path="/systemLogs" component={SystemLogs} />
+          <Route path="/systemMonitoring" component={SystemMonitoring} />
+          <Route path="/systemObservability" component={SystemObservability} />
+          <Route path="/systemSettings" component={SystemSettings} />
+          <Route path="/systemStatus" component={SystemStatus} />
+          <Route path="/tabsNavigation" component={TabsNavigation} />
+          <Route path="/taskAutomation" component={TaskAutomation} />
+          <Route path="/taskDetail" component={TaskDetail} />
+          <Route path="/taskList" component={TaskList} />
+          <Route path="/taxDocumentation" component={TaxDocumentation} />
+          <Route path="/taxPlanning" component={TaxPlanning} />
+          <Route path="/taxReporting" component={TaxReporting} />
+          <Route path="/taxReports" component={TaxReports} />
+          <Route path="/teachingOpportunities" component={TeachingOpportunities} />
+          <Route path="/teamManagement" component={TeamManagement} />
+          <Route path="/teamWorkspace" component={TeamWorkspace} />
+          <Route path="/technicalIndicators" component={TechnicalIndicators} />
+          <Route path="/telegramIntegration" component={TelegramIntegration} />
+          <Route path="/templateLibrary" component={TemplateLibrary} />
+          <Route path="/termsAcceptance" component={TermsAcceptance} />
+          <Route path="/termsOfService" component={TermsOfService} />
+          <Route path="/testingFramework" component={TestingFramework} />
+          <Route path="/textInputForm" component={TextInputForm} />
+          <Route path="/textToSpeech" component={TextToSpeech} />
+          <Route path="/textTools" component={TextTools} />
+          <Route path="/themeSettings" component={ThemeSettings} />
+          <Route path="/threadManagement" component={ThreadManagement} />
+          <Route path="/ticketAssignment" component={TicketAssignment} />
+          <Route path="/ticketDetail" component={TicketDetail} />
+          <Route path="/ticketQueue" component={TicketQueue} />
+          <Route path="/tierComparison" component={TierComparison} />
+          <Route path="/timeInputForm" component={TimeInputForm} />
+          <Route path="/timePickerDialog" component={TimePickerDialog} />
+          <Route path="/timeTracking" component={TimeTracking} />
+          <Route path="/timelineView" component={TimelineView} />
+          <Route path="/timeoutError" component={TimeoutError} />
+          <Route path="/tipJar" component={TipJar} />
+          <Route path="/toastNotifications" component={ToastNotifications} />
+          <Route path="/todoList" component={TodoList} />
+          <Route path="/toggleSwitchForm" component={ToggleSwitchForm} />
+          <Route path="/tokenDashboard" component={TokenDashboard} />
+          <Route path="/tokenGovernance" component={TokenGovernance} />
+          <Route path="/tokenInformation" component={TokenInformation} />
+          <Route path="/tokenMetrics" component={TokenMetrics} />
+          <Route path="/tokenomicsCalculator" component={TokenomicsCalculator} />
+          <Route path="/torBridge" component={TorBridge} />
+          <Route path="/tournamentBracket" component={TournamentBracket} />
+          <Route path="/tournamentBrackets" component={TournamentBrackets} />
           <Route path="/tournaments" component={Tournaments} />
-          <Route path="/tradehistory" component={TradeHistory} />
+          <Route path="/tradeHistory" component={TradeHistory} />
           <Route path="/trading" component={Trading} />
-          <Route path="/tradingterminal" component={TradingTerminal} />
-          <Route path="/transactionexplorer" component={TransactionExplorer} />
-          <Route path="/transactionhistory" component={TransactionHistory} />
-          <Route path="/transactionviewer" component={TransactionViewer} />
-          <Route path="/transcriptionmanager" component={TranscriptionManager} />
-          <Route path="/translationenabledcommunity" component={TranslationEnabledCommunity} />
-          <Route path="/translationenabledsocialfeed" component={TranslationEnabledSocialFeed} />
-          <Route path="/transparencyreports" component={TransparencyReports} />
-          <Route path="/travelblog" component={TravelBlog} />
-          <Route path="/travelbudget" component={TravelBudget} />
-          <Route path="/traveldocuments" component={TravelDocuments} />
-          <Route path="/travelphotos" component={TravelPhotos} />
-          <Route path="/travelreviews" component={TravelReviews} />
-          <Route path="/traveltips" component={TravelTips} />
-          <Route path="/treasurymanagement" component={TreasuryManagement} />
-          <Route path="/trendanalysis" component={TrendAnalysis} />
+          <Route path="/tradingBots" component={TradingBots} />
+          <Route path="/tradingHistory" component={TradingHistory} />
+          <Route path="/tradingTerminal" component={TradingTerminal} />
+          <Route path="/transactionExplorer" component={TransactionExplorer} />
+          <Route path="/transactionHistory" component={TransactionHistory} />
+          <Route path="/transactionViewer" component={TransactionViewer} />
+          <Route path="/transcriptionManager" component={TranscriptionManager} />
+          <Route path="/translationEnabledCommunity" component={TranslationEnabledCommunity} />
+          <Route path="/translationEnabledSocialFeed" component={TranslationEnabledSocialFeed} />
+          <Route path="/transparencyReports" component={TransparencyReports} />
+          <Route path="/travelBlog" component={TravelBlog} />
+          <Route path="/travelBudget" component={TravelBudget} />
+          <Route path="/travelDocuments" component={TravelDocuments} />
+          <Route path="/travelPhotos" component={TravelPhotos} />
+          <Route path="/travelReviews" component={TravelReviews} />
+          <Route path="/travelTips" component={TravelTips} />
+          <Route path="/treasuryManagement" component={TreasuryManagement} />
+          <Route path="/trendAnalysis" component={TrendAnalysis} />
           <Route path="/trending" component={Trending} />
-          <Route path="/trendingitems" component={TrendingItems} />
-          <Route path="/trendingtopics" component={TrendingTopics} />
-          <Route path="/triggersactions" component={TriggersActions} />
-          <Route path="/tripplanner" component={TripPlanner} />
-          <Route path="/trumpmining" component={TrumpMining} />
-          <Route path="/trustsafetydashboard" component={TrustSafetyDashboard} />
-          <Route path="/trustsystem" component={TrustSystem} />
-          <Route path="/twofactorauth" component={TwoFactorAuth} />
-          <Route path="/twofactorsetup" component={TwoFactorSetup} />
-          <Route path="/typingindicators" component={TypingIndicators} />
-          <Route path="/unhiddeninterface" component={UnhiddenInterface} />
-          <Route path="/unhiddenmode" component={UnhiddenMode} />
-          <Route path="/unifiedfeed" component={UnifiedFeed} />
-          <Route path="/unifiedidentity" component={UnifiedIdentity} />
-          <Route path="/unifiedmessaging" component={UnifiedMessaging} />
-          <Route path="/unifiedpaymentledger" component={UnifiedPaymentLedger} />
-          <Route path="/unifiedplatformdashboard" component={UnifiedPlatformDashboard} />
-          <Route path="/universalsearch" component={UniversalSearch} />
-          <Route path="/updatedlandingpage" component={UpdatedLandingPage} />
-          <Route path="/upgradedowngradeplan" component={UpgradeDowngradePlan} />
+          <Route path="/trendingContent" component={TrendingContent} />
+          <Route path="/trendingItems" component={TrendingItems} />
+          <Route path="/trendingTopics" component={TrendingTopics} />
+          <Route path="/triggersActions" component={TriggersActions} />
+          <Route path="/tripPlanner" component={TripPlanner} />
+          <Route path="/trumpMining" component={TrumpMining} />
+          <Route path="/trustSafetyDashboard" component={TrustSafetyDashboard} />
+          <Route path="/trustSystem" component={TrustSystem} />
+          <Route path="/twoFactorAuth" component={TwoFactorAuth} />
+          <Route path="/twoFactorSetup" component={TwoFactorSetup} />
+          <Route path="/typingIndicators" component={TypingIndicators} />
+          <Route path="/unhiddenInterface" component={UnhiddenInterface} />
+          <Route path="/unhiddenMode" component={UnhiddenMode} />
+          <Route path="/unifiedFeed" component={UnifiedFeed} />
+          <Route path="/unifiedIdentity" component={UnifiedIdentity} />
+          <Route path="/unifiedMessaging" component={UnifiedMessaging} />
+          <Route path="/unifiedPaymentLedger" component={UnifiedPaymentLedger} />
+          <Route path="/unifiedPlatformDashboard" component={UnifiedPlatformDashboard} />
+          <Route path="/unifiedWallet" component={UnifiedWallet} />
+          <Route path="/universalSearch" component={UniversalSearch} />
+          <Route path="/updatedLandingPage" component={UpdatedLandingPage} />
+          <Route path="/upgradeDowngradePlan" component={UpgradeDowngradePlan} />
           <Route path="/upscaling" component={Upscaling} />
-          <Route path="/userbehavior" component={UserBehavior} />
-          <Route path="/userbio" component={UserBio} />
-          <Route path="/userdirectory" component={UserDirectory} />
-          <Route path="/userdiscovery" component={UserDiscovery} />
-          <Route path="/usermanagement" component={UserManagement} />
-          <Route path="/usermentions" component={UserMentions} />
-          <Route path="/useronboarding" component={UserOnboarding} />
-          <Route path="/userpermissions" component={UserPermissions} />
-          <Route path="/userprofile" component={UserProfile} />
-          <Route path="/userprofiles" component={UserProfiles} />
-          <Route path="/userstats" component={UserStats} />
-          <Route path="/usersuggestions" component={UserSuggestions} />
-          <Route path="/vodarchive" component={VODArchive} />
-          <Route path="/validatorperformance" component={ValidatorPerformance} />
-          <Route path="/validatorsetup" component={ValidatorSetup} />
-          <Route path="/vendoranalytics" component={VendorAnalytics} />
-          <Route path="/vendordirectory" component={VendorDirectory} />
-          <Route path="/vendoronboarding" component={VendorOnboarding} />
-          <Route path="/vendorperformance" component={VendorPerformance} />
-          <Route path="/vendorverification" component={VendorVerification} />
-          <Route path="/venuemanagement" component={VenueManagement} />
+          <Route path="/userActivity" component={UserActivity} />
+          <Route path="/userBehavior" component={UserBehavior} />
+          <Route path="/userBio" component={UserBio} />
+          <Route path="/userDirectory" component={UserDirectory} />
+          <Route path="/userDiscovery" component={UserDiscovery} />
+          <Route path="/userManagement" component={UserManagement} />
+          <Route path="/userMentions" component={UserMentions} />
+          <Route path="/userOnboarding" component={UserOnboarding} />
+          <Route path="/userPermissions" component={UserPermissions} />
+          <Route path="/userProfile" component={UserProfile} />
+          <Route path="/userProfiles" component={UserProfiles} />
+          <Route path="/userReputation" component={UserReputation} />
+          <Route path="/userSearch" component={UserSearch} />
+          <Route path="/userStats" component={UserStats} />
+          <Route path="/userSuggestions" component={UserSuggestions} />
+          <Route path="/userTimeline" component={UserTimeline} />
+          <Route path="/vODArchive" component={VODArchive} />
+          <Route path="/validatorPerformance" component={ValidatorPerformance} />
+          <Route path="/validatorSetup" component={ValidatorSetup} />
+          <Route path="/vendorAnalytics" component={VendorAnalytics} />
+          <Route path="/vendorDirectory" component={VendorDirectory} />
+          <Route path="/vendorOnboarding" component={VendorOnboarding} />
+          <Route path="/vendorPerformance" component={VendorPerformance} />
+          <Route path="/vendorVerification" component={VendorVerification} />
+          <Route path="/venueManagement" component={VenueManagement} />
           <Route path="/verification" component={Verification} />
-          <Route path="/verificationsteps" component={VerificationSteps} />
-          <Route path="/verificationsystem" component={VerificationSystem} />
-          <Route path="/versionmanagement" component={VersionManagement} />
-          <Route path="/vestingschedule" component={VestingSchedule} />
-          <Route path="/videoarea" component={VideoArea} />
-          <Route path="/videocall" component={VideoCall} />
-          <Route path="/videochat" component={VideoChat} />
-          <Route path="/videoeditor" component={VideoEditor} />
-          <Route path="/videoplayer" component={VideoPlayer} />
-          <Route path="/videotools" component={VideoTools} />
-          <Route path="/videotutorials" component={VideoTutorials} />
-          <Route path="/videouploader" component={VideoUploader} />
-          <Route path="/virtualtour" component={VirtualTour} />
-          <Route path="/voicecloning" component={VoiceCloning} />
-          <Route path="/voicecommands" component={VoiceCommands} />
-          <Route path="/voicecommandsregistry" component={VoiceCommandsRegistry} />
-          <Route path="/voicemessages" component={VoiceMessages} />
-          <Route path="/walkthroughpage" component={WalkthroughPage} />
+          <Route path="/verificationSteps" component={VerificationSteps} />
+          <Route path="/verificationSystem" component={VerificationSystem} />
+          <Route path="/versionManagement" component={VersionManagement} />
+          <Route path="/vestingSchedule" component={VestingSchedule} />
+          <Route path="/videoArea" component={VideoArea} />
+          <Route path="/videoCall" component={VideoCall} />
+          <Route path="/videoChat" component={VideoChat} />
+          <Route path="/videoEditor" component={VideoEditor} />
+          <Route path="/videoPlayer" component={VideoPlayer} />
+          <Route path="/videoTools" component={VideoTools} />
+          <Route path="/videoTutorials" component={VideoTutorials} />
+          <Route path="/videoUpload" component={VideoUpload} />
+          <Route path="/videoUploader" component={VideoUploader} />
+          <Route path="/viewerMetrics" component={ViewerMetrics} />
+          <Route path="/virtualTour" component={VirtualTour} />
+          <Route path="/voiceCloning" component={VoiceCloning} />
+          <Route path="/voiceCommands" component={VoiceCommands} />
+          <Route path="/voiceCommandsRegistry" component={VoiceCommandsRegistry} />
+          <Route path="/voiceMessages" component={VoiceMessages} />
+          <Route path="/walkthroughPage" component={WalkthroughPage} />
           <Route path="/wallet" component={Wallet} />
-          <Route path="/walletconnect" component={WalletConnect} />
-          <Route path="/walletintegration" component={WalletIntegration} />
-          <Route path="/walletoverview" component={WalletOverview} />
-          <Route path="/warningdialog" component={WarningDialog} />
-          <Route path="/watchearn" component={WatchEarn} />
-          <Route path="/watchlist" component={WatchList} />
-          <Route path="/web3auth" component={Web3Auth} />
-          <Route path="/webhookmanager" component={WebhookManager} />
+          <Route path="/walletConnect" component={WalletConnect} />
+          <Route path="/walletIntegration" component={WalletIntegration} />
+          <Route path="/walletOverview" component={WalletOverview} />
+          <Route path="/warningDialog" component={WarningDialog} />
+          <Route path="/watchEarn" component={WatchEarn} />
+          <Route path="/watchList" component={WatchList} />
+          <Route path="/wealthSimulator" component={WealthSimulator} />
+          <Route path="/web3Auth" component={Web3Auth} />
+          <Route path="/webhookManagement" component={WebhookManagement} />
+          <Route path="/webhookManager" component={WebhookManager} />
           <Route path="/webhooks" component={Webhooks} />
-          <Route path="/welcomescreen" component={WelcomeScreen} />
-          <Route path="/whalemonitor" component={WhaleMonitor} />
-          <Route path="/whitelistmanagement" component={WhitelistManagement} />
-          <Route path="/wishlistmanagement" component={WishlistManagement} />
-          <Route path="/workflowautomation" component={WorkflowAutomation} />
-          <Route path="/workflowbuilder" component={WorkflowBuilder} />
-          <Route path="/worldbrain" component={WorldBrain} />
-          <Route path="/worldsimulationcontrol" component={WorldSimulationControl} />
-          <Route path="/yieldfarming" component={YieldFarming} />
-          <Route path="/zapierintegration" component={ZapierIntegration} />
-          {/* Default route */}
+          <Route path="/welcomeScreen" component={WelcomeScreen} />
+          <Route path="/whaleMonitor" component={WhaleMonitor} />
+          <Route path="/whitelistManagement" component={WhitelistManagement} />
+          <Route path="/wishlistManagement" component={WishlistManagement} />
+          <Route path="/workflowAutomation" component={WorkflowAutomation} />
+          <Route path="/workflowBuilder" component={WorkflowBuilder} />
+          <Route path="/worldBrain" component={WorldBrain} />
+          <Route path="/worldSimulationControl" component={WorldSimulationControl} />
+          <Route path="/yieldFarming" component={YieldFarming} />
+          <Route path="/zapierIntegration" component={ZapierIntegration} />
+          <Route path="/zeroKnowledgeProof" component={ZeroKnowledgeProof} />
           <Route path="/" component={Home} />
-                  {/* 404 */}
-                  <Route component={NotFound} />
+          <Route component={NotFound} />
                 </Switch>
               </Suspense>
             </main>
-            {/* Bottom Navigation */}
-            <MobileBottomNav />
             <BottomTabBar />
-            {/* Toast Notifications */}
-            <Toaster />
+            <MobileBottomNav />
           </div>
+          <Toaster />
         </ErrorBoundary>
       </TooltipProvider>
     </ThemeProvider>
   );
-};
-
-export default App;
+}
