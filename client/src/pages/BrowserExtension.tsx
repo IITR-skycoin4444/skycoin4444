@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { PageHeader } from "@/components/PageHeader";
 import {
-  Browser, Globe, Zap, Shield, Eye, Wallet, Bot, Code2,
+  Globe, Zap, Shield, Eye, Wallet, Bot, Code2,
   Download, Star, CheckCircle2, ArrowRight, Sparkles, Lock,
   MousePointer2, Search, Bell
 } from "lucide-react";
@@ -20,7 +20,7 @@ const FEATURES = [
 ];
 
 const BROWSERS = [
-  { name: "Chrome", icon: Browser, color: "text-yellow-400", status: "Coming Soon" },
+  { name: "Chrome", icon: Globe, color: "text-yellow-400", status: "Coming Soon" },
   { name: "Firefox", icon: Globe, color: "text-orange-400", status: "Coming Soon" },
   { name: "Brave", icon: Shield, color: "text-orange-500", status: "Coming Soon" },
   { name: "Edge", icon: Globe, color: "text-blue-400", status: "Coming Soon" },
