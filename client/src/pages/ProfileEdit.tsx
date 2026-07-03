@@ -11,7 +11,7 @@ import { Separator } from "@/components/ui/separator";
 import { toast } from "sonner";
 import { Link, useLocation } from "wouter";
 import {
-  User, Camera, Palette, Wallet, Globe, Twitter,
+  User, Camera, Palette, Wallet, Globe, Share2 as TwitterIcon,
   Share2 as InstagramIcon, Play as YoutubeIcon, Link2, ArrowLeft, Zap,
   CheckCircle, Loader2, MapPin, Edit3
 } from "lucide-react";
@@ -289,7 +289,7 @@ export default function ProfileEdit() {
               <CardContent className="space-y-4">
                 {[
                   { key: "website", icon: Globe, placeholder: "https://yoursite.com", label: "Website" },
-                  { key: "twitter", icon: Twitter, placeholder: "@username", label: "Twitter / X" },
+                  { key: "twitter", icon: Share2 as TwitterIcon, placeholder: "@username", label: "Share2 as TwitterIcon / X" },
                   { key: "instagram", icon: Share2 as InstagramIcon, placeholder: "@username", label: "Share2 as InstagramIcon" },
                   { key: "youtube", icon: Play as YoutubeIcon as Play as YoutubeIconIcon, placeholder: "Channel URL or @handle", label: "YouTube" },
                 ].map(({ key, icon: Icon, placeholder, label }) => (

@@ -5,7 +5,7 @@ import { Brain, TrendingUp, TrendingDown, Minus, MessageSquare, Bell, BarChart3,
 
 const FEEDS = [
   { source: "Reddit r/crypto",   sentiment: 0.72, volume: 1847, trend: "up",   label: "Bullish",  color: "text-emerald-400", bg: "bg-emerald-500/10" },
-  { source: "Twitter/X #SKY444", sentiment: 0.81, volume: 4293, trend: "up",   label: "Very Bullish", color: "text-emerald-400", bg: "bg-emerald-500/10" },
+  { source: "Share2 as TwitterIcon/X #SKY444", sentiment: 0.81, volume: 4293, trend: "up",   label: "Very Bullish", color: "text-emerald-400", bg: "bg-emerald-500/10" },
   { source: "Discord #general",  sentiment: 0.65, volume: 892,  trend: "up",   label: "Bullish",  color: "text-emerald-400", bg: "bg-emerald-500/10" },
   { source: "Telegram Channel",  sentiment: 0.48, volume: 2341, trend: "flat", label: "Neutral",  color: "text-amber-400",   bg: "bg-amber-500/10" },
   { source: "HackerNews",        sentiment: 0.31, volume: 156,  trend: "down", label: "Bearish",  color: "text-rose-400",    bg: "bg-rose-500/10" },
@@ -13,7 +13,7 @@ const FEEDS = [
 ];
 
 const ALERTS = [
-  { msg: "Sentiment spike detected: Twitter +23% in 1h", time: "2m ago", type: "positive" },
+  { msg: "Sentiment spike detected: Share2 as TwitterIcon +23% in 1h", time: "2m ago", type: "positive" },
   { msg: "Negative keyword cluster: 'rug pull' mentions up 8x", time: "14m ago", type: "negative" },
   { msg: "Reddit post went viral: 12K upvotes in 30min", time: "31m ago", type: "positive" },
   { msg: "Influencer @CryptoWhale posted about SKY444", time: "1h ago", type: "positive" },
@@ -104,7 +104,7 @@ export default function SentimentPipeline() {
         <div className="bg-violet-950/20 border border-violet-800/30 rounded-2xl p-5">
           <h3 className="font-semibold text-white mb-2">Pipeline Architecture</h3>
           <div className="flex items-center gap-2 flex-wrap text-sm">
-            {["Reddit/Twitter/Discord","→","Kafka Ingestion","→","NLP Scoring (Python)","→","Sentiment DB","→","Discord/Slack Webhook","→","Dashboard"].map((s,i) => (
+            {["Reddit/Share2 as TwitterIcon/Discord","→","Kafka Ingestion","→","NLP Scoring (Python)","→","Sentiment DB","→","Discord/Slack Webhook","→","Dashboard"].map((s,i) => (
               <span key={i} className={s==="→"?"text-slate-600":i===0||i===10?"text-violet-400 font-mono text-xs bg-violet-500/10 px-2 py-1 rounded":"text-slate-400 text-xs bg-slate-800/60 px-2 py-1 rounded"}>{s}</span>
             ))}
           </div>

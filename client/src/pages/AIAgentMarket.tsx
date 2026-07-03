@@ -104,7 +104,7 @@ const AGENTS: Agent[] = [
     name: "Bio Writer AI",
     tagline: "Compelling personal brand bio for any platform",
     freePreview: "Generic bio template with your name inserted",
-    paidResult: "5 custom bios (Twitter, LinkedIn, website, press, dating) + headline variations",
+    paidResult: "5 custom bios (Share2 as TwitterIcon, LinkedIn, website, press, dating) + headline variations",
     basicPrice: 1.99,
     premiumPrice: 6.99,
     powerPrice: 14.99,

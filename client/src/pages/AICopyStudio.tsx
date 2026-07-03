@@ -12,7 +12,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { toast } from "sonner";
 import {
   Sparkles, Copy, RefreshCw, Zap, Globe, TrendingUp,
-  FileText, Mail, Twitter, Megaphone, Tag, BookOpen,
+  FileText, Mail, Share2 as TwitterIcon, Megaphone, Tag, BookOpen,
   MousePointer, Newspaper, Hash, CheckCircle, Loader2,
   ChevronRight, Star, BarChart3, Languages, Wand2
 } from "lucide-react";
@@ -25,7 +25,7 @@ const COPY_TYPES = [
   { id: "email_body", label: "Email Body", icon: Mail, color: "text-emerald-400", desc: "Full email with CTA" },
   { id: "seo_title", label: "SEO Title", icon: Globe, color: "text-cyan-400", desc: "3 keyword-optimized titles" },
   { id: "seo_description", label: "SEO Description", icon: Globe, color: "text-teal-400", desc: "3 meta descriptions" },
-  { id: "tweet", label: "Tweets", icon: Twitter, color: "text-sky-400", desc: "5 shareable tweet variants" },
+  { id: "tweet", label: "Tweets", icon: Share2 as TwitterIcon, color: "text-sky-400", desc: "5 shareable tweet variants" },
   { id: "blog_intro", label: "Blog Intro", icon: BookOpen, color: "text-indigo-400", desc: "Hook + value preview" },
   { id: "cta", label: "CTA Buttons", icon: MousePointer, color: "text-pink-400", desc: "10 action-driving CTAs" },
   { id: "press_release", label: "Press Release", icon: Newspaper, color: "text-yellow-400", desc: "Professional announcement" },

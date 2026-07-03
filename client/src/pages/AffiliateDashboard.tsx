@@ -148,7 +148,7 @@ export default function AffiliateDashboard() {
                 </div>
                 <div className="flex gap-2">
                   <Button onClick={() => handleShare("twitter")} variant="outline" size="sm" className="flex-1 text-sky-400 border-sky-400/30">
-                    <Share2 className="w-4 h-4 mr-1" /> Twitter
+                    <Share2 className="w-4 h-4 mr-1" /> Share2 as TwitterIcon
                   </Button>
                   <Button onClick={() => handleShare("telegram")} variant="outline" size="sm" className="flex-1 text-blue-400 border-blue-400/30">
                     <ExternalLink className="w-4 h-4 mr-1" /> Telegram

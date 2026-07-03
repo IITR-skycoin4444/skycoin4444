@@ -17,7 +17,7 @@ const REVENUE_STREAMS = [
 const GROWTH_CHANNELS = [
   { channel: "Creator Referrals", cac: "$8", ltv: "$340", ratio: "42x", priority: "high" },
   { channel: "Viral Share Cards", cac: "$2", ltv: "$180", ratio: "90x", priority: "high" },
-  { channel: "X/Twitter Organic", cac: "$12", ltv: "$220", ratio: "18x", priority: "high" },
+  { channel: "X/Share2 as TwitterIcon Organic", cac: "$12", ltv: "$220", ratio: "18x", priority: "high" },
   { channel: "Product Hunt Launch", cac: "$0", ltv: "$150", ratio: "∞", priority: "medium" },
   { channel: "Dev Community (GitHub)", cac: "$15", ltv: "$480", ratio: "32x", priority: "medium" },
   { channel: "Paid Social", cac: "$45", ltv: "$220", ratio: "4.9x", priority: "low" },

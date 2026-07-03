@@ -82,7 +82,7 @@ export default function Community() {
             { name: "Discord", url: "https://discord.gg/skycoin4444", color: "text-indigo-400", bg: "bg-indigo-500/10" },
             { name: "Telegram", url: "https://t.me/skycoin4444", color: "text-blue-400", bg: "bg-blue-500/10" },
             { name: "Reddit", url: "https://reddit.com/r/skycoin4444", color: "text-orange-400", bg: "bg-orange-500/10" },
-            { name: "X (Twitter)", url: "https://x.com/skycoin4444", color: "text-white", bg: "bg-white/5" },
+            { name: "X (Share2 as TwitterIcon)", url: "https://x.com/skycoin4444", color: "text-white", bg: "bg-white/5" },
           ].map(s => (
             <a key={s.name} href={s.url} target="_blank" rel="noopener noreferrer">
               <Card className="p-4 border-border/50 bg-card/80 hover:border-primary/30 transition-all text-center">
