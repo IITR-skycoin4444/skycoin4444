@@ -1,5 +1,7 @@
 import { z } from "zod";
 import { publicProcedure, protectedProcedure, router } from "./_core/trpc";
+import { sdk } from "./_core/sdk";
+import bcrypt from "bcrypt";
 import { miningRouter } from "./mining";
 import { voiceRouter } from "./voice-router";
 import { enterpriseRouter } from "./enterprise-router";
@@ -7,6 +9,47 @@ import { aiRouter } from "./real-ai-engine-v2";
 import * as db from "./db";
 import { users, posts, transactions, products, orders, streams, comments, likes, wallets, notifications, messages, reviews, follows } from "../drizzle/schema";
 import { eq, desc, and, or } from "drizzle-orm";
+
+// ============ AUTH PROCEDURES ============
+export const authRouter = router({
+  signup: publicProcedure
+    .input(z.object({ email: z.string().email(), password: z.string().min(6), name: z.string().optional() }))
+    .mutation(async ({ input, ctx }) => {
+      const existing = await db.getUserByEmail(input.email);
+      if (existing) throw new Error("Email already registered");
+      
+      const hashedPassword = await bcrypt.hash(input.password, 10);
+      const user = await db.createUser({
+        email: input.email,
+        password: hashedPassword,
+        name: input.name || input.email.split("@")[0],
+      });
+      
+      const token = await sdk.createSessionToken(user);
+      ctx.res.setHeader("Set-Cookie", `session=${token}; Path=/; HttpOnly; SameSite=Strict; Max-Age=604800`);
+      return { user, token };
+    }),
+  login: publicProcedure
+    .input(z.object({ email: z.string().email(), password: z.string() }))
+    .mutation(async ({ input, ctx }) => {
+      const user = await db.getUserByEmail(input.email);
+      if (!user) throw new Error("Invalid email or password");
+      
+      const passwordMatch = await bcrypt.compare(input.password, user.password || "");
+      if (!passwordMatch) throw new Error("Invalid email or password");
+      
+      const token = await sdk.createSessionToken(user);
+      ctx.res.setHeader("Set-Cookie", `session=${token}; Path=/; HttpOnly; SameSite=Strict; Max-Age=604800`);
+      return { user, token };
+    }),
+  logout: protectedProcedure.mutation(async ({ ctx }) => {
+    ctx.res.setHeader("Set-Cookie", `session=; Path=/; HttpOnly; SameSite=Strict; Max-Age=0`);
+    return { success: true };
+  }),
+  me: protectedProcedure.query(async ({ ctx }) => {
+    return ctx.user;
+  }),
+});
 
 // ============ USER PROCEDURES ============
 export const userRouter = router({
@@ -188,11 +231,7 @@ export const settingsRouter = router({
 
 // ============ MAIN ROUTER ============
 export const appRouter = router({
-  auth: router({
-    me: protectedProcedure.query(async ({ ctx }) => {
-      return db.getUserById(ctx.user.id);
-    }),
-  }),
+  auth: authRouter,
   platform: router({
     stats: publicProcedure.query(async () => ({
       totalUsers: 1250,
