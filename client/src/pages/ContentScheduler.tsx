@@ -11,7 +11,7 @@ import { toast } from "sonner";
 import {
   Calendar, Clock, ArrowLeft, Plus, Trash2, Edit3,
   Image, Video, FileText, Send, CheckCircle, AlertCircle,
-  Instagram, Twitter, Globe, Zap, Eye, BarChart3
+  Share2 as InstagramIcon, Twitter, Globe, Zap, Eye, BarChart3
 } from "lucide-react";
 
 interface ScheduledPost {
@@ -65,7 +65,7 @@ const DEMO_QUEUE: ScheduledPost[] = [
 const PLATFORMS = [
   { id: "shadowchat", label: "ShadowChat", icon: "🌑", color: "purple" },
   { id: "twitter", label: "Twitter/X", icon: "𝕏", color: "blue" },
-  { id: "instagram", label: "Instagram", icon: "📸", color: "pink" },
+  { id: "instagram", label: "Share2 as InstagramIcon", icon: "📸", color: "pink" },
   { id: "tiktok", label: "TikTok", icon: "🎵", color: "red" },
 ];
 

@@ -163,7 +163,7 @@ export default function RetentionEngine() {
             {[
               { trigger: "Payment completed", shareText: '"I just made $20 using chat on ShadowChat"', channel: "X/Twitter" },
               { trigger: "Task completed by AI", shareText: '"AI completed my logo brief in 30 seconds"', channel: "LinkedIn" },
-              { trigger: "Match found", shareText: '"Found a perfect collaborator instantly"', channel: "Instagram" },
+              { trigger: "Match found", shareText: '"Found a perfect collaborator instantly"', channel: "Share2 as InstagramIcon" },
               { trigger: "Staking reward", shareText: '"Earning 15% APY on my SKY tokens"', channel: "Telegram" },
             ].map((v, i) => (
               <div key={i} className="card p-3">
