@@ -75,7 +75,7 @@ export type AIChatBoxProps = {
  * - Model selection
  * - Advanced controls
  */
-export default function AIChatBox({
+export function AIChatBox({
   messages,
   onSendMessage,
   isLoading = false,
@@ -574,3 +574,4 @@ export default function AIChatBox({
     </div>
   );
 }
+export default AIChatBox;
