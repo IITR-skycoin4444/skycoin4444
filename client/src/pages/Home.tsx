@@ -213,8 +213,8 @@ export default function Home() {
   const communitiesCount = useCountUp(stats?.totalCommunities || 0);
   const onlineCount = useCountUp(stats?.onlineUsers || 0);
   const totalLOC = 1000000; // 1M LOC
-  const totalPages = 966;
-  const totalServices = 305;
+  const totalPages = 212;
+  const totalServices = 399;
   const prices = useCryptoTicker();
   return (
     <div className="min-h-screen">

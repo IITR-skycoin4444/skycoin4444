@@ -1,6 +1,7 @@
 import { drizzle } from 'drizzle-orm/mysql2';
 import mysql from 'mysql2/promise';
 import * as schema from '../drizzle/schema';
+import { eq } from 'drizzle-orm';
 
 const poolConnection = mysql.createPool(process.env.DATABASE_URL as string);
 
@@ -22,8 +23,39 @@ export async function getUserByEmail(email: string) {
   return { id: "1", name: "User", email, balance: 0 };
 }
 
+export async function upsertUser(data: any) {
+  if (data.id) {
+    await db.update(schema.users).set(data).where(eq(schema.users.id, data.id));
+    return db.query.users.findFirst({ where: eq(schema.users.id, data.id) });
+  } else {
+    const [newUser] = await db.insert(schema.users).values(data);
+    return db.query.users.findFirst({ where: eq(schema.users.id, newUser.insertId) });
+  }
+}
+
+export async function getUserByOpenId(openId: string) {
+  return db.query.users.findFirst({ where: eq(schema.users.openId, openId) });
+}
+
+export async function ensureAllTokenBalances(userId: string) {
+  // For now, ensure all default tokens have a balance entry
+  const defaultTokens = ['BTC', 'ETH', 'SOL', 'DOGE', 'TRUMP', 'SKY444'];
+  for (const tokenSymbol of defaultTokens) {
+    const existingBalance = await db.query.tokenBalances.findFirst({
+      where: (tokenBalances, { eq, and }) => and(eq(tokenBalances.userId, userId), eq(tokenBalances.tokenSymbol, tokenSymbol)),
+    });
+    if (!existingBalance) {
+      await db.insert(schema.tokenBalances).values({ userId, tokenSymbol, balance: 0 });
+    }
+  }
+  return { success: true };
+}
+
+
+
 export async function createUser(data: any) {
-  return { id: "1", ...data };
+  const [newUser] = await db.insert(schema.users).values(data);
+  return db.query.users.findFirst({ where: eq(schema.users.id, newUser.insertId) });
 }
 
 export async function updateUserBalance(userId: string, amount: number) {
