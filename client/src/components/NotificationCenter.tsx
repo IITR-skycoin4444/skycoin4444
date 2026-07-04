@@ -13,7 +13,49 @@ const NOTIF_ICONS: Record<string, any> = {
   mention: { icon: Zap, color: 'oklch(0.72 0.28 70)' },
   gift: { icon: Gift, color: 'oklch(0.72 0.28 160)' },
   achievement: { icon: Trophy, color: 'oklch(0.80 0.18 70)' },
+  vpn_status: { icon: Zap, color: 'oklch(0.72 0.28 200)' },
+  security_alert: { icon: Zap, color: 'oklch(0.72 0.28 340)' },
+  game_event: { icon: Trophy, color: 'oklch(0.80 0.18 70)' },
 };
+
+// Real-time notification dispatcher
+export function dispatchRealtimeNotification(notification: any) {
+  const event = new CustomEvent('realtimeNotification', { detail: notification });
+  window.dispatchEvent(event);
+}
+
+// Achievement notification
+export function notifyAchievementUnlocked(achievementName: string, reward: number) {
+  dispatchRealtimeNotification({
+    id: Math.random().toString(36).substr(2, 9),
+    type: 'achievement',
+    title: '🎉 Achievement Unlocked!',
+    message: `You've unlocked "${achievementName}" and earned ${reward} SKY444!`,
+    severity: 'success',
+  });
+}
+
+// VPN notification
+export function notifyVPNConnected(nodeCount: number, location: string) {
+  dispatchRealtimeNotification({
+    id: Math.random().toString(36).substr(2, 9),
+    type: 'vpn_status',
+    title: '🔒 VPN Connected',
+    message: `Connected through ${nodeCount} nodes via ${location}`,
+    severity: 'success',
+  });
+}
+
+// Security alert
+export function notifySecurityAlert(title: string, message: string) {
+  dispatchRealtimeNotification({
+    id: Math.random().toString(36).substr(2, 9),
+    type: 'security_alert',
+    title: `🔐 ${title}`,
+    message,
+    severity: 'warning',
+  });
+}
 
 function timeAgo(date: Date | string) {
   const d = new Date(date);
@@ -27,16 +69,40 @@ function timeAgo(date: Date | string) {
 export function NotificationCenter() {
   const { user } = useAuth();
   const [open, setOpen] = useState(false);
+  const [toastNotifs, setToastNotifs] = useState<any[]>([]);
   const ref = useRef<HTMLDivElement>(null);
 
   const { data: notifs, refetch } = trpc.notification.list.useQuery(
     { limit: 20 },
     { enabled: !!user, refetchInterval: 30000 }
   );
+
+  // Listen for real-time notifications
+  useEffect(() => {
+    const handleRealtimeNotification = (event: any) => {
+      const notification = event.detail;
+      // Show toast for high-priority notifications
+      if (['achievement', 'security_alert', 'vpn_status'].includes(notification.type)) {
+        setToastNotifs((prev) => [...prev, notification].slice(-3));
+        setTimeout(() => {
+          setToastNotifs((prev) => prev.filter((n) => n.id !== notification.id));
+        }, 5000);
+      }
+      refetch();
+    };
+
+    window.addEventListener('realtimeNotification', handleRealtimeNotification);
+    return () => window.removeEventListener('realtimeNotification', handleRealtimeNotification);
+  }, [refetch]);
   const markRead = trpc.notification.markRead.useMutation({ onSuccess: () => refetch() });
   const markAllRead = trpc.notification.markAllRead.useMutation({ onSuccess: () => refetch() });
 
   const unread = notifs?.filter((n: any) => !n.read).length || 0;
+
+  // Remove toast notification
+  const removeToastNotif = (id: string) => {
+    setToastNotifs((prev) => prev.filter((n) => n.id !== id));
+  };
 
   // Close on outside click
   useEffect(() => {
@@ -50,7 +116,47 @@ export function NotificationCenter() {
   if (!user) return null;
 
   return (
-    <div ref={ref} className="relative">
+    <>
+      {/* Toast Notifications */}
+      <div className="fixed top-4 right-4 z-50 space-y-2 pointer-events-none">
+        {toastNotifs.map((notif) => {
+          const typeKey = notif.type || 'achievement';
+          const conf = NOTIF_ICONS[typeKey] || NOTIF_ICONS.achievement;
+          const Icon = conf.icon;
+          return (
+            <div
+              key={notif.id}
+              className="pointer-events-auto flex items-start gap-3 px-4 py-3 rounded-xl shadow-xl animate-in slide-in-from-top-2 duration-300"
+              style={{
+                background: 'oklch(0.11 0.025 270)',
+                border: `1px solid ${conf.color}40`,
+              }}
+            >
+              <div
+                className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"
+                style={{ background: `${conf.color}22` }}
+              >
+                <Icon className="w-4 h-4" style={{ color: conf.color }} />
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="text-sm text-white font-semibold">{notif.title}</p>
+                <p className="text-xs mt-0.5" style={{ color: 'oklch(0.50 0.020 275)' }}>
+                  {notif.message}
+                </p>
+              </div>
+              <button
+                onClick={() => removeToastNotif(notif.id)}
+                className="p-1 rounded-lg hover:opacity-70 flex-shrink-0"
+              >
+                <X className="w-4 h-4" style={{ color: 'oklch(0.50 0.020 275)' }} />
+              </button>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Notification Center */}
+      <div ref={ref} className="relative">
       <button
         onClick={() => setOpen(o => !o)}
         className="relative p-2 rounded-xl transition-all hover:scale-105 active:scale-95"
@@ -157,5 +263,6 @@ export function NotificationCenter() {
         </div>
       )}
     </div>
-  );
+    </>
+  )
 }
