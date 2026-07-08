@@ -39,12 +39,13 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build project
-        run: pnpm build
+        run: pnpm vite build
         env:
           VITE_APP_TITLE: SKY4444
           VITE_APP_ID: skycoin4444
           VITE_ANALYTICS_ENDPOINT: https://analytics.sky4444.com
           VITE_ANALYTICS_WEBSITE_ID: sky4444
+          VITE_APP_BASE_URL: /skycoin4444/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
