@@ -9,8 +9,14 @@
     "build": "vite build && esbuild server/_core/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist",
     "start": "NODE_ENV=production node dist/index.js",
     "check": "tsc --noEmit",
+    "typecheck": "tsc --noEmit",
     "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "echo \"No ESLint configured - skipping lint step\"",
     "test": "vitest run",
+    "test:unit": "vitest run",
+    "test:integration": "vitest run",
+    "test:coverage": "vitest run --coverage --reporter=json",
     "db:push": "drizzle-kit generate && drizzle-kit migrate"
   },
   "dependencies": {
