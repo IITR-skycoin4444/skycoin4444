@@ -2192,3 +2192,4 @@ export default function App() {
   );
 }
 // Trigger rebuild after package.json and vite.config.ts fix
+// Trigger new GitHub Pages build
