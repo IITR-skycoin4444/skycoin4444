@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'wouter';
-import { Mail, Phone, MapPin, Github, Twitter, Linkedin, Facebook, Instagram } from 'lucide-react';
+import { Mail, Phone, MapPin, GitBranch, Share2, ExternalLink, Heart } from 'lucide-react';
 
 export function Footer() {
   return (
@@ -22,19 +22,19 @@ export function Footer() {
             </p>
             <div className="flex gap-3">
               <a href="#" className="text-slate-400 hover:text-pink-500 transition-colors">
-                <Twitter className="w-5 h-5" />
+                <Share2 className="w-5 h-5" />
               </a>
               <a href="#" className="text-slate-400 hover:text-pink-500 transition-colors">
-                <Github className="w-5 h-5" />
+                <GitBranch className="w-5 h-5" />
               </a>
               <a href="#" className="text-slate-400 hover:text-pink-500 transition-colors">
-                <Linkedin className="w-5 h-5" />
+                <ExternalLink className="w-5 h-5" />
               </a>
               <a href="#" className="text-slate-400 hover:text-pink-500 transition-colors">
-                <Facebook className="w-5 h-5" />
+                <Heart className="w-5 h-5" />
               </a>
               <a href="#" className="text-slate-400 hover:text-pink-500 transition-colors">
-                <Instagram className="w-5 h-5" />
+                <Share2 className="w-5 h-5" />
               </a>
             </div>
           </div>
