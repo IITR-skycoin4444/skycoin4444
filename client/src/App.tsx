@@ -2191,3 +2191,4 @@ export default function App() {
     </ThemeProvider>
   );
 }
+// Trigger rebuild after package.json and vite.config.ts fix
