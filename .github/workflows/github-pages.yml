@@ -39,7 +39,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build project
-        run: pnpm vite build
+        run: npm run build
         env:
           VITE_APP_TITLE: SKY4444
           VITE_APP_ID: skycoin4444
@@ -50,7 +50,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'
+          path: ./dist/client/client'
 
   deploy:
     environment:
