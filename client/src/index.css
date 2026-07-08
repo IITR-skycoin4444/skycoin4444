@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
@@ -119,7 +121,7 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
-    font-family: var(--font-sans);
+    font-family: 'Press Start 2P', cursive; /* Retro arcade font */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     line-height: 1.6;
@@ -497,8 +499,74 @@
     animation: page-in 0.25s var(--ease-out) both;
   }
 
-  /* ── Neon Underline (psychedelic) ── */
-  .neon-underline {
+  /* Custom Glitch Effect */
+  .glitch {
+    position: relative;
+    animation: glitch-anim 2s infinite alternate linear;
+  }
+
+  .glitch::before,
+  .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--background);
+    overflow: hidden;
+  }
+
+  .glitch::before {
+    left: var(--glitch-offset);
+    text-shadow: -2px 0 var(--neon-red);
+    animation: glitch-anim-1 2s infinite alternate-reverse linear;
+  }
+
+  .glitch::after {
+    left: calc(var(--glitch-offset) * -1);
+    text-shadow: -2px 0 var(--neon-green);
+    animation: glitch-anim-2 2s infinite alternate-reverse linear;
+  }
+
+  @keyframes glitch-anim {
+    0% { transform: translate(0); }
+    20% { transform: translate(-var(--glitch-offset), var(--glitch-offset)); }
+    40% { transform: translate(-var(--glitch-offset), -var(--glitch-offset)); }
+    60% { transform: translate(var(--glitch-offset), var(--glitch-offset)); }
+    80% { transform: translate(var(--glitch-offset), -var(--glitch-offset)); }
+    100% { transform: translate(0); }
+  }
+
+  @keyframes glitch-anim-1 {
+    0% { clip: rect(10px, 9999px, 50px, 0); }
+    10% { clip: rect(100px, 9999px, 20px, 0); }
+    20% { clip: rect(10px, 9999px, 50px, 0); }
+    30% { clip: rect(100px, 9999px, 20px, 0); }
+    40% { clip: rect(10px, 9999px, 50px, 0); }
+    50% { clip: rect(100px, 9999px, 20px, 0); }
+    60% { clip: rect(10px, 9999px, 50px, 0); }
+    70% { clip: rect(100px, 9999px, 20px, 0); }
+    80% { clip: rect(10px, 9999px, 50px, 0); }
+    90% { clip: rect(100px, 9999px, 20px, 0); }
+    100% { clip: rect(10px, 9999px, 50px, 0); }
+  }
+
+  @keyframes glitch-anim-2 {
+    0% { clip: rect(100px, 9999px, 20px, 0); }
+    10% { clip: rect(10px, 9999px, 50px, 0); }
+    20% { clip: rect(100px, 9999px, 20px, 0); }
+    30% { clip: rect(10px, 9999px, 50px, 0); }
+    40% { clip: rect(100px, 9999px, 20px, 0); }
+    50% { clip: rect(10px, 9999px, 50px, 0); }
+    60% { clip: rect(100px, 9999px, 20px, 0); }
+    70% { clip: rect(10px, 9999px, 50px, 0); }
+    80% { clip: rect(100px, 9999px, 20px, 0); }
+    90% { clip: rect(10px, 9999px, 50px, 0); }
+    100% { clip: rect(100px, 9999px, 20px, 0); }
+  }
+
+/* ── Neon Underline (psychedelic) ── */  .neon-underline {
     position: relative;
   }
   .neon-underline::after {
