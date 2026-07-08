@@ -8,7 +8,7 @@ import { MobileBottomNav } from "@/components/MobileBottomNav";
 import { BottomTabBar } from "@/components/BottomTabBar";
 import MarketTicker from "@/components/MarketTicker";
 import CurrencyTicker from "@/components/CurrencyTicker";
-import ComprehensiveNavigation from "@/components/ComprehensiveNavigation";
+import { ImprovedNavigation } from "@/components/ImprovedNavigation";
 
 // Lazy load all pages
 const ABTesting = lazy(() => import('./pages/ABTesting'));
@@ -1077,7 +1077,7 @@ export default function App() {
       <TooltipProvider>
         <ErrorBoundary>
           <div className="flex min-h-screen flex-col">
-            <ComprehensiveNavigation />
+            <ImprovedNavigation />
             <MarketTicker />
             <main className="flex-1">
               <Suspense fallback={<div className="flex items-center justify-center min-h-screen"><div className="text-center"><div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-500 mx-auto mb-4"></div><p className="text-gray-400">Loading...</p></div></div>}>
